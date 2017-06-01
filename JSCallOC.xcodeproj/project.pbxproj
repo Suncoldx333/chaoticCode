@@ -11,6 +11,8 @@
 		180EE1651ED7D0B300381806 /* AniViewCon.m in Sources */ = {isa = PBXBuildFile; fileRef = 180EE1641ED7D0B200381806 /* AniViewCon.m */; };
 		180EE1681ED7D1C500381806 /* animationInSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180EE1671ED7D1C500381806 /* animationInSwift.swift */; };
 		182B63D71EC00EEF00E2DADA /* UIViewController+testSubFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 182B63D61EC00EEF00E2DADA /* UIViewController+testSubFunc.m */; };
+		184955B11EE00D6A00AE7634 /* HelloOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 184955B01EE00D6A00AE7634 /* HelloOperation.m */; };
+		184955B31EE0163000AE7634 /* Bugly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184955B21EE0163000AE7634 /* Bugly.framework */; };
 		185E247D1EB041AD006B5ABD /* globalDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E247C1EB041AD006B5ABD /* globalDefine.swift */; };
 		185E247F1EB077F4006B5ABD /* closureTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E247E1EB077F4006B5ABD /* closureTestView.swift */; };
 		185F85921E83CD530051B761 /* testChild.m in Sources */ = {isa = PBXBuildFile; fileRef = 185F85911E83CD530051B761 /* testChild.m */; };
@@ -101,6 +103,9 @@
 		180EE1671ED7D1C500381806 /* animationInSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = animationInSwift.swift; sourceTree = "<group>"; };
 		182B63D51EC00EEF00E2DADA /* UIViewController+testSubFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+testSubFunc.h"; sourceTree = "<group>"; };
 		182B63D61EC00EEF00E2DADA /* UIViewController+testSubFunc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+testSubFunc.m"; sourceTree = "<group>"; };
+		184955AF1EE00D6A00AE7634 /* HelloOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloOperation.h; sourceTree = "<group>"; };
+		184955B01EE00D6A00AE7634 /* HelloOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelloOperation.m; sourceTree = "<group>"; };
+		184955B21EE0163000AE7634 /* Bugly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bugly.framework; sourceTree = "<group>"; };
 		185E247C1EB041AD006B5ABD /* globalDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = globalDefine.swift; sourceTree = "<group>"; };
 		185E247E1EB077F4006B5ABD /* closureTestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = closureTestView.swift; sourceTree = "<group>"; };
 		185F85901E83CD530051B761 /* testChild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testChild.h; sourceTree = "<group>"; };
@@ -224,6 +229,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				184955B31EE0163000AE7634 /* Bugly.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +387,7 @@
 		52BC7F881BFB68A800642835 /* JSCallOC */ = {
 			isa = PBXGroup;
 			children = (
+				184955B21EE0163000AE7634 /* Bugly.framework */,
 				180EE1661ED7D19C00381806 /* Animation */,
 				18E8740D1ED672A800CAF89C /* BaseCoreData */,
 				18E98DCA1ED3CC25007E92AE /* SDWebImage */,
@@ -389,6 +396,8 @@
 				52BC7F8D1BFB68A800642835 /* AppDelegate.m */,
 				52BC7F8F1BFB68A800642835 /* ViewController.h */,
 				52BC7F901BFB68A800642835 /* ViewController.m */,
+				184955AF1EE00D6A00AE7634 /* HelloOperation.h */,
+				184955B01EE00D6A00AE7634 /* HelloOperation.m */,
 				180EE1631ED7D0B200381806 /* AniViewCon.h */,
 				180EE1641ED7D0B200381806 /* AniViewCon.m */,
 				180279211ED95E1B009BBA97 /* UIViewController+Tracking.h */,
@@ -656,6 +665,7 @@
 				18E874101ED6744800CAF89C /* Model.xcdatamodeld in Sources */,
 				18E98E2F1ED3EDDB007E92AE /* UIView+WebCacheOperation.m in Sources */,
 				18E98DFE1ED3D216007E92AE /* ImageReader.m in Sources */,
+				184955B11EE00D6A00AE7634 /* HelloOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -795,6 +805,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/JSCallOC",
+				);
 				INFOPLIST_FILE = JSCallOC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jakill.1978;
@@ -811,6 +825,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/JSCallOC",
+				);
 				INFOPLIST_FILE = JSCallOC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jakill.1978;

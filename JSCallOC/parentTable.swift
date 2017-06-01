@@ -42,7 +42,7 @@ class tesWebImageView: UIView {
     }
     
     func initUI() {
-        self.backgroundColor = UIColor.gray.withAlphaComponent(0.2)
+        self.backgroundColor = UIColor.white
         
         let helloImage : UIImageView = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: 100, height: 100))
         helloImage.center = self.center

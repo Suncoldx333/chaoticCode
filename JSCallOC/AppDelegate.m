@@ -10,6 +10,8 @@
 #import <CoreData/CoreData.h>
 #import "ViewController.h"
 
+#import <Bugly/Bugly.h>
+
 @interface AppDelegate ()
 
 @property (nonatomic,readwrite,strong) NSManagedObjectModel *manageObjectModel;
