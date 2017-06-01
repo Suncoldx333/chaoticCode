@@ -180,8 +180,8 @@
     }];
     [op1 start];
     
-//    tesWebImageView *teView = [[tesWebImageView alloc] initWithFrame:self.view.bounds];
-//    [self.view addSubview:teView];
+    tesWebImageView *teView = [[tesWebImageView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:teView];
     
 }
 
