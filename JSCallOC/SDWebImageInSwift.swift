@@ -83,12 +83,6 @@ extension UIImageView{
         let operationArr = operationDicInner[key]
         if operationArr != nil {
             
-//            for gainOperation : webImageGainOperation in operationArr! {
-//                gainOperation.cancel()
-//            }
-            
-            let hahArr : Array<webImageGainOperation?> = [webImageGainOperation?]()
-            
             _ = operationArr?.map({ (Operation) -> Void in
                 Operation.cancel()
             })
@@ -112,6 +106,12 @@ extension UIImageView{
             operationArr = [webImageGainOperation]()
         }
         operationArr?.append(operation)
+        operationDicInner.updateValue(operationArr!, forKey: key)
+        self.operationDic = operationDicInner
+        
+        let hah = objc_getAssociatedObject(self, &webImageKey.loadOperationKey)
+        
+        
     }
 }
 
@@ -275,7 +275,7 @@ class imageLoadInSwift: NSObject {
         
         addProgressCallBack(complete: complete, url: url) { 
             [unowned self]() in
-            var request : URLRequest = URLRequest.init(url: url, cachePolicy: URLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: 15.0)
+            var request : URLRequest = URLRequest.init(url: url, cachePolicy: URLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: 5.0)
             request.httpShouldUsePipelining = true
             request.allHTTPHeaderFields = self.header
             
@@ -301,6 +301,8 @@ class webImageDownLoaderOperation: Operation {
     var completeBlock : webImageCompletionWithFinishedBlock!
     var session : URLSession!
     
+    var receiveData : Data?
+    
     init(request : URLRequest,
          completed : @escaping webImageCompletionWithFinishedBlock) {
         
@@ -312,23 +314,10 @@ class webImageDownLoaderOperation: Operation {
         customSynchronized(lock: self) { 
             () in
             
-//            let configuration : URLSessionConfiguration = URLSessionConfiguration.default
-            self.session = URLSession.shared
-            
-            let dataTask_request : URLSessionDataTask = self.session.dataTask(with: self.requestCopyed, completionHandler: { (data, response, error) in
-                var newImage : UIImage?
-                
-                if error != nil {
-                    newImage = nil
-                }else{
-                    newImage = UIImage.init(data: data!)
-                }
-                
-                let newRes : HTTPURLResponse = response as! HTTPURLResponse
-                print(newRes.statusCode)
-                
-                self.completeBlock(newImage,error,true)
-            })
+            let configuration : URLSessionConfiguration = URLSessionConfiguration.ephemeral
+            configuration.timeoutIntervalForRequest = 10
+            self.session = URLSession.init(configuration: configuration, delegate: self, delegateQueue: OperationQueue.main)
+            let dataTask_request : URLSessionDataTask = self.session.dataTask(with: self.requestCopyed)
             
             let dataTask : URLSessionDataTask = self.session.dataTask(with: self.requestCopyed.url!, completionHandler: { (data, response, error) in
                 
@@ -351,8 +340,6 @@ class webImageDownLoaderOperation: Operation {
         }
     }
     
-    
-    
     /// 互斥锁方法
     ///
     /// - Parameters:
@@ -366,6 +353,26 @@ class webImageDownLoaderOperation: Operation {
 }
 
 extension webImageDownLoaderOperation : URLSessionDataDelegate{
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+        print("complete")
+        let length = receiveData?.count
+        
+        print(length ?? -1)
+        let newImage : UIImage = UIImage.init(data: receiveData!)!
+        self.completeBlock(newImage,nil,true)
+    }
+    
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
+        print("receive")
+        receiveData = data
+    }
+    
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
+        let newRes : HTTPURLResponse = response as! HTTPURLResponse
+        print(newRes.statusCode)
+        print("response")
+        completionHandler(URLSession.ResponseDisposition.allow)
+    }
     
 }
 
