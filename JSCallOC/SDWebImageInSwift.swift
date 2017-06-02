@@ -37,6 +37,9 @@ extension UIImageView{
         }
     }
     
+//    func testCancel() {
+//        self.cancelImageGainOperationWith(key: "UIImageViewImageLoad")
+//    }
     
     /// 给UIImageView设置图片
     ///
@@ -70,6 +73,8 @@ extension UIImageView{
                 self.image = downLoadImage
             })
         }
+        
+//        OperationQueue.current?.addOperation(operation.cacheOperation!)
         
         self.setGainImage(operation: operation, key: "UIImageViewImageLoad")
     }
@@ -186,7 +191,7 @@ class SDWebImageInSwift: NSObject {
             operation?.cancelBlock = {
                 () in
                 imageLoadOperation.cancel()
-                self.customSynchronized(lock: operation!, f: { 
+                self.customSynchronized(lock: operation!, f: {
                     self.runningoperatins.remove(operation!)
                 })
             }
@@ -240,7 +245,9 @@ class imageCacheInSwift : NSObject{
             return nil
         }
         
-        let operation : Operation = Operation.init()
+        let operation : Operation = BlockOperation.init { 
+            print("hello,")
+        }
         
         //查找存放在sandbox中的图片
         let diskImage : UIImage? = diskImageFor(key: key!)
@@ -260,7 +267,7 @@ class imageCacheInSwift : NSObject{
 }
 
 
-/// 图片下载类
+//MARK:---图片下载类
 class imageLoadInSwift: NSObject {
     static let shareInstance = imageLoadInSwift()
     private override init() {
@@ -275,7 +282,7 @@ class imageLoadInSwift: NSObject {
         
         addProgressCallBack(complete: complete, url: url) { 
             [unowned self]() in
-            var request : URLRequest = URLRequest.init(url: url, cachePolicy: URLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: 5.0)
+            var request : URLRequest = URLRequest.init(url: url, cachePolicy: URLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: 10.0)
             request.httpShouldUsePipelining = true
             request.allHTTPHeaderFields = self.header
             
@@ -294,12 +301,13 @@ class imageLoadInSwift: NSObject {
     }
 }
 
-/// 图片下载任务
+//MARK:---图片下载任务
 class webImageDownLoaderOperation: Operation {
     
     var requestCopyed : URLRequest!
     var completeBlock : webImageCompletionWithFinishedBlock!
     var session : URLSession!
+    var dataTask_request : URLSessionDataTask!
     
     var receiveData : Data?
     
@@ -317,7 +325,7 @@ class webImageDownLoaderOperation: Operation {
             let configuration : URLSessionConfiguration = URLSessionConfiguration.ephemeral
             configuration.timeoutIntervalForRequest = 10
             self.session = URLSession.init(configuration: configuration, delegate: self, delegateQueue: OperationQueue.main)
-            let dataTask_request : URLSessionDataTask = self.session.dataTask(with: self.requestCopyed)
+            dataTask_request = self.session.dataTask(with: self.requestCopyed)
             
             let dataTask : URLSessionDataTask = self.session.dataTask(with: self.requestCopyed.url!, completionHandler: { (data, response, error) in
                 
@@ -338,6 +346,13 @@ class webImageDownLoaderOperation: Operation {
             dataTask_request.resume()
             
         }
+        
+        
+    }
+    
+    override func cancel() {
+        print("loadCancel")
+        dataTask_request.cancel()
     }
     
     /// 互斥锁方法

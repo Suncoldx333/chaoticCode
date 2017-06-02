@@ -64,7 +64,6 @@
 
 -(void)initData{
     baseModel *model = [[baseModel alloc] initWithTeDouble:1.23];
-    
 }
 
 
@@ -171,17 +170,17 @@
 
 -(void)initNewUI{
 
-    NSOperation *op1 = [NSBlockOperation blockOperationWithBlock:^{
-        NSLog(@"op1");
-        NSOperation *op2 = [NSBlockOperation blockOperationWithBlock:^{
-            NSLog(@"op2");
-        }];
-        [op2 start];
-    }];
-    [op1 start];
+//    NSOperation *op1 = [NSBlockOperation blockOperationWithBlock:^{
+//        NSLog(@"op1");
+//        NSOperation *op2 = [NSBlockOperation blockOperationWithBlock:^{
+//            NSLog(@"op2");
+//        }];
+//        [op2 start];
+//    }];
+//    [op1 start];
     
-    tesWebImageView *teView = [[tesWebImageView alloc] initWithFrame:self.view.bounds];
-    [self.view addSubview:teView];
+//    tesWebImageView *teView = [[tesWebImageView alloc] initWithFrame:self.view.bounds];
+//    [self.view addSubview:teView];
     
 }
 
@@ -201,7 +200,7 @@
     teImage.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
     teImage.userInteractionEnabled = YES;
     [self.view addSubview:teImage];
-//
+
     [teImage sd_setImageWithURL:[NSURL URLWithString:@"http://gxapp-images.oss-cn-hangzhou.aliyuncs.com/news-images/20170510/5387f9a7c2af45eda6a70ceea78d8bac.jpg"]
                placeholderImage:[UIImage imageNamed:@"topicGuide"]
                       completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {

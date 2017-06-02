@@ -83,6 +83,7 @@ static char TAG_ACTIVITY_SHOW;
                 }
             });
         }];
+                
         [self sd_setImageLoadOperation:operation forKey:@"UIImageViewImageLoad"];
     } else {
         dispatch_main_async_safe(^{

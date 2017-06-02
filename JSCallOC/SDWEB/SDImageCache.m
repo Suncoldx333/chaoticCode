@@ -395,7 +395,10 @@ FOUNDATION_STATIC_INLINE NSUInteger SDCacheCostForImage(UIImage *image) {
         return nil;
     }
 
-    NSOperation *operation = [NSOperation new];
+//    NSOperation *operation = [NSOperation new];
+    NSOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"suprise");
+    }];
     dispatch_async(self.ioQueue, ^{
         if (operation.isCancelled) {
             return;
