@@ -20,6 +20,20 @@ struct webImageKey {
 
 }
 
+extension NSObject{
+    /// 互斥锁方法,swift内没有类似@Synchronized的直接调用的方法
+    /// 由于是对NSObject的扩展，使用时可能要注意命名重复
+    ///
+    /// - Parameters:
+    ///   - lock: 互斥锁的对象
+    ///   - f: 需要执行的方法
+    func webImageCustomSynchronized(lock : AnyObject,f:() ->()) {
+        objc_sync_enter(lock)
+        f()
+        objc_sync_exit(lock)
+    }
+}
+
 extension UIImageView{
     
     var operationDic : Dictionary<String,Array<webImageGainOperation>>! {
@@ -61,7 +75,7 @@ extension UIImageView{
 //            }
             //2.Operation方式
             OperationQueue.main.addOperation({
-                () in
+                [unowned self]() in
                 self.image = placeholderImage
             })
         }
@@ -69,20 +83,18 @@ extension UIImageView{
         let operation : webImageGainOperation = SDWebImageInSwift.shareInstance.gainImageWith(url: imageUrl) { [unowned self](downLoadImage, error, finished) in
             
             OperationQueue.main.addOperation({ 
-                () in
-                self.image = downLoadImage
+                [unowned self]() in
+                
+                if downLoadImage != nil {
+                    self.image = downLoadImage
+
+                }
             })
         }
-        
-//        OperationQueue.current?.addOperation(operation.cacheOperation!)
         
         self.setGainImage(operation: operation, key: "UIImageViewImageLoad")
     }
     
-    
-    /// 取消之前的图片下载任务
-    ///
-    /// - Parameter key: 下载任务关键词
     private func cancelImageGainOperationWith(key : String) {
         var operationDicInner : Dictionary<String,Array<webImageGainOperation>> = self.operationDic
         let operationArr = operationDicInner[key]
@@ -96,14 +108,8 @@ extension UIImageView{
         }
     }
     
-    
-    /// 存储下载任务
-    ///
-    /// - Parameters:
-    ///   - operation: 下载线程
-    ///   - key: 关键词
     private func setGainImage(operation : webImageGainOperation,key : String) {
-        //源码此处存在一个cancel操作，简化版没有这个需求就去掉了
+        cancelImageGainOperationWith(key: key)
         
         var operationDicInner : Dictionary<String,Array<webImageGainOperation>> = self.operationDic
         var operationArr = operationDicInner[key]
@@ -113,23 +119,20 @@ extension UIImageView{
         operationArr?.append(operation)
         operationDicInner.updateValue(operationArr!, forKey: key)
         self.operationDic = operationDicInner
-        
-        let hah = objc_getAssociatedObject(self, &webImageKey.loadOperationKey)
-        
-        
     }
 }
 
 
 /// 图片管理类
 class SDWebImageInSwift: NSObject {
+    
     static let shareInstance = SDWebImageInSwift()
     private override init() {
         
     }
     
     var failedURLs : Set = Set<URL>.init()  //下载失败的URL集合
-    var runningoperatins : NSMutableArray = NSMutableArray.init()  //正在执行的任务的集合,array的remove方法没有NSArray的方便
+    var runningoperatins : NSMutableArray = NSMutableArray.init()  //正在执行的任务的集合,array的remove方法没有NSArray的直接
     var imageCache : imageCacheInSwift = imageCacheInSwift.shareInstance  //图片缓存对象
     var imageLoder : imageLoadInSwift = imageLoadInSwift.shareInstance  //图片下载对象
     
@@ -138,28 +141,24 @@ class SDWebImageInSwift: NSObject {
         
         let operation : webImageGainOperation? = webImageGainOperation.init()
         
-        //1.该URL是否是之前下载失败的，源码OC版本可以使用@synchronized来实现互斥以保证线程安全，Swift则需要自己定义互斥方法
         var isFailedUrl : Bool = false
-        customSynchronized(lock: failedURLs as AnyObject) {
+        webImageCustomSynchronized(lock: failedURLs as AnyObject) {
             isFailedUrl = failedURLs.contains(url)
         }
         
-        //2.url无效或者之前下载失败过的
         if url.absoluteString.characters.count == 0 || isFailedUrl {
-            
+            return operation!
         }
         
-        //3.存放正在/即将执行的任务
-        customSynchronized(lock: runningoperatins as AnyObject) { 
+        webImageCustomSynchronized(lock: runningoperatins as AnyObject) {
             runningoperatins.add(operation!)
         }
         
-        //4.
         let key : String = url.absoluteString
         operation?.cacheOperation = imageCache.queryDiskCacheFor(key: key, done: { [unowned self](cachedImage) in
             
             if (operation?.isCancelled)! {
-                self.customSynchronized(lock: self.runningoperatins as AnyObject, f: { 
+                self.webImageCustomSynchronized(lock: self.runningoperatins as AnyObject, f: {
                     self.runningoperatins.remove(operation!)
                 })
                 
@@ -191,32 +190,13 @@ class SDWebImageInSwift: NSObject {
             operation?.cancelBlock = {
                 () in
                 imageLoadOperation.cancel()
-                self.customSynchronized(lock: operation!, f: {
+                self.webImageCustomSynchronized(lock: operation!, f: {
                     self.runningoperatins.remove(operation!)
                 })
             }
         })!
         
         return operation!
-    }
-    
-    
-    func switchErrorCode(error : Error!) -> Bool {
-//        if error.code {
-//            <#code#>
-//        }
-        return false
-    }
-    
-    /// 互斥锁方法
-    ///
-    /// - Parameters:
-    ///   - lock: 互斥锁的对象
-    ///   - f: 需要执行的方法
-    private func customSynchronized(lock : AnyObject,f:() ->()) {
-        objc_sync_enter(lock)
-        f()
-        objc_sync_exit(lock)
     }
 }
 
@@ -226,13 +206,17 @@ class imageCacheInSwift : NSObject{
     static let shareInstance = imageCacheInSwift()
     
     var memCache : autoPurgeCache!
+    var queryDiskImageSerialQueue : OperationQueue!
     
     private override init() {
         memCache = autoPurgeCache.init()
         memCache.name = "helloWebImage"
+        
+        queryDiskImageSerialQueue = OperationQueue.init()
+        queryDiskImageSerialQueue.maxConcurrentOperationCount = 1
     }
     
-    func queryDiskCacheFor(key : String?,done : webImageQueryCompletionBlock) -> Operation? {
+    func queryDiskCacheFor(key : String?,done : @escaping webImageQueryCompletionBlock) -> Operation? {
         if key == nil {
             done(nil)
             return nil
@@ -245,22 +229,41 @@ class imageCacheInSwift : NSObject{
             return nil
         }
         
-        let operation : Operation = BlockOperation.init { 
-            print("hello,")
+        let operation : Operation = BlockOperation.init {
+            print("hello,diskImage")
+        }
+        queryDiskImageSerialQueue.addOperation {
+            () in
+            if operation.isCancelled == true {
+                return
+            }
+            
+            autoreleasepool(invoking: { () -> Void in
+                //查找存放在sandbox中的图片
+                let diskImage : UIImage? = self.diskImageFor(key: key!)
+                if diskImage != nil {
+                    let cost : CGFloat = (diskImage?.size.width)! * (diskImage?.size.height)! * (diskImage?.scale)! * (diskImage?.scale)!
+                    self.memCache.setObject(diskImage!, forKey: key as AnyObject, cost: Int.init(cost))
+                }
+                OperationQueue.main.addOperation {
+                    done(diskImage)
+                }
+            })
+            
         }
         
-        //查找存放在sandbox中的图片
-        let diskImage : UIImage? = diskImageFor(key: key!)
-        if diskImage != nil {
-            let cost : CGFloat = (diskImage?.size.width)! * (diskImage?.size.height)! * (diskImage?.scale)! * (diskImage?.scale)!
-            memCache.setObject(diskImage!, forKey: key as AnyObject, cost: Int.init(cost))
-        }
-        done(diskImage)
+
+        
+        
         
         return operation
     }
     
     func diskImageFor(key : String) -> UIImage? {
+        
+        var diskCahcedImage : UIImage?
+        
+        
         return nil
     }
     
@@ -319,7 +322,7 @@ class webImageDownLoaderOperation: Operation {
     }
     
     override func start() {
-        customSynchronized(lock: self) { 
+        webImageCustomSynchronized(lock: self) {
             () in
             
             let configuration : URLSessionConfiguration = URLSessionConfiguration.ephemeral
@@ -327,43 +330,15 @@ class webImageDownLoaderOperation: Operation {
             self.session = URLSession.init(configuration: configuration, delegate: self, delegateQueue: OperationQueue.main)
             dataTask_request = self.session.dataTask(with: self.requestCopyed)
             
-            let dataTask : URLSessionDataTask = self.session.dataTask(with: self.requestCopyed.url!, completionHandler: { (data, response, error) in
-                
-                var newImage : UIImage?
-                
-                if error != nil {
-                    newImage = nil
-                }else{
-                    newImage = UIImage.init(data: data!)
-                }
-                
-                let newRes : HTTPURLResponse = response as! HTTPURLResponse
-                print(newRes.statusCode)
-                
-                self.completeBlock(newImage,error,true)
-            })
-            
             dataTask_request.resume()
             
         }
         
         
     }
-    
     override func cancel() {
         print("loadCancel")
         dataTask_request.cancel()
-    }
-    
-    /// 互斥锁方法
-    ///
-    /// - Parameters:
-    ///   - lock: 互斥锁的对象
-    ///   - f: 需要执行的方法
-    private func customSynchronized(lock : AnyObject,f:() ->()) {
-        objc_sync_enter(lock)
-        f()
-        objc_sync_exit(lock)
     }
 }
 
@@ -404,8 +379,7 @@ class autoPurgeCache : NSCache<AnyObject, AnyObject> {
 }
 
 /// 图片获取任务
-/// 设计出来是用以实现取消获取任务，从而取消图片下载的任务
-/// 图片下载的任务存在于图片获取任务内
+/// 设计出来是用以实现取消获取任务，同时取消图片下载的任务
 class webImageGainOperation : NSObject{
     var isCancelled : Bool = false
     var cancelBlock : webImageNoParamsBlock?
@@ -414,6 +388,7 @@ class webImageGainOperation : NSObject{
     func cancel() {
         self.isCancelled = true
         
+        //从Disk获取图片存在于一个串行队列中，cacheOperation用于前置判断是否取消图片获取
         if self.cacheOperation != nil {
             self.cacheOperation?.cancel()
             self.cacheOperation = nil
