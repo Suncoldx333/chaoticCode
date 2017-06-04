@@ -34,6 +34,23 @@ extension NSObject{
     }
 }
 
+extension String{
+    func md5() -> String! {
+        let str = self.cString(using: String.Encoding.utf8)
+        let strLen = CUnsignedInt(self.lengthOfBytes(using: String.Encoding.utf8))
+        let digestLen = Int.init(CC_MD5_DIGEST_LENGTH)
+        let result = UnsafeMutablePointer<CUnsignedChar>.allocate(capacity: digestLen)
+        CC_MD5(str!, strLen, result)
+        let hash = NSMutableString()
+        for i in 0..<digestLen {
+            hash.appendFormat("%02x", result[i])
+        }
+        result.deinitialize()
+        return String.init(format: "%@", hash as String)
+        
+    }
+}
+
 extension UIImageView{
     
     var operationDic : Dictionary<String,Array<webImageGainOperation>>! {
@@ -50,10 +67,6 @@ extension UIImageView{
             objc_setAssociatedObject(self, &webImageKey.loadOperationKey, dic, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
-    
-//    func testCancel() {
-//        self.cancelImageGainOperationWith(key: "UIImageViewImageLoad")
-//    }
     
     /// 给UIImageView设置图片
     ///
@@ -177,14 +190,26 @@ class SDWebImageInSwift: NSObject {
                     OperationQueue.main.addOperation({ 
                         () in
                         complete(nil,error,finished)
+                        
                     })
                     
-                    
+                    self.webImageCustomSynchronized(lock: self.failedURLs as AnyObject, f: {
+                        self.failedURLs.insert(url)
+                    })
                     
                 }else{
-                    complete(image,error,finished)
-
+                    
+                    OperationQueue.main.addOperation {
+                        complete(image,error,finished)
+                    }
                 }
+                
+                if finished == true {
+                    self.webImageCustomSynchronized(lock: self.runningoperatins, f: {
+                        self.runningoperatins.remove(operation!)
+                    })
+                }
+                
             })
             
             operation?.cancelBlock = {
@@ -207,6 +232,7 @@ class imageCacheInSwift : NSObject{
     
     var memCache : autoPurgeCache!
     var queryDiskImageSerialQueue : OperationQueue!
+    var diskCachePath : String!
     
     private override init() {
         memCache = autoPurgeCache.init()
@@ -214,6 +240,9 @@ class imageCacheInSwift : NSObject{
         
         queryDiskImageSerialQueue = OperationQueue.init()
         queryDiskImageSerialQueue.maxConcurrentOperationCount = 1
+        
+        let diskPath : String = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]
+        diskCachePath = URL.init(string: diskPath)?.appendingPathComponent("default").absoluteString
     }
     
     func queryDiskCacheFor(key : String?,done : @escaping webImageQueryCompletionBlock) -> Operation? {
@@ -262,6 +291,16 @@ class imageCacheInSwift : NSObject{
     func diskImageFor(key : String) -> UIImage? {
         
         var diskCahcedImage : UIImage?
+        var diskCachedImageData : Data?
+        
+        let imageKeyInMD5 = key.md5() + "." + (URL.init(string: key)?.pathExtension)!
+        let defaultPath : URL = (URL.init(string: diskCachePath)?.appendingPathComponent(imageKeyInMD5))!
+        
+        do{
+            try diskCachedImageData = Data.init(contentsOf: defaultPath, options: Data.ReadingOptions.uncachedRead)
+        }catch{
+            print("here exit an error")
+        }
         
         
         return nil

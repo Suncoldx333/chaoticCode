@@ -4,3 +4,4 @@
 
 #import "ViewController.h"
 #import <Bugly/Bugly.h>
+#import <CommonCrypto/CommonDigest.h>
