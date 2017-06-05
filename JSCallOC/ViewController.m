@@ -179,6 +179,10 @@
 //    }];
 //    [op1 start];
     
+//    NSString *teStr = nil;
+//    NSMutableDictionary *teDic = [[NSMutableDictionary alloc] init];
+//    [teDic setObject:teStr forKey:@"hah"];
+    
     tesWebImageView *teView = [[tesWebImageView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:teView];
     
