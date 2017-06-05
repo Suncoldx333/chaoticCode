@@ -11,6 +11,7 @@
 import UIKit
 
 typealias webImageCompletionWithFinishedBlock = (UIImage?,Error?,Bool?) ->Void
+typealias webImageDownLoadCompletionBlock = (UIImage?,Error?,Data?,Bool?) ->Void
 typealias webImageQueryCompletionBlock = (UIImage?) ->Void
 typealias webImageNoParamsBlock = () ->Void
 
@@ -136,7 +137,7 @@ extension UIImageView{
 }
 
 
-/// 图片管理类
+//MARK:---图片管理类
 class SDWebImageInSwift: NSObject {
     
     static let shareInstance = SDWebImageInSwift()
@@ -180,9 +181,10 @@ class SDWebImageInSwift: NSObject {
             
             if cachedImage != nil {
                 complete(cachedImage,nil,true)
+                return
             }
             
-            let imageLoadOperation : webImageDownLoaderOperation =  self.imageLoder.downLoadImageWith(url: url, complete: { (image, error, finished) in
+            let imageLoadOperation : webImageDownLoaderOperation =  self.imageLoder.downLoadImageWith(url: url, complete: { (image, error, imageData,finished) in
                 
                 if operation == nil || operation?.isCancelled == true {
                     
@@ -198,6 +200,8 @@ class SDWebImageInSwift: NSObject {
                     })
                     
                 }else{
+                    
+                    self.imageCache.store(downLoadImage: image, and: imageData, forGiven: key)
                     
                     OperationQueue.main.addOperation {
                         complete(image,error,finished)
@@ -226,20 +230,23 @@ class SDWebImageInSwift: NSObject {
 }
 
 
-/// 图片查找缓存类
+//MARK:---图片查找缓存类
 class imageCacheInSwift : NSObject{
     static let shareInstance = imageCacheInSwift()
     
     var memCache : autoPurgeCache!
-    var queryDiskImageSerialQueue : OperationQueue!
+    var webImageSerialQueue : OperationQueue!
     var diskCachePath : String!
+    var fileManager : FileManager!
     
     private override init() {
         memCache = autoPurgeCache.init()
         memCache.name = "helloWebImage"
         
-        queryDiskImageSerialQueue = OperationQueue.init()
-        queryDiskImageSerialQueue.maxConcurrentOperationCount = 1
+        webImageSerialQueue = OperationQueue.init()
+        webImageSerialQueue.maxConcurrentOperationCount = 1
+
+        fileManager = FileManager.init()
         
         let diskPath : String = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]
         diskCachePath = URL.init(string: diskPath)?.appendingPathComponent("default").absoluteString
@@ -261,7 +268,7 @@ class imageCacheInSwift : NSObject{
         let operation : Operation = BlockOperation.init {
             print("hello,diskImage")
         }
-        queryDiskImageSerialQueue.addOperation {
+        webImageSerialQueue.addOperation {
             () in
             if operation.isCancelled == true {
                 return
@@ -280,12 +287,62 @@ class imageCacheInSwift : NSObject{
             })
             
         }
-        
-
-        
-        
-        
         return operation
+    }
+    
+    func store(downLoadImage : UIImage!,and imageData : Data!,forGiven key : String!) {
+        
+        //存储于Cache
+        let imageCost : Int = Int.init(downLoadImage.size.width * downLoadImage.size.height * downLoadImage.scale * downLoadImage.scale)
+        memCache.setObject(downLoadImage, forKey: key as AnyObject, cost: imageCost)
+        
+        //存储于Disk
+        webImageSerialQueue.addOperation { 
+            [unowned self]() in
+            self.storeImageInDisk(downLoadImage: downLoadImage, and: imageData, forGiven: key)
+        }
+    }
+    
+    func storeImageInDisk(downLoadImage : UIImage!,and imageData : Data!,forGiven key : String!) {
+        //UIImage -> DATA 区分PNG,JPG
+        //两者区别在于PNG支持透明度，而JPG不支持
+        //PNG格式往往以137 80 78 71 13 10 26 10开头(十进制)
+        var changedData : Data = imageData
+        let PNGSignatureBytes : Array<UInt8> = [0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A]
+        let PNGSignatureData : Data = Data.init(bytes: PNGSignatureBytes)
+        
+        let alphaInfo : CGImageAlphaInfo = (downLoadImage.cgImage?.alphaInfo)!
+        var imageIsPNG : Bool = !(alphaInfo == CGImageAlphaInfo.none ||
+                                  alphaInfo == CGImageAlphaInfo.noneSkipFirst ||
+                                  alphaInfo == CGImageAlphaInfo.noneSkipLast)
+        
+        if imageData.count > PNGSignatureData.count {
+            
+            let signatureRang : Range<Data.Index> = PNGSignatureData.startIndex ..< PNGSignatureData.endIndex
+            imageIsPNG = imageData.subdata(in: signatureRang) == PNGSignatureData ? true : false
+        }
+        
+        if imageIsPNG == true {
+            changedData = UIImagePNGRepresentation(downLoadImage)!
+        }else{
+            changedData = UIImageJPEGRepresentation(downLoadImage, 1.0)!
+        }
+        
+        //存储至Disk
+        if fileManager.fileExists(atPath: diskCachePath) == false {
+            do{
+                try fileManager.createDirectory(atPath: diskCachePath, withIntermediateDirectories: true, attributes: nil)
+            }catch{
+                print("create fail")
+            }
+        }
+        
+        let imageKeyInMD5 = key.md5() + "." + (URL.init(string: key)?.pathExtension)!
+        let defaultPath : URL = (URL.init(string: diskCachePath)?.appendingPathComponent(imageKeyInMD5))!
+        let fileCreate : Bool = fileManager.createFile(atPath: defaultPath.absoluteString, contents: changedData, attributes: nil)
+        if fileCreate == false {
+            print("image file create fail")
+        }
     }
     
     func diskImageFor(key : String) -> UIImage? {
@@ -295,13 +352,13 @@ class imageCacheInSwift : NSObject{
         
         let imageKeyInMD5 = key.md5() + "." + (URL.init(string: key)?.pathExtension)!
         let defaultPath : URL = (URL.init(string: diskCachePath)?.appendingPathComponent(imageKeyInMD5))!
+        let dataInNS : NSData? = NSData.init(contentsOfFile: defaultPath.absoluteString)
         
-        do{
-            try diskCachedImageData = Data.init(contentsOf: defaultPath, options: Data.ReadingOptions.uncachedRead)
-        }catch{
-            print("here exit an error")
+        if dataInNS != nil {
+            diskCachedImageData = dataInNS! as Data
+            diskCahcedImage = UIImage.init(data: diskCachedImageData!)
+            return diskCahcedImage
         }
-        
         
         return nil
     }
@@ -318,8 +375,8 @@ class imageLoadInSwift: NSObject {
     
     let header = ["Accept" : "image/*;q=0.8"];
     let operationQueue : OperationQueue = OperationQueue.init()
-
-    func downLoadImageWith(url : URL,complete : @escaping webImageCompletionWithFinishedBlock) -> webImageDownLoaderOperation {
+    
+    func downLoadImageWith(url : URL,complete : @escaping webImageDownLoadCompletionBlock) -> webImageDownLoaderOperation {
         var operation : webImageDownLoaderOperation!
         
         addProgressCallBack(complete: complete, url: url) { 
@@ -328,8 +385,8 @@ class imageLoadInSwift: NSObject {
             request.httpShouldUsePipelining = true
             request.allHTTPHeaderFields = self.header
             
-            operation = webImageDownLoaderOperation.init(request: request, completed: { (downloadImage, error, finished) in
-                complete(downloadImage,error,finished)
+            operation = webImageDownLoaderOperation.init(request: request, completed: { (downloadImage, error, downloadImageData,finished) in
+                complete(downloadImage,error,downloadImageData,finished)
             })
             self.operationQueue.addOperation(operation)
             
@@ -338,7 +395,7 @@ class imageLoadInSwift: NSObject {
         return operation
     }
     
-    func addProgressCallBack(complete : webImageCompletionWithFinishedBlock,url : URL,callBack : webImageNoParamsBlock) {
+    func addProgressCallBack(complete : webImageDownLoadCompletionBlock,url : URL,callBack : webImageNoParamsBlock) {
         callBack()
     }
 }
@@ -347,14 +404,14 @@ class imageLoadInSwift: NSObject {
 class webImageDownLoaderOperation: Operation {
     
     var requestCopyed : URLRequest!
-    var completeBlock : webImageCompletionWithFinishedBlock!
+    var completeBlock : webImageDownLoadCompletionBlock!
     var session : URLSession!
     var dataTask_request : URLSessionDataTask!
     
     var receiveData : Data?
     
     init(request : URLRequest,
-         completed : @escaping webImageCompletionWithFinishedBlock) {
+         completed : @escaping webImageDownLoadCompletionBlock) {
         
         self.requestCopyed = request
         self.completeBlock = completed
@@ -381,14 +438,16 @@ class webImageDownLoaderOperation: Operation {
     }
 }
 
+//MARK:---URLSession(URLSessionDataDelegate)
 extension webImageDownLoaderOperation : URLSessionDataDelegate{
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         print("complete")
         let length = receiveData?.count
-        
+        var newImage : UIImage? = nil
         print(length ?? -1)
-        let newImage : UIImage = UIImage.init(data: receiveData!)!
-        self.completeBlock(newImage,nil,true)
+        newImage = UIImage.init(data: receiveData!)!
+        
+        self.completeBlock(newImage,nil,receiveData,true)
     }
     
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
