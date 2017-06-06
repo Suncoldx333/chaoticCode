@@ -63,6 +63,10 @@
 		18E98E2D1ED3EDDB007E92AE /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E98E1B1ED3EDDB007E92AE /* UIImageView+HighlightedWebCache.m */; };
 		18E98E2E1ED3EDDB007E92AE /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E98E1D1ED3EDDB007E92AE /* UIImageView+WebCache.m */; };
 		18E98E2F1ED3EDDB007E92AE /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E98E1F1ED3EDDB007E92AE /* UIView+WebCacheOperation.m */; };
+		18F2FCF41EE641E600553D20 /* ImagePickWidgetSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2FCF31EE641E600553D20 /* ImagePickWidgetSwift.swift */; };
+		18F2FCF91EE6424D00553D20 /* PhotoTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2FCF81EE6424C00553D20 /* PhotoTool.swift */; };
+		18F2FCFB1EE64F8800553D20 /* PhotoAlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2FCFA1EE64F8800553D20 /* PhotoAlbumModel.swift */; };
+		18F2FCFD1EE681F500553D20 /* ImagePickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2FCFC1EE681F500553D20 /* ImagePickView.swift */; };
 		18F523651E9C7C8B00ACF0D4 /* GlobalTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F523641E9C7C8B00ACF0D4 /* GlobalTool.m */; };
 		52BC7F8B1BFB68A800642835 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BC7F8A1BFB68A800642835 /* main.m */; };
 		52BC7F8E1BFB68A800642835 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BC7F8D1BFB68A800642835 /* AppDelegate.m */; };
@@ -200,6 +204,10 @@
 		18E98E1D1ED3EDDB007E92AE /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+WebCache.m"; path = "SDWEB/UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		18E98E1E1ED3EDDB007E92AE /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+WebCacheOperation.h"; path = "SDWEB/UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		18E98E1F1ED3EDDB007E92AE /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCacheOperation.m"; path = "SDWEB/UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		18F2FCF31EE641E600553D20 /* ImagePickWidgetSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickWidgetSwift.swift; sourceTree = "<group>"; };
+		18F2FCF81EE6424C00553D20 /* PhotoTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTool.swift; sourceTree = "<group>"; };
+		18F2FCFA1EE64F8800553D20 /* PhotoAlbumModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAlbumModel.swift; sourceTree = "<group>"; };
+		18F2FCFC1EE681F500553D20 /* ImagePickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickView.swift; sourceTree = "<group>"; };
 		18F523631E9C7C8B00ACF0D4 /* GlobalTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalTool.h; sourceTree = "<group>"; };
 		18F523641E9C7C8B00ACF0D4 /* GlobalTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalTool.m; sourceTree = "<group>"; };
 		52BC7F861BFB68A800642835 /* JSCallOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSCallOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -364,6 +372,41 @@
 			name = SDWebImage;
 			sourceTree = "<group>";
 		};
+		18F2FCF51EE641F900553D20 /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				18F2FCFF1EE6820100553D20 /* View */,
+				18F2FCF71EE6421A00553D20 /* Model */,
+				18F2FCF61EE6420900553D20 /* Controllrt */,
+			);
+			name = ImagePicker;
+			sourceTree = "<group>";
+		};
+		18F2FCF61EE6420900553D20 /* Controllrt */ = {
+			isa = PBXGroup;
+			children = (
+				18F2FCF31EE641E600553D20 /* ImagePickWidgetSwift.swift */,
+			);
+			name = Controllrt;
+			sourceTree = "<group>";
+		};
+		18F2FCF71EE6421A00553D20 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				18F2FCF81EE6424C00553D20 /* PhotoTool.swift */,
+				18F2FCFA1EE64F8800553D20 /* PhotoAlbumModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		18F2FCFF1EE6820100553D20 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18F2FCFC1EE681F500553D20 /* ImagePickView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		52BC7F7D1BFB68A800642835 = {
 			isa = PBXGroup;
 			children = (
@@ -419,6 +462,7 @@
 				18E88A581E7A8B57000DD208 /* baseModel.swift */,
 				185E247C1EB041AD006B5ABD /* globalDefine.swift */,
 				18B7C0661ED292A700900095 /* SDWebImageInSwift.swift */,
+				18F2FCF51EE641F900553D20 /* ImagePicker */,
 				185E247E1EB077F4006B5ABD /* closureTestView.swift */,
 				18DD67441EB97E49000BD37E /* StepCountWidget.swift */,
 				18E8741D1ED67C3200CAF89C /* BaseCoreData.swift */,
@@ -626,11 +670,13 @@
 				18CE233A1E8A67E3008B9F76 /* NSObject+SBJSON.m in Sources */,
 				182B63D71EC00EEF00E2DADA /* UIViewController+testSubFunc.m in Sources */,
 				18D7608B1E5E7701007124CD /* ViewController+MASAdditions.m in Sources */,
+				18F2FCFD1EE681F500553D20 /* ImagePickView.swift in Sources */,
 				180EE1681ED7D1C500381806 /* animationInSwift.swift in Sources */,
 				18D760851E5E7701007124CD /* MASLayoutConstraint.m in Sources */,
 				18E98E231ED3EDDB007E92AE /* SDWebImageCompat.m in Sources */,
 				18CE233B1E8A67E3008B9F76 /* NSString+SBJSON.m in Sources */,
 				18E98E211ED3EDDB007E92AE /* NSData+ImageContentType.m in Sources */,
+				18F2FCFB1EE64F8800553D20 /* PhotoAlbumModel.swift in Sources */,
 				18E98E2D1ED3EDDB007E92AE /* UIImageView+HighlightedWebCache.m in Sources */,
 				18E98E291ED3EDDB007E92AE /* UIButton+WebCache.m in Sources */,
 				18D760881E5E7701007124CD /* NSArray+MASAdditions.m in Sources */,
@@ -639,6 +685,7 @@
 				18D760871E5E7701007124CD /* MASViewConstraint.m in Sources */,
 				18ABFB1F1ED6B6D800B179FF /* Department+CoreDataClass.swift in Sources */,
 				18CE233D1E8A67E3008B9F76 /* SBJsonBase.m in Sources */,
+				18F2FCF41EE641E600553D20 /* ImagePickWidgetSwift.swift in Sources */,
 				185E247D1EB041AD006B5ABD /* globalDefine.swift in Sources */,
 				18ABFB201ED6B6D800B179FF /* Department+CoreDataProperties.swift in Sources */,
 				18B7C0671ED292A700900095 /* SDWebImageInSwift.swift in Sources */,
@@ -646,6 +693,7 @@
 				18DAAA511EC15DE200B5C6B5 /* parentTable.swift in Sources */,
 				18D7608A1E5E7701007124CD /* View+MASAdditions.m in Sources */,
 				18CD1C371EC0685C00CD42E9 /* showWhereBlock.m in Sources */,
+				18F2FCF91EE6424D00553D20 /* PhotoTool.swift in Sources */,
 				18F523651E9C7C8B00ACF0D4 /* GlobalTool.m in Sources */,
 				18ABFB1B1ED6B6A100B179FF /* Employee+CoreDataClass.swift in Sources */,
 				52BC7F8E1BFB68A800642835 /* AppDelegate.m in Sources */,

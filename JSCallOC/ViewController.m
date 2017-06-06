@@ -56,8 +56,8 @@
 //    [self initData];
 //    [self initNewData];
 //    [self initHelloData];
-//    [self initUI];
-    [self initNewUI];
+    [self initUI];
+//    [self initNewUI];
     self.navigationController.navigationBar.translucent = NO;
 
 }
@@ -170,28 +170,61 @@
 
 -(void)initNewUI{
     
-//    NSOperation *op1 = [NSBlockOperation blockOperationWithBlock:^{
-//        NSLog(@"op1");
-//        NSOperation *op2 = [NSBlockOperation blockOperationWithBlock:^{
-//            NSLog(@"op2");
-//        }];
-//        [op2 start];
+    NSBlockOperation *op1 = [NSBlockOperation blockOperationWithBlock:^{
+       NSLog(@"1在第%@个线程",[NSThread currentThread]);
+        
+    }];
+    [op1 addExecutionBlock:^{
+        NSLog(@"2在第%@个线程",[NSThread currentThread]);
+    }];
+    [op1 addExecutionBlock:^{
+        NSLog(@"3在第%@个线程",[NSThread currentThread]);
+    }];
+//    [op1 addExecutionBlock:^{
+//        NSLog(@"4在第%@个线程",[NSThread currentThread]);
 //    }];
-//    [op1 start];
+//    [op1 addExecutionBlock:^{
+//        NSLog(@"5在第%@个线程",[NSThread currentThread]);
+//    }];
     
-//    NSString *teStr = nil;
-//    NSMutableDictionary *teDic = [[NSMutableDictionary alloc] init];
-//    [teDic setObject:teStr forKey:@"hah"];
+
+    NSBlockOperation *op2 = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"6在第%@个线程",[NSThread currentThread]);
+    }];
+    [op2 addExecutionBlock:^{
+        NSLog(@"7在第%@个线程",[NSThread currentThread]);
+    }];
+    [op2 addExecutionBlock:^{
+        NSLog(@"8在第%@个线程",[NSThread currentThread]);
+    }];
+    [op2 addExecutionBlock:^{
+        NSLog(@"9在第%@个线程",[NSThread currentThread]);
+    }];
+    [op2 addExecutionBlock:^{
+        NSLog(@"10在第%@个线程",[NSThread currentThread]);
+    }];
+//    [op2 addDependency:op1];
     
-    tesWebImageView *teView = [[tesWebImageView alloc] initWithFrame:self.view.bounds];
-    [self.view addSubview:teView];
+    NSArray *ops = @[op2,op1];
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    queue.maxConcurrentOperationCount = 4;
+    [queue addOperations:ops waitUntilFinished:NO];
+//    NSOperation *op3 = [NSBlockOperation blockOperationWithBlock:^{
+//        [op2 start];
+//        [op1 start];
+//        
+//    }];
+//    [op3 start];
     
-//    UIImageView *teImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-//    teImage.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.2];
-//    teImage.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
-//    teImage.userInteractionEnabled = YES;
-//    [self.view addSubview:teImage];
-//    
+//    tesWebImageView *teView = [[tesWebImageView alloc] initWithFrame:self.view.bounds];
+//    [self.view addSubview:teView];
+    
+    UIImageView *teImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    teImage.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.2];
+    teImage.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
+    teImage.userInteractionEnabled = YES;
+    [self.view addSubview:teImage];
+//
 //    [teImage sd_setImageWithURL:[NSURL URLWithString:@"http://gxapp-images.oss-cn-hangzhou.aliyuncs.com/news-images/20170510/5387f9a7c2af45eda6a70ceea78d8bac.jpg"]
 //               placeholderImage:[UIImage imageNamed:@"topicGuide"]
 //                      completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
@@ -444,8 +477,11 @@
 //    }
     
     
-    AniViewCon *aniCon = [[AniViewCon alloc] init];
-    [self.navigationController pushViewController:aniCon animated:YES];
+//    AniViewCon *aniCon = [[AniViewCon alloc] init];
+//    [self.navigationController pushViewController:aniCon animated:YES];
+    
+    ImagePickWidgetSwift *widget = [[ImagePickWidgetSwift alloc] init];
+    [self.navigationController pushViewController:widget animated:YES];
     
 //    NSString *urlStr = @"balabala://topicDetail?id=xxx";
 //    

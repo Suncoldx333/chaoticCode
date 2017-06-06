@@ -51,7 +51,18 @@ class tesWebImageView: UIView {
         helloImage.center = self.center
         self.addSubview(helloImage)
         
-        helloImage.setImageWith(imageUrl: URL.init(string: "http://gxapp-images.oss-cn-hangzhou.aliyuncs.com/news-images/20170510/5387f9a7c2af45eda6a70ceea78d8bac.jpg"), placeholderImage: #imageLiteral(resourceName: "Image"))
+        let tool : PhotoTool = PhotoTool.shareInstance
+        tool.getPhotoAlbumList { (ModelArray) in
+            print("modelArrCount = \(ModelArray?.count ?? -1)")
+            
+            let _ = ModelArray?.map({ (model) -> Void in
+                print("modelName = \(model.PAMAlbumName),modelCount = \(model.PAMCount)")
+                
+            })
+            
+        }
+        
+//        helloImage.setImageWith(imageUrl: URL.init(string: "http://gxapp-images.oss-cn-hangzhou.aliyuncs.com/news-images/20170510/5387f9a7c2af45eda6a70ceea78d8bac.jpg"), placeholderImage: #imageLiteral(resourceName: "Image"))
         
         let bt : UIView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 100, height: 100))
         bt.backgroundColor = UIColor.black
