@@ -68,32 +68,23 @@ class PhotoTool: NSObject {
                 })
             }
             
-            let queryOperation1 : BlockOperation = BlockOperation.init {
-                
+            queryOperation.addExecutionBlock {
                 self.getAlbumModelIn(createrType: AlbumCreaterType.User, completion: { (modelArr) in
                     let _ = modelArr?.map({ (model) -> Void in
                         photoAlbumList.append(model)
                     })
                 })
             }
-            queryOperation1.addDependency(queryOperation)
-//            queryOperation.addExecutionBlock {
-//                self.getAlbumModelIn(createrType: AlbumCreaterType.User, completion: { (modelArr) in
-//                    let _ = modelArr?.map({ (model) -> Void in
-//                        photoAlbumList.append(model)
-//                    })
-//                })
-//            }
             
             //缓存
             let cacheOperation : Operation = BlockOperation.init(block: {
                 self.assetCache.setObject(photoAlbumList as AnyObject, forKey: PhotoToolKeyInUse.photoAlbumListKey as AnyObject)
             })
             
-            cacheOperation.addDependency(queryOperation1)
+            cacheOperation.addDependency(queryOperation)
             resultOperation.addDependency(cacheOperation)
             
-            OperationQueue.main.addOperations([queryOperation,queryOperation1,cacheOperation,resultOperation], waitUntilFinished: false)
+            OperationQueue.main.addOperations([queryOperation,cacheOperation,resultOperation], waitUntilFinished: false)
         }
         
     }
