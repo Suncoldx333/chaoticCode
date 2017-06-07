@@ -236,14 +236,13 @@
 
 -(void)initUI{
     
-    
     self.navigationItem.title = @"TEST";
     self.tapCount = 0;
     self.timerCount = 0;
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self.view addSubview:self.aniView];
-    [self.view addSubview:self.aniGreenView];
+//    [self.view addSubview:self.aniView];
+//    [self.view addSubview:self.aniGreenView];
     
     UIImageView *teImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
     teImage.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.2];

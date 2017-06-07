@@ -47,17 +47,7 @@ class PhotoTool: NSObject {
             OperationQueue.main.addOperation(resultOperation)
             
         }else{
-//            let createBySystemOperation : Operation = getAlbumModelIn(createrType: AlbumCreaterType.System) { (modelArr) in
-//                let _ = modelArr?.map({ (model) -> Void in
-//                    photoAlbumList.append(model)
-//                })
-//            }
-//            let createByUserOperation : Operation = getAlbumModelIn(createrType: AlbumCreaterType.User) { (modelArr) in
-//                let _ = modelArr?.map({ (model) -> Void in
-//                    photoAlbumList.append(model)
-//                })
-//            }
-//            createByUserOperation.addDependency(createBySystemOperation)
+
             //查询
             let queryOperation : BlockOperation = BlockOperation.init {
                 

@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <CoreData/CoreData.h>
 #import "ViewController.h"
+#import "MayIHelpYou-Swift.h"
 
 #import <Bugly/Bugly.h>
 
@@ -29,7 +30,7 @@
     [Bugly startWithAppId:@"6f75bca7da"];
     
     ViewController *controller = [[ViewController alloc] init];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:controller];
+    CustomNavController *nav = [[CustomNavController alloc] initWithRootViewController:controller];
     
     self.window.rootViewController = nav;
     

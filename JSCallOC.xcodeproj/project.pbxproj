@@ -17,6 +17,7 @@
 		185E247F1EB077F4006B5ABD /* closureTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E247E1EB077F4006B5ABD /* closureTestView.swift */; };
 		185F85921E83CD530051B761 /* testChild.m in Sources */ = {isa = PBXBuildFile; fileRef = 185F85911E83CD530051B761 /* testChild.m */; };
 		1865778E1ED5411300F15CCE /* teOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1865778D1ED5411300F15CCE /* teOperation.m */; };
+		186D0F411EE792450038CAC5 /* CustomNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186D0F401EE792450038CAC5 /* CustomNavController.swift */; };
 		18ABFB1B1ED6B6A100B179FF /* Employee+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ABFB191ED6B6A100B179FF /* Employee+CoreDataClass.swift */; };
 		18ABFB1C1ED6B6A100B179FF /* Employee+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ABFB1A1ED6B6A100B179FF /* Employee+CoreDataProperties.swift */; };
 		18ABFB1F1ED6B6D800B179FF /* Department+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ABFB1D1ED6B6D800B179FF /* Department+CoreDataClass.swift */; };
@@ -116,6 +117,7 @@
 		185F85911E83CD530051B761 /* testChild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testChild.m; sourceTree = "<group>"; };
 		1865778C1ED5411300F15CCE /* teOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = teOperation.h; sourceTree = "<group>"; };
 		1865778D1ED5411300F15CCE /* teOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = teOperation.m; sourceTree = "<group>"; };
+		186D0F401EE792450038CAC5 /* CustomNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavController.swift; sourceTree = "<group>"; };
 		18ABFB191ED6B6A100B179FF /* Employee+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Employee+CoreDataClass.swift"; path = "../Employee+CoreDataClass.swift"; sourceTree = "<group>"; };
 		18ABFB1A1ED6B6A100B179FF /* Employee+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Employee+CoreDataProperties.swift"; path = "../Employee+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		18ABFB1D1ED6B6D800B179FF /* Department+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Department+CoreDataClass.swift"; path = "../Department+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -386,6 +388,7 @@
 			isa = PBXGroup;
 			children = (
 				18F2FCF31EE641E600553D20 /* ImagePickWidgetSwift.swift */,
+				186D0F401EE792450038CAC5 /* CustomNavController.swift */,
 			);
 			name = Controllrt;
 			sourceTree = "<group>";
@@ -707,6 +710,7 @@
 				185E247F1EB077F4006B5ABD /* closureTestView.swift in Sources */,
 				18E98E2B1ED3EDDB007E92AE /* UIImage+MultiFormat.m in Sources */,
 				18D760821E5E7701007124CD /* MASCompositeConstraint.m in Sources */,
+				186D0F411EE792450038CAC5 /* CustomNavController.swift in Sources */,
 				18E88A591E7A8B57000DD208 /* baseModel.swift in Sources */,
 				18E98E221ED3EDDB007E92AE /* SDImageCache.m in Sources */,
 				18D760891E5E7701007124CD /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
