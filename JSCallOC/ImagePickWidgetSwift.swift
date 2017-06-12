@@ -52,11 +52,8 @@ class ImagePickWidgetSwift: UIViewController {
     
     func initData() {
         let tool : PhotoTool = PhotoTool.shareInstance
-        
-        let teArr : Array<String> = ["1","2","3"]
-        let _ = teArr.map { (str) -> Void in
-            print(str + "yooo")
-        }
+        let teStr = #keyPath(showView.frame)
+        print(teStr)
         
         tool.getPhotoAlbumList { [unowned self](ModelArray) in
             print("modelArrCount = \(ModelArray?.count ?? -1)")

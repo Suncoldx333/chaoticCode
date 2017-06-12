@@ -36,6 +36,8 @@
 @property (nonatomic,assign) int timerCount;
 @property (nonatomic,strong) UILabel *countLabel;
 
+@property (nonatomic,strong) UIView *oriView;
+
 @end
 
 @implementation ViewController
@@ -56,8 +58,9 @@
 //    [self initData];
 //    [self initNewData];
 //    [self initHelloData];
-    [self initUI];
+//    [self initUI];
 //    [self initNewUI];
+    [self initAniUI];
     self.navigationController.navigationBar.translucent = NO;
 
 }
@@ -234,7 +237,19 @@
     
 }
 
+-(void)initAniUI{
+    [self.view addSubview:self.aniView];
+}
+
 -(void)initUI{
+    
+    self.oriView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    self.oriView.backgroundColor = [UIColor grayColor];
+    [self.view addSubview:self.oriView];
+    
+    UIView *copyedView = self.oriView;
+    copyedView.frame = CGRectMake(150, 0, 100, 100);
+    [self.view addSubview:copyedView];
     
     self.navigationItem.title = @"TEST";
     self.tapCount = 0;
@@ -451,6 +466,8 @@
 
 -(void)testTap{
     
+    self.oriView.backgroundColor = [UIColor greenColor];
+    
 //    [self.aniView.layer addAnimation:[self makeLayer3DAni] forKey:nil];
     
     if (self.tapCount == 0) {
@@ -479,8 +496,8 @@
 //    AniViewCon *aniCon = [[AniViewCon alloc] init];
 //    [self.navigationController pushViewController:aniCon animated:YES];
     
-    ImagePickWidgetSwift *widget = [[ImagePickWidgetSwift alloc] init];
-    [self.navigationController pushViewController:widget animated:YES];
+//    ImagePickWidgetSwift *widget = [[ImagePickWidgetSwift alloc] init];
+//    [self.navigationController pushViewController:widget animated:YES];
     
 //    NSString *urlStr = @"balabala://topicDetail?id=xxx";
 //    
