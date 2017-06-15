@@ -19,6 +19,7 @@ public func hexColor(colorCode : Int) -> UIColor {
 }
 
 extension NSObject{
+    
     func printWithTime(content : AnyObject) {
         
         let nowDate = Date.init()
@@ -36,21 +37,24 @@ class ImagePickWidgetSwift: UIViewController {
         super.viewDidLoad()
         initData()
         initUI()
-        // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
     lazy var showView : ImagePickView = {
-        let teView : ImagePickView = ImagePickView.init(frame: CGRect.init(x: 0, y: 64, width: ScreenWidth, height: ScreenHeight - 64))
+        let teView : ImagePickView = ImagePickView.init(frame: CGRect.init(x: 0, y: 0, width: ScreenWidth, height: ScreenHeight - 64))
         return teView
     }()
     
     func initData() {
         let tool : PhotoTool = PhotoTool.shareInstance
+        let teStr = #keyPath(showView.frame)
+        print(teStr)
+        
         tool.getPhotoAlbumList { [unowned self](ModelArray) in
             print("modelArrCount = \(ModelArray?.count ?? -1)")
             
@@ -67,7 +71,7 @@ class ImagePickWidgetSwift: UIViewController {
     
     func initUI()  {
         self.view.backgroundColor = hexColor(colorCode: 0xffffff)
-        
+        self.navigationItem.title = "inWidget"
         self.view.addSubview(showView)
         
     }

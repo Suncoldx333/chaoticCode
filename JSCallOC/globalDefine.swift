@@ -11,6 +11,36 @@ import UIKit
 typealias cellConfigurationBlock = (UITableViewCell) ->Void
 typealias testBlock = (Double) ->(String)
 
+//颜色，Eg:ColorMethodho(0x00c18b)
+func ColorMethodho(hexValue : Int) -> UIColor {
+    let red   = ((hexValue & 0xFF0000) >> 16)
+    let green = ((hexValue & 0xFF00) >> 8)
+    let blue  = (hexValue & 0xFF)
+    
+    return UIColor(red: CGFloat(red)/255.0, green: CGFloat(green)/255.0, blue: CGFloat(blue)/255.0, alpha: CGFloat(1))
+}
+
+//获取View的frame相关信息
+func ViewX(v : UIView) -> CGFloat{
+    let x : CGFloat = v.frame.origin.x
+    return x
+}
+
+func ViewY(v : UIView) -> CGFloat{
+    let y : CGFloat = v.frame.origin.y
+    return y
+}
+
+func ViewWidh(v : UIView) -> CGFloat{
+    let width : CGFloat = v.frame.size.width
+    return width
+}
+
+func ViewHeight(v : UIView) -> CGFloat{
+    let height : CGFloat = v.frame.size.height
+    return height
+}
+
 struct cellHeightKey {
     static let cellHeightCacheKey = UnsafeRawPointer.init(bitPattern: "cellHeightCache".hashValue)
 
