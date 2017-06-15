@@ -681,11 +681,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
 				607E8BBB1EF2C7A400DA8FA2 /* testAniView.swift in Sources */,
-=======
 				18F405B51EEE9E47008828F9 /* BaseRTPathView.swift in Sources */,
->>>>>>> origin/master
 				18D760841E5E7701007124CD /* MASConstraintMaker.m in Sources */,
 				18E98E271ED3EDDB007E92AE /* SDWebImageManager.m in Sources */,
 				18F405B71EEE9E99008828F9 /* BaseRTDataView.swift in Sources */,
