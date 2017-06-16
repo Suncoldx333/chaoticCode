@@ -68,9 +68,6 @@
 		18F2FCF91EE6424D00553D20 /* PhotoTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2FCF81EE6424C00553D20 /* PhotoTool.swift */; };
 		18F2FCFB1EE64F8800553D20 /* PhotoAlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2FCFA1EE64F8800553D20 /* PhotoAlbumModel.swift */; };
 		18F2FCFD1EE681F500553D20 /* ImagePickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2FCFC1EE681F500553D20 /* ImagePickView.swift */; };
-		18F405B21EEE9E0B008828F9 /* testAniVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F405B11EEE9E0B008828F9 /* testAniVC.m */; };
-		18F405B51EEE9E47008828F9 /* BaseRTPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F405B41EEE9E47008828F9 /* BaseRTPathView.swift */; };
-		18F405B71EEE9E99008828F9 /* BaseRTDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F405B61EEE9E99008828F9 /* BaseRTDataView.swift */; };
 		18F523651E9C7C8B00ACF0D4 /* GlobalTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F523641E9C7C8B00ACF0D4 /* GlobalTool.m */; };
 		52BC7F8B1BFB68A800642835 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BC7F8A1BFB68A800642835 /* main.m */; };
 		52BC7F8E1BFB68A800642835 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BC7F8D1BFB68A800642835 /* AppDelegate.m */; };
@@ -213,10 +210,6 @@
 		18F2FCF81EE6424C00553D20 /* PhotoTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTool.swift; sourceTree = "<group>"; };
 		18F2FCFA1EE64F8800553D20 /* PhotoAlbumModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAlbumModel.swift; sourceTree = "<group>"; };
 		18F2FCFC1EE681F500553D20 /* ImagePickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickView.swift; sourceTree = "<group>"; };
-		18F405B01EEE9E0B008828F9 /* testAniVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testAniVC.h; sourceTree = "<group>"; };
-		18F405B11EEE9E0B008828F9 /* testAniVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testAniVC.m; sourceTree = "<group>"; };
-		18F405B41EEE9E47008828F9 /* BaseRTPathView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRTPathView.swift; sourceTree = "<group>"; };
-		18F405B61EEE9E99008828F9 /* BaseRTDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRTDataView.swift; sourceTree = "<group>"; };
 		18F523631E9C7C8B00ACF0D4 /* GlobalTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalTool.h; sourceTree = "<group>"; };
 		18F523641E9C7C8B00ACF0D4 /* GlobalTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalTool.m; sourceTree = "<group>"; };
 		52BC7F861BFB68A800642835 /* JSCallOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSCallOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -420,10 +413,6 @@
 		18F405B31EEE9E23008828F9 /* switchAnimation */ = {
 			isa = PBXGroup;
 			children = (
-				18F405B01EEE9E0B008828F9 /* testAniVC.h */,
-				18F405B11EEE9E0B008828F9 /* testAniVC.m */,
-				18F405B41EEE9E47008828F9 /* BaseRTPathView.swift */,
-				18F405B61EEE9E99008828F9 /* BaseRTDataView.swift */,
 			);
 			name = switchAnimation;
 			sourceTree = "<group>";
@@ -673,10 +662,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18F405B51EEE9E47008828F9 /* BaseRTPathView.swift in Sources */,
 				18D760841E5E7701007124CD /* MASConstraintMaker.m in Sources */,
 				18E98E271ED3EDDB007E92AE /* SDWebImageManager.m in Sources */,
-				18F405B71EEE9E99008828F9 /* BaseRTDataView.swift in Sources */,
 				18E98E281ED3EDDB007E92AE /* SDWebImagePrefetcher.m in Sources */,
 				18E98E2C1ED3EDDB007E92AE /* UIImage+WebP.m in Sources */,
 				18E98E201ED3EDDB007E92AE /* MKAnnotationView+WebCache.m in Sources */,
@@ -719,7 +706,6 @@
 				18CD1C371EC0685C00CD42E9 /* showWhereBlock.m in Sources */,
 				18F2FCF91EE6424D00553D20 /* PhotoTool.swift in Sources */,
 				18F523651E9C7C8B00ACF0D4 /* GlobalTool.m in Sources */,
-				18F405B21EEE9E0B008828F9 /* testAniVC.m in Sources */,
 				18ABFB1B1ED6B6A100B179FF /* Employee+CoreDataClass.swift in Sources */,
 				52BC7F8E1BFB68A800642835 /* AppDelegate.m in Sources */,
 				18ABFB1C1ED6B6A100B179FF /* Employee+CoreDataProperties.swift in Sources */,

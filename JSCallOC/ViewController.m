@@ -239,6 +239,25 @@
 
 -(void)initAniUI{
     [self.view addSubview:self.aniView];
+    [self.view addSubview:self.aniGreenView];
+    self.tapCount = 0;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(testAniTap)];
+    [self.view addGestureRecognizer:tap];
+}
+
+-(void)testAniTap{
+    NSLog(@"hello test");
+    
+    self.tapCount ++;
+    
+    if (self.tapCount % 2 == 1) {
+        [self turnAndScaleInZ:self.aniView];
+        [self turnDataUnClockwiseAndScaleInZ:self.aniGreenView];
+    }else{
+        [self turnUnClockwiseAndScaleInZ:self.aniView];
+        [self turnDataClockwiseAndScaleInZ:self.aniGreenView];
+    }
+    
 }
 
 -(void)initUI{
@@ -280,11 +299,12 @@
         _aniView.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.2];
         _aniView.center = self.view.center;
         _aniView.layer.transform = [self getTransForm3DWith:0.f * M_PI];
-        [_aniView addSubview:self.countLabel];
-        _aniView.alpha = 1;
-        _aniView.userInteractionEnabled = YES;
-        UIView *testLocView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-        testLocView.backgroundColor = [[UIColor greenColor] colorWithAlphaComponent:0.2];
+        _aniView.layer.doubleSided = NO;
+//        [_aniView addSubview:self.countLabel];
+//        _aniView.alpha = 1;
+//        _aniView.userInteractionEnabled = YES;
+//        UIView *testLocView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+//        testLocView.backgroundColor = [[UIColor greenColor] colorWithAlphaComponent:0.2];
 //        [_aniView addSubview:testLocView];
         
     }
@@ -298,9 +318,9 @@
         _aniGreenView.backgroundColor = [[UIColor greenColor] colorWithAlphaComponent:0.2];
         _aniGreenView.center = self.view.center;
         _aniGreenView.layer.transform = [self getTransForm3DWith:-1.f * M_PI];
-//        _aniGreenView.alpha = 0;
+        _aniGreenView.alpha = 1;
         _aniGreenView.userInteractionEnabled = NO;
-        
+        _aniGreenView.layer.doubleSided = NO;
         UIView *testLocView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
         testLocView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
         [_aniGreenView addSubview:testLocView];
@@ -579,6 +599,246 @@
     }
     cell.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.2];
     return cell;
+}
+
+#pragma mark -动画效果
+-(void)turnAndScaleInZ:(UIView *)teView{
+    CABasicAnimation *ani1 = [CABasicAnimation animationWithKeyPath:@"transform"];
+    CATransform3D transform1 = CATransform3DIdentity;
+    transform1.m34 = 4.5 / -2000;
+    NSValue *value1 = [NSValue valueWithCATransform3D:CATransform3DRotate(transform1, 0 * M_PI, 0, 1, 0)];
+    ani1.fromValue = value1;
+    
+    value1 = [NSValue valueWithCATransform3D:CATransform3DRotate(transform1, -0.5 * M_PI, 0, 1, 0)];
+    ani1.toValue = value1;
+    
+    ani1.duration = 0.5;
+    ani1.fillMode = kCAFillModeForwards;
+    ani1.removedOnCompletion = NO;
+    ani1.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    
+    CABasicAnimation *ani2 = [CABasicAnimation animationWithKeyPath:@"transform"];
+    CATransform3D transform2 = CATransform3DIdentity;
+    transform2.m34 = 4.5 / -2000;
+    NSValue *value2 = [NSValue valueWithCATransform3D:CATransform3DRotate(transform2, -0.5 * M_PI, 0, 1, 0)];
+    ani2.fromValue = value2;
+    
+    value2 = [NSValue valueWithCATransform3D:CATransform3DRotate(transform2, -1 * M_PI, 0, 1, 0)];
+    ani2.toValue = value2;
+    ani2.beginTime = 0.5;
+    ani2.duration = 0.5;
+    ani2.fillMode = kCAFillModeForwards;
+    ani2.removedOnCompletion = NO;
+    ani2.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    
+    CABasicAnimation *ani3 = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+
+    ani3.fromValue = [NSNumber numberWithFloat:1.0];
+    ani3.toValue = [NSNumber numberWithFloat:0.7];
+    
+    ani3.duration = 0.5;
+    ani3.fillMode = kCAFillModeForwards;
+    ani3.removedOnCompletion = NO;
+    ani3.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    
+    CABasicAnimation *ani4 = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+
+    ani4.fromValue = [NSNumber numberWithFloat:0.7];
+    ani4.toValue = [NSNumber numberWithFloat:1.0];
+    ani4.beginTime = 0.5;
+    ani4.duration = 0.5;
+    ani4.fillMode = kCAFillModeForwards;
+    ani4.removedOnCompletion = NO;
+    ani4.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    group.duration = 1;
+    group.autoreverses = NO;
+    group.animations = @[ani1,ani2,ani3,ani4];
+    group.fillMode = kCAFillModeForwards;
+    group.removedOnCompletion = NO;
+    
+    [teView.layer addAnimation:group forKey:nil];
+}
+
+-(void)turnUnClockwiseAndScaleInZ:(UIView *)teView{
+    CABasicAnimation *ani1 = [CABasicAnimation animationWithKeyPath:@"transform"];
+    CATransform3D transform1 = CATransform3DIdentity;
+    transform1.m34 = 4.5 / -2000;
+    NSValue *value1 = [NSValue valueWithCATransform3D:CATransform3DRotate(transform1, -1 * M_PI, 0, 1, 0)];
+    ani1.fromValue = value1;
+    
+    value1 = [NSValue valueWithCATransform3D:CATransform3DRotate(transform1, -0.5 * M_PI, 0, 1, 0)];
+    ani1.toValue = value1;
+    
+    ani1.duration = 0.5;
+    ani1.fillMode = kCAFillModeForwards;
+    ani1.removedOnCompletion = NO;
+    ani1.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    
+    CABasicAnimation *ani2 = [CABasicAnimation animationWithKeyPath:@"transform"];
+    CATransform3D transform2 = CATransform3DIdentity;
+    transform2.m34 = 4.5 / -2000;
+    NSValue *value2 = [NSValue valueWithCATransform3D:CATransform3DRotate(transform2, -0.5 * M_PI, 0, 1, 0)];
+    ani2.fromValue = value2;
+    
+    value2 = [NSValue valueWithCATransform3D:CATransform3DRotate(transform2, 0 * M_PI, 0, 1, 0)];
+    ani2.toValue = value2;
+    ani2.beginTime = 0.5;
+    ani2.duration = 0.5;
+    ani2.fillMode = kCAFillModeForwards;
+    ani2.removedOnCompletion = NO;
+    ani2.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    
+    CABasicAnimation *ani3 = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    
+    ani3.fromValue = [NSNumber numberWithFloat:1.0];
+    ani3.toValue = [NSNumber numberWithFloat:0.7];
+    
+    ani3.duration = 0.5;
+    ani3.fillMode = kCAFillModeForwards;
+    ani3.removedOnCompletion = NO;
+    ani3.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    
+    CABasicAnimation *ani4 = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    
+    ani4.fromValue = [NSNumber numberWithFloat:0.7];
+    ani4.toValue = [NSNumber numberWithFloat:1.0];
+    ani4.beginTime = 0.5;
+    ani4.duration = 0.5;
+    ani4.fillMode = kCAFillModeForwards;
+    ani4.removedOnCompletion = NO;
+    ani4.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    group.duration = 1;
+    group.autoreverses = NO;
+    group.animations = @[ani1,ani2,ani3,ani4];
+    group.fillMode = kCAFillModeForwards;
+    group.removedOnCompletion = NO;
+    //    group.repeatCount =
+    
+    [teView.layer addAnimation:group forKey:nil];
+}
+
+-(void)turnDataUnClockwiseAndScaleInZ:(UIView *)teView{
+    CABasicAnimation *ani1 = [CABasicAnimation animationWithKeyPath:@"transform"];
+    CATransform3D transform1 = CATransform3DIdentity;
+    transform1.m34 = 4.5 / -2000;
+    NSValue *value1 = [NSValue valueWithCATransform3D:CATransform3DRotate(transform1, -1 * M_PI, 0, 1, 0)];
+    ani1.fromValue = value1;
+    
+    value1 = [NSValue valueWithCATransform3D:CATransform3DRotate(transform1, -1.5 * M_PI, 0, 1, 0)];
+    ani1.toValue = value1;
+    
+    ani1.duration = 0.5;
+    ani1.fillMode = kCAFillModeForwards;
+    ani1.removedOnCompletion = NO;
+    ani1.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    
+    CABasicAnimation *ani2 = [CABasicAnimation animationWithKeyPath:@"transform"];
+    CATransform3D transform2 = CATransform3DIdentity;
+    transform2.m34 = 4.5 / -2000;
+    NSValue *value2 = [NSValue valueWithCATransform3D:CATransform3DRotate(transform2, -1.5 * M_PI, 0, 1, 0)];
+    ani2.fromValue = value2;
+    
+    value2 = [NSValue valueWithCATransform3D:CATransform3DRotate(transform2, -2 * M_PI, 0, 1, 0)];
+    ani2.toValue = value2;
+    ani2.beginTime = 0.5;
+    ani2.duration = 0.5;
+    ani2.fillMode = kCAFillModeForwards;
+    ani2.removedOnCompletion = NO;
+    ani2.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    
+    CABasicAnimation *ani3 = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    
+    ani3.fromValue = [NSNumber numberWithFloat:1.0];
+    ani3.toValue = [NSNumber numberWithFloat:0.7];
+    
+    ani3.duration = 0.5;
+    ani3.fillMode = kCAFillModeForwards;
+    ani3.removedOnCompletion = NO;
+    ani3.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    
+    CABasicAnimation *ani4 = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    
+    ani4.fromValue = [NSNumber numberWithFloat:0.7];
+    ani4.toValue = [NSNumber numberWithFloat:1.0];
+    ani4.beginTime = 0.5;
+    ani4.duration = 0.5;
+    ani4.fillMode = kCAFillModeForwards;
+    ani4.removedOnCompletion = NO;
+    ani4.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    group.duration = 1;
+    group.autoreverses = NO;
+    group.animations = @[ani1,ani2,ani3,ani4];
+    group.fillMode = kCAFillModeForwards;
+    group.removedOnCompletion = NO;
+    //    group.repeatCount =
+    
+    [teView.layer addAnimation:group forKey:nil];
+}
+
+-(void)turnDataClockwiseAndScaleInZ:(UIView *)teView{
+    CABasicAnimation *ani1 = [CABasicAnimation animationWithKeyPath:@"transform"];
+    CATransform3D transform1 = CATransform3DIdentity;
+    transform1.m34 = 4.5 / -2000;
+    NSValue *value1 = [NSValue valueWithCATransform3D:CATransform3DRotate(transform1, 0 * M_PI, 0, 1, 0)];
+    ani1.fromValue = value1;
+    
+    value1 = [NSValue valueWithCATransform3D:CATransform3DRotate(transform1, 0.5 * M_PI, 0, 1, 0)];
+    ani1.toValue = value1;
+    
+    ani1.duration = 0.5;
+    ani1.fillMode = kCAFillModeForwards;
+    ani1.removedOnCompletion = NO;
+    ani1.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    
+    CABasicAnimation *ani2 = [CABasicAnimation animationWithKeyPath:@"transform"];
+    CATransform3D transform2 = CATransform3DIdentity;
+    transform2.m34 = 4.5 / -2000;
+    NSValue *value2 = [NSValue valueWithCATransform3D:CATransform3DRotate(transform2, 0.5 * M_PI, 0, 1, 0)];
+    ani2.fromValue = value2;
+    
+    value2 = [NSValue valueWithCATransform3D:CATransform3DRotate(transform2, 1 * M_PI, 0, 1, 0)];
+    ani2.toValue = value2;
+    ani2.beginTime = 0.5;
+    ani2.duration = 0.5;
+    ani2.fillMode = kCAFillModeForwards;
+    ani2.removedOnCompletion = NO;
+    ani2.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    
+    CABasicAnimation *ani3 = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    
+    ani3.fromValue = [NSNumber numberWithFloat:1.0];
+    ani3.toValue = [NSNumber numberWithFloat:0.7];
+    
+    ani3.duration = 0.5;
+    ani3.fillMode = kCAFillModeForwards;
+    ani3.removedOnCompletion = NO;
+    ani3.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    
+    CABasicAnimation *ani4 = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    
+    ani4.fromValue = [NSNumber numberWithFloat:0.7];
+    ani4.toValue = [NSNumber numberWithFloat:1.0];
+    ani4.beginTime = 0.5;
+    ani4.duration = 0.5;
+    ani4.fillMode = kCAFillModeForwards;
+    ani4.removedOnCompletion = NO;
+    ani4.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    group.duration = 1;
+    group.autoreverses = NO;
+    group.animations = @[ani1,ani2,ani3,ani4];
+    group.fillMode = kCAFillModeForwards;
+    group.removedOnCompletion = NO;
+    //    group.repeatCount =
+    
+    [teView.layer addAnimation:group forKey:nil];
 }
 
 - (void)didReceiveMemoryWarning {
