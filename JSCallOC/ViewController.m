@@ -18,6 +18,7 @@
 #import "HelloOperation.h"
 #import "UIImageView+WebCache.h"
 #import "SBJSON.h"
+#import "testAnimationVC.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>{
     NSInteger tetimerCount;
@@ -289,8 +290,13 @@
                       completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                           
                       }];
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(testTap)];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(jumpToAni)];
     [self.view addGestureRecognizer:tap];
+}
+
+-(void)jumpToAni{
+    testAnimationVC *aniVC = [[testAnimationVC alloc] init];
+    [self.navigationController pushViewController:aniVC animated:YES];
 }
 
 -(UIView *)aniView{
