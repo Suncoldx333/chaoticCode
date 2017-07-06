@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		180279231ED95E1B009BBA97 /* UIViewController+Tracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 180279221ED95E1B009BBA97 /* UIViewController+Tracking.m */; };
+		18087AD21EFD03EA009CEF47 /* MD5Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 18087AD11EFD03EA009CEF47 /* MD5Encryption.m */; };
 		180EE1651ED7D0B300381806 /* AniViewCon.m in Sources */ = {isa = PBXBuildFile; fileRef = 180EE1641ED7D0B200381806 /* AniViewCon.m */; };
 		180EE1681ED7D1C500381806 /* animationInSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180EE1671ED7D1C500381806 /* animationInSwift.swift */; };
 		182B63D71EC00EEF00E2DADA /* UIViewController+testSubFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 182B63D61EC00EEF00E2DADA /* UIViewController+testSubFunc.m */; };
@@ -43,6 +44,7 @@
 		18D7608B1E5E7701007124CD /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D760801E5E7701007124CD /* ViewController+MASAdditions.m */; };
 		18DAAA511EC15DE200B5C6B5 /* parentTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DAAA501EC15DE200B5C6B5 /* parentTable.swift */; };
 		18DD67451EB97E49000BD37E /* StepCountWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DD67441EB97E49000BD37E /* StepCountWidget.swift */; };
+		18DECAC11F03998400BF1D3D /* UIFont+swizzleFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DECAC01F03998400BF1D3D /* UIFont+swizzleFont.m */; };
 		18E874101ED6744800CAF89C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 18E8740E1ED6744800CAF89C /* Model.xcdatamodeld */; };
 		18E8741E1ED67C3200CAF89C /* BaseCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E8741D1ED67C3200CAF89C /* BaseCoreData.swift */; };
 		18E88A591E7A8B57000DD208 /* baseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E88A581E7A8B57000DD208 /* baseModel.swift */; };
@@ -104,6 +106,8 @@
 /* Begin PBXFileReference section */
 		180279211ED95E1B009BBA97 /* UIViewController+Tracking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Tracking.h"; sourceTree = "<group>"; };
 		180279221ED95E1B009BBA97 /* UIViewController+Tracking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Tracking.m"; sourceTree = "<group>"; };
+		18087AD01EFD03EA009CEF47 /* MD5Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5Encryption.h; sourceTree = "<group>"; };
+		18087AD11EFD03EA009CEF47 /* MD5Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MD5Encryption.m; sourceTree = "<group>"; };
 		180EE1621ED7C57700381806 /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 		180EE1631ED7D0B200381806 /* AniViewCon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AniViewCon.h; sourceTree = "<group>"; };
 		180EE1641ED7D0B200381806 /* AniViewCon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AniViewCon.m; sourceTree = "<group>"; };
@@ -168,6 +172,8 @@
 		18D760801E5E7701007124CD /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
 		18DAAA501EC15DE200B5C6B5 /* parentTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = parentTable.swift; sourceTree = "<group>"; };
 		18DD67441EB97E49000BD37E /* StepCountWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepCountWidget.swift; sourceTree = "<group>"; };
+		18DECABF1F03998400BF1D3D /* UIFont+swizzleFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+swizzleFont.h"; sourceTree = "<group>"; };
+		18DECAC01F03998400BF1D3D /* UIFont+swizzleFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+swizzleFont.m"; sourceTree = "<group>"; };
 		18E8740F1ED6744800CAF89C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		18E8741D1ED67C3200CAF89C /* BaseCoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCoreData.swift; sourceTree = "<group>"; };
 		18E88A571E7A8B57000DD208 /* JSCallOC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JSCallOC-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -268,6 +274,8 @@
 		180EE1661ED7D19C00381806 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
+				18087AD01EFD03EA009CEF47 /* MD5Encryption.h */,
+				18087AD11EFD03EA009CEF47 /* MD5Encryption.m */,
 				180EE1671ED7D1C500381806 /* animationInSwift.swift */,
 				607E8BB71EF2C56C00DA8FA2 /* testAnimationVC.h */,
 				607E8BB81EF2C56C00DA8FA2 /* testAnimationVC.m */,
@@ -458,6 +466,8 @@
 				52BC7F8D1BFB68A800642835 /* AppDelegate.m */,
 				52BC7F8F1BFB68A800642835 /* ViewController.h */,
 				52BC7F901BFB68A800642835 /* ViewController.m */,
+				18DECABF1F03998400BF1D3D /* UIFont+swizzleFont.h */,
+				18DECAC01F03998400BF1D3D /* UIFont+swizzleFont.m */,
 				184955AF1EE00D6A00AE7634 /* HelloOperation.h */,
 				184955B01EE00D6A00AE7634 /* HelloOperation.m */,
 				180EE1631ED7D0B200381806 /* AniViewCon.h */,
@@ -670,11 +680,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				607E8BBB1EF2C7A400DA8FA2 /* testAniView.swift in Sources */,
-				18F405B51EEE9E47008828F9 /* BaseRTPathView.swift in Sources */,
-
 				18D760841E5E7701007124CD /* MASConstraintMaker.m in Sources */,
+				18DECAC11F03998400BF1D3D /* UIFont+swizzleFont.m in Sources */,
 				18E98E271ED3EDDB007E92AE /* SDWebImageManager.m in Sources */,
 				18E98E281ED3EDDB007E92AE /* SDWebImagePrefetcher.m in Sources */,
 				18E98E2C1ED3EDDB007E92AE /* UIImage+WebP.m in Sources */,
@@ -714,6 +722,7 @@
 				607E8BB91EF2C56C00DA8FA2 /* testAnimationVC.m in Sources */,
 				18B7C0671ED292A700900095 /* SDWebImageInSwift.swift in Sources */,
 				18D760861E5E7701007124CD /* MASViewAttribute.m in Sources */,
+				18087AD21EFD03EA009CEF47 /* MD5Encryption.m in Sources */,
 				18DAAA511EC15DE200B5C6B5 /* parentTable.swift in Sources */,
 				18D7608A1E5E7701007124CD /* View+MASAdditions.m in Sources */,
 				18CD1C371EC0685C00CD42E9 /* showWhereBlock.m in Sources */,
@@ -829,7 +838,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -866,7 +875,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

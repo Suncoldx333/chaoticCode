@@ -20,6 +20,12 @@
 #import "SBJSON.h"
 #import "testAnimationVC.h"
 
+#import "MD5Encryption.h"
+//#import "UIFont+swizzleFont.h"
+
+#define KEYSTR_RUNRECORD @"&ODJw#h03b_0EaV"  //跑步记录
+#define KEYSTR @"&wh2016_swcampus"  //其它
+
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>{
     NSInteger tetimerCount;
 }
@@ -56,21 +62,121 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self initData];
+    [self initData];
 //    [self initNewData];
 //    [self initHelloData];
 //    [self initUI];
-//    [self initNewUI];
-    [self initAniUI];
+    [self initNewUI];
+//    [self initAniUI];
     self.navigationController.navigationBar.translucent = NO;
 
 }
 
 -(void)initData{
-    baseModel *model = [[baseModel alloc] initWithTeDouble:1.23];
+    
+    NSString *hhhh = nil;
+    if ([hhhh rangeOfString:@"swift"].location != NSNotFound) {
+        NSLog(@"hello");
+    }
+    
+    
+    NSString *uutrt = @"9.9";
+    NSNumber *to = [NSNumber numberWithInt:uutrt.intValue];
+    
+    NSNumber *llll = [NSNumber numberWithInt:160];
+    double calorieD = 60.000 * (llll.doubleValue * 1.000 / 1000.000) * 1.036;
+    NSNumber *calorieNum = [NSNumber numberWithInt:[[NSNumber numberWithDouble:calorieD] intValue]];
+    
+//    [[ImageReader shareInstance] runDataAna];
+    NSString *teLeng = @"8583.722568";
+    if (teLeng.doubleValue / 1000.0 < 1.0) {
+        NSLog(@"no");
+    }
+    NSNumber *teNum = [NSNumber numberWithInt:0];
+    if (teNum.integerValue == 0) {
+        NSLog(@"yes");
+    }
+    
+    NSString *tenl = nil;
+    if (tenl.intValue == 0) {
+        NSLog(@"0");
+    }
+    
+    
+    NSMutableDictionary *combinedData = [[NSMutableDictionary alloc] init];
+
+    [combinedData setObject:[NSNumber numberWithInt:1] forKey:@"sportType"];
+    [combinedData setObject:[NSNumber numberWithInt:53] forKey:@"totalTime"];
+    [combinedData setObject:[NSNumber numberWithInt:119] forKey:@"totalDis"];
+    [combinedData setObject:[NSNumber numberWithDouble:7.42296918767507] forKey:@"speed"];
+    [combinedData setObject:[NSNumber numberWithInt:500] forKey:@"selDistance"];
+    [combinedData setObject:@"1498127380079" forKey:@"startTime"];
+    [combinedData setObject:@"1498127459000" forKey:@"stopTime"];
+    [combinedData setObject:[NSNumber numberWithBool:NO] forKey:@"complete"];
+    [combinedData setObject:[NSNumber numberWithInt:2] forKey:@"unCompleteReason"];
+    [combinedData setObject:[NSNumber numberWithBool:NO] forKey:@"getPrize"];
+    
+    [combinedData setObject:[NSNumber numberWithInt:0] forKey:@"status"];
+    [combinedData setObject:@"AB9F4D85-1AF0-47AC-815F-6C59ADC297E2" forKey:@"uuid"];
+    [combinedData setObject:@"107513" forKey:@"uid"];
+    [combinedData setObject:[NSNumber numberWithInt:0] forKey:@"totalSteps"];
+    [combinedData setObject:[NSNumber numberWithInt:0] forKey:@"avgStepFreq"];
+    [combinedData setObject:[NSNumber numberWithInt:900003] forKey:@"selectedUnid"];
+    [combinedData setObject:[NSNumber numberWithInt:4] forKey:@"calorie"];
+    
+    NSString *sig = [self incomingDictionaryReturnsTheEncryptedStringForDic:combinedData aboutScore:YES];
+    
 }
 
-
+-(NSString *)incomingDictionaryReturnsTheEncryptedStringForDic:(NSMutableDictionary*)dic aboutScore:(BOOL)didAbout{
+    if (didAbout) {
+        if ([dic[@"getPrize"] boolValue]) {
+            [dic setObject:@"true" forKey:@"getPrize"];
+        }else{
+            [dic setObject:@"false" forKey:@"getPrize"];
+        }
+        
+        if ([dic[@"complete"] boolValue]) {
+            [dic setObject:@"true" forKey:@"complete"];
+        }else{
+            [dic setObject:@"false" forKey:@"complete"];
+        }
+    }
+    
+    NSStringCompareOptions comparisonOptions = NSCaseInsensitiveSearch|NSNumericSearch|
+    NSWidthInsensitiveSearch|NSForcedOrderingSearch;
+    
+    NSComparator sort = ^(NSString *obj1,NSString *obj2){
+        NSRange range = NSMakeRange(0,obj1.length);
+        return [obj1 compare:obj2 options:comparisonOptions range:range];
+    };
+    NSArray<NSString *> *resultArray = [[dic allKeys] sortedArrayUsingComparator:sort];
+    
+    NSMutableString * str = [NSMutableString string];
+    
+    for (int i = 0; i<resultArray.count; i++) {
+        
+        if ([[resultArray objectAtIndex:i] isEqualToString:@"fivePointJson"] || [[resultArray objectAtIndex:i] isEqualToString:@"allLocJson"]) {
+            
+        }else{
+            if (i == 0 || str.length == 0) {
+                str = [NSMutableString stringWithFormat:@"%@=%@",resultArray[i],dic[resultArray[i]]];
+            }else{
+                str = [NSMutableString stringWithFormat:@"%@&%@=%@",str,resultArray[i],dic[resultArray[i]]];
+            }
+        }
+        
+    }
+    
+    if (didAbout) {
+        str = [NSMutableString stringWithFormat:@"%@%@",str,KEYSTR_RUNRECORD];
+    }else{
+        str = [NSMutableString stringWithFormat:@"%@%@",str,KEYSTR];
+    }
+    
+    NSString * string = [MD5Encryption getMd5String:str];
+    return string;
+}
 
 -(void)initHelloData{
     NSInteger avgStepFreq = 0;
@@ -174,68 +280,47 @@
 
 -(void)initNewUI{
     
-    NSBlockOperation *op1 = [NSBlockOperation blockOperationWithBlock:^{
-       NSLog(@"1在第%@个线程",[NSThread currentThread]);
-        
-    }];
-    [op1 addExecutionBlock:^{
-        NSLog(@"2在第%@个线程",[NSThread currentThread]);
-    }];
-    [op1 addExecutionBlock:^{
-        NSLog(@"3在第%@个线程",[NSThread currentThread]);
-    }];
-//    [op1 addExecutionBlock:^{
-//        NSLog(@"4在第%@个线程",[NSThread currentThread]);
-//    }];
-//    [op1 addExecutionBlock:^{
-//        NSLog(@"5在第%@个线程",[NSThread currentThread]);
-//    }];
-    
-
-    NSBlockOperation *op2 = [NSBlockOperation blockOperationWithBlock:^{
-        NSLog(@"6在第%@个线程",[NSThread currentThread]);
-    }];
-    [op2 addExecutionBlock:^{
-        NSLog(@"7在第%@个线程",[NSThread currentThread]);
-    }];
-    [op2 addExecutionBlock:^{
-        NSLog(@"8在第%@个线程",[NSThread currentThread]);
-    }];
-    [op2 addExecutionBlock:^{
-        NSLog(@"9在第%@个线程",[NSThread currentThread]);
-    }];
-    [op2 addExecutionBlock:^{
-        NSLog(@"10在第%@个线程",[NSThread currentThread]);
-    }];
-//    [op2 addDependency:op1];
-    
-    NSArray *ops = @[op2,op1];
-    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-    queue.maxConcurrentOperationCount = 4;
-    [queue addOperations:ops waitUntilFinished:NO];
-//    NSOperation *op3 = [NSBlockOperation blockOperationWithBlock:^{
-//        [op2 start];
-//        [op1 start];
-//        
-//    }];
-//    [op3 start];
-    
-//    tesWebImageView *teView = [[tesWebImageView alloc] initWithFrame:self.view.bounds];
-//    [self.view addSubview:teView];
-    
     UIImageView *teImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
     teImage.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.2];
     teImage.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
     teImage.userInteractionEnabled = YES;
     [self.view addSubview:teImage];
-//
-//    [teImage sd_setImageWithURL:[NSURL URLWithString:@"http://gxapp-images.oss-cn-hangzhou.aliyuncs.com/news-images/20170510/5387f9a7c2af45eda6a70ceea78d8bac.jpg"]
-//               placeholderImage:[UIImage imageNamed:@"topicGuide"]
-//                      completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-//                          
-//                      }];
-
     
+    [teImage setImageWithImageUrl:[NSURL URLWithString:@"https://raw.githubent.com/onevcat/Kingfisher/master/images/kingfisher-1.jpg"]
+                 placeholderImage:[UIImage imageNamed:@"topicGuide"]
+                    progressBlock:^(int64_t receivedSize, int64_t totalSize) {
+                        NSLog(@"received = %lld,total = %lld",receivedSize,totalSize);
+                    }
+                    completeBlock:^(UIImage * _Nullable image, NSError * _Nullable error, BOOL finish) {
+                        NSLog(@"%@",error);
+                    }];
+    
+    
+    UIButton *clearMem = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 50)];
+    [clearMem setTitle:@"clearMem" forState:UIControlStateNormal];
+    [clearMem setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    clearMem.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:clearMem];
+    [clearMem addTarget:self
+                 action:@selector(clearMenMethod)
+       forControlEvents:UIControlEventTouchUpInside];
+    
+    UIButton *clearDsik = [[UIButton alloc] initWithFrame:CGRectMake(275, 0, 100, 50)];
+    [clearDsik setTitle:@"clearDsik" forState:UIControlStateNormal];
+    [clearDsik setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    clearDsik.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:clearDsik];
+    [clearDsik addTarget:self
+                 action:@selector(clearDiskMethod)
+       forControlEvents:UIControlEventTouchUpInside];
+}
+
+-(void)clearMenMethod{
+    [imageCacheInSwift.shareInstance removeMemory];
+}
+
+-(void)clearDiskMethod{
+    [imageCacheInSwift.shareInstance removeDisk];
 }
 
 -(void)initAniUI{
@@ -263,13 +348,52 @@
 
 -(void)initUI{
     
+    for (NSInteger i = 0; i < 3; i++) {
+        CGFloat newY = 100 + i * 20;
+        UILabel *teFontLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, newY, 300, 20)];
+        switch (i) {
+            case 0:
+                teFontLabel.text = @"systemf --- 我有一个捣鼓朋友";
+                teFontLabel.font = [UIFont systemFontOfSize:17];
+                break;
+                
+            case 1:
+                teFontLabel.text = @"HeitiTi --- 我有一个捣鼓朋友";
+                teFontLabel.font = [UIFont boldSystemFontOfSize:17];
+                break;
+                
+            case 2:
+                teFontLabel.text = @"regular --- 我有一个捣鼓朋友";
+                teFontLabel.font = [UIFont fontWithName:@"PingFangSC-Semibold" size:17];
+                break;
+                
+            default:
+                break;
+        }
+        
+        teFontLabel.tag = 10086 + i;
+        
+        teFontLabel.textColor = [UIColor blackColor];
+        teFontLabel.textAlignment = NSTextAlignmentCenter;
+        [self.view addSubview:teFontLabel];
+    }
+    
+//    UILabel *teFontLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 100, 300, 100)];
+//    teFontLabel.text = @"kkkldsfjhsaf";
+//    teFontLabel.font = [UIFont systemFontOfSize:15];
+//    teFontLabel.textColor = [UIColor blackColor];
+//    teFontLabel.textAlignment = NSTextAlignmentCenter;
+//    [self.view addSubview:teFontLabel];
+    
+    
+    
     self.oriView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
     self.oriView.backgroundColor = [UIColor grayColor];
-    [self.view addSubview:self.oriView];
+//    [self.view addSubview:self.oriView];
     
     UIView *copyedView = self.oriView;
     copyedView.frame = CGRectMake(150, 0, 100, 100);
-    [self.view addSubview:copyedView];
+//    [self.view addSubview:copyedView];
     
     self.navigationItem.title = @"TEST";
     self.tapCount = 0;
@@ -283,7 +407,7 @@
     teImage.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.2];
     teImage.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
     teImage.userInteractionEnabled = YES;
-    [self.view addSubview:teImage];
+//    [self.view addSubview:teImage];
 
     [teImage sd_setImageWithURL:[NSURL URLWithString:@"http://gxapp-images.oss-cn-hangzhou.aliyuncs.com/news-images/20170510/5387f9a7c2af45eda6a70ceea78d8bac.jpg"]
                placeholderImage:[UIImage imageNamed:@"topicGuide"]
