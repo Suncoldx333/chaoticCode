@@ -280,6 +280,8 @@
 
 -(void)initNewUI{
     
+    
+    
     UIImageView *teImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
     teImage.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.2];
     teImage.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);

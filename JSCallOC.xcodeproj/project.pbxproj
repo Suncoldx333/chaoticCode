@@ -390,6 +390,13 @@
 			name = SDWebImage;
 			sourceTree = "<group>";
 		};
+		18F0779D1F146B2200FD7BF0 /* TestViewGroup */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = TestViewGroup;
+			sourceTree = "<group>";
+		};
 		18F2FCF51EE641F900553D20 /* ImagePicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -466,6 +473,7 @@
 				52BC7F8D1BFB68A800642835 /* AppDelegate.m */,
 				52BC7F8F1BFB68A800642835 /* ViewController.h */,
 				52BC7F901BFB68A800642835 /* ViewController.m */,
+				18F0779D1F146B2200FD7BF0 /* TestViewGroup */,
 				18DECABF1F03998400BF1D3D /* UIFont+swizzleFont.h */,
 				18DECAC01F03998400BF1D3D /* UIFont+swizzleFont.m */,
 				184955AF1EE00D6A00AE7634 /* HelloOperation.h */,

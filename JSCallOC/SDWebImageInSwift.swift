@@ -66,13 +66,13 @@ extension UIImageView{
         
         objc_setAssociatedObject(self, &webImageKey.imageUrlKey, imageUrl, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
         
-        if placeholderImage != nil {
-            
-            OperationQueue.main.addOperation({
-                [unowned self]() in
-                self.image = placeholderImage
-            })
+        if let image = placeholderImage {
+            OperationQueue.main.addOperation {
+                [weak self]() in
+                self?.image = image
+            }
         }
+    
         let operation : webImageGainOperation =
             SDWebImageInSwift.shareInstance.gainImage(with: imageUrl,
                                                       progress: {
@@ -102,14 +102,11 @@ extension UIImageView{
     
     private func cancelImageGainOperationWith(key : String) {
         var operationDicInner : Dictionary<String,Array<webImageGainOperation>> = self.operationDic
-        let operationArr = operationDicInner[key]
-        if operationArr != nil {
-            
-            _ = operationArr?.map({ (Operation) -> Void in
+        if let operationArr = operationDicInner[key] {
+            let _ = operationArr.map({ (Operation) -> Void in
                 Operation.cancel()
             })
             operationDicInner.removeValue(forKey: key)
-            
         }
     }
     
@@ -136,8 +133,8 @@ extension UIImageView{
             }
             return opDic!
         }
-        set(dic){
-            objc_setAssociatedObject(self, &webImageKey.loadOperationKey, dic, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        set{
+            objc_setAssociatedObject(self, &webImageKey.loadOperationKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
 }
@@ -175,7 +172,7 @@ class SDWebImageInSwift: NSObject {
             runningoperatins.add(operation!)
         }
         
-        let key : String = url.absoluteString
+        let key = url.absoluteString
         operation?.cacheOperation = imageCache.queryDiskCacheFor(key: key, done: { [weak self](cachedImage) in
             
             if (operation?.isCancelled)! {
@@ -412,6 +409,13 @@ class imageLoadInSwift: NSObject {
                        complete : webImageDownLoadCompletionBlock?) -> webImageDownLoaderOperation {
         var operation : webImageDownLoaderOperation!
         
+        func addProgressCallBack(complete : webImageDownLoadCompletionBlock,
+                                 progress : webImageLoadProgressBlock,
+                                 url : URL,
+                                 callBack : webImageNoParamsBlock) {
+            callBack()
+        }
+        
         if let innerCom = complete,let innerPro = progress {
             addProgressCallBack(complete: innerCom,
                                 progress: innerPro,
@@ -436,12 +440,7 @@ class imageLoadInSwift: NSObject {
         return operation
     }
     
-    func addProgressCallBack(complete : webImageDownLoadCompletionBlock,
-                             progress : webImageLoadProgressBlock,
-                             url : URL,
-                             callBack : webImageNoParamsBlock) {
-        callBack()
-    }
+    
 }
 
 //MARK:---图片下载任务

@@ -60,9 +60,9 @@ class testAniView: UIView {
     
     var teView : UIView!
     
-    func log<View : UIView>(_ view : UIView) {
-        print("\(type(of: view))")
-    }
+//    func log<View : UIView>(_ view : UIView) {
+//        print("\(type(of: view))")
+//    }
     
     func log(_ view : UILabel) {
         print("\(type(of: view)),text = \(view.text ?? "1")")
@@ -70,6 +70,9 @@ class testAniView: UIView {
     
     func initUI() {
         self.backgroundColor = hexColor(colorCode: 0xffffff)
+        
+        let teKey = "asdadafafafasasssss"
+        let teKeyM = teKey.md5()
         
         let labell = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: 100, height: 100))
         let butt = UIButton.init(frame: CGRect.init(x: 0, y: 100, width: 100, height: 100))
