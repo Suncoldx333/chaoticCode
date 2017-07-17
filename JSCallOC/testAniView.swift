@@ -68,16 +68,32 @@ class testAniView: UIView {
         print("\(type(of: view)),text = \(view.text ?? "1")")
     }
     
+    func sum(_ n : UInt64) -> UInt64 {
+//
+        func innerSum(_ innerN : UInt64,current : UInt64) -> UInt64{
+            if innerN == 0 {
+                return current
+            }else{
+                return innerSum(innerN - 1, current: current + innerN)
+            }
+        }
+        return innerSum(n, current: 0)
+
+//        if n == 0 {
+//            return 0
+//        }
+//        return n + sum(n - 1)
+    }
+    
+    
+    
     func initUI() {
         self.backgroundColor = hexColor(colorCode: 0xffffff)
         
-        let teKey = "asdadafafafasasssss"
-        let teKeyM = teKey.md5()
+//        let ssuumm = sum(100000)
+//        print("sum = \(ssuumm)")
         
-        let labell = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: 100, height: 100))
-        let butt = UIButton.init(frame: CGRect.init(x: 0, y: 100, width: 100, height: 100))
-        
-        let views = [labell,butt]
+        testFlat()
         
         
         let teDic = NSMutableDictionary.init()
@@ -88,42 +104,7 @@ class testAniView: UIView {
         }else{
             print("none")
         }
-        
-        var x : Array<Int> = [1,2,3]
-        let _ = x.map {
-            $0 + 1
-        }
-        withUnsafePointer(to: &x) {
-            
-            print("\($0)")
-        }
-        let _ = x.map { (number) in
-//            withUnsafePointer(to: &number) {
-//                
-//                print("\($0)")
-//            }
-        }
-        var y = x
-        
-        
-        
-        withUnsafePointer(to: &y) {
-            
-            print("\($0)")
-        }
-        
-//        x.append(5)
-        withUnsafePointer(to: &x) {
-            
-            print("\($0)")
-        }
-        
-        withUnsafePointer(to: &y) {
-            
-            print("\($0)")
-            
-        }
-//        y.removeLast()
+
         
         var array = ["one","teo"]
         let idx = array.index(of: "one")
@@ -164,6 +145,21 @@ class testAniView: UIView {
         longPress.minimumPressDuration = 0
         btView.addGestureRecognizer(longPress)
 
+    }
+    
+    func testFlat() {
+        let suits = ["1","2","3","4"]
+        let ranks = ["a","b","c","d"]
+        
+        
+        let result = suits.flatMap { (suit) in
+            ranks.map({ (rank) in
+                (suit,rank)
+            })
+        }
+        
+        print("result = \(result)")
+        
     }
     
     func testContinue() {

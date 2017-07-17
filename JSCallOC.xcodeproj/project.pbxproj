@@ -23,7 +23,6 @@
 		18ABFB1C1ED6B6A100B179FF /* Employee+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ABFB1A1ED6B6A100B179FF /* Employee+CoreDataProperties.swift */; };
 		18ABFB1F1ED6B6D800B179FF /* Department+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ABFB1D1ED6B6D800B179FF /* Department+CoreDataClass.swift */; };
 		18ABFB201ED6B6D800B179FF /* Department+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ABFB1E1ED6B6D800B179FF /* Department+CoreDataProperties.swift */; };
-		18B7C0671ED292A700900095 /* SDWebImageInSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B7C0661ED292A700900095 /* SDWebImageInSwift.swift */; };
 		18CD1C371EC0685C00CD42E9 /* showWhereBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CD1C361EC0685C00CD42E9 /* showWhereBlock.m */; };
 		18CE233A1E8A67E3008B9F76 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CE232F1E8A67E3008B9F76 /* NSObject+SBJSON.m */; };
 		18CE233B1E8A67E3008B9F76 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CE23311E8A67E3008B9F76 /* NSString+SBJSON.m */; };
@@ -128,7 +127,6 @@
 		18ABFB1A1ED6B6A100B179FF /* Employee+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Employee+CoreDataProperties.swift"; path = "../Employee+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		18ABFB1D1ED6B6D800B179FF /* Department+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Department+CoreDataClass.swift"; path = "../Department+CoreDataClass.swift"; sourceTree = "<group>"; };
 		18ABFB1E1ED6B6D800B179FF /* Department+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Department+CoreDataProperties.swift"; path = "../Department+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		18B7C0661ED292A700900095 /* SDWebImageInSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDWebImageInSwift.swift; sourceTree = "<group>"; };
 		18CD1C351EC0685C00CD42E9 /* showWhereBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = showWhereBlock.h; sourceTree = "<group>"; };
 		18CD1C361EC0685C00CD42E9 /* showWhereBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = showWhereBlock.m; sourceTree = "<group>"; };
 		18CE232D1E8A67E3008B9F76 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
@@ -498,7 +496,6 @@
 				18E88A5A1E7A8DCD000DD208 /* testModel.swift */,
 				18E88A581E7A8B57000DD208 /* baseModel.swift */,
 				185E247C1EB041AD006B5ABD /* globalDefine.swift */,
-				18B7C0661ED292A700900095 /* SDWebImageInSwift.swift */,
 				18F2FCF51EE641F900553D20 /* ImagePicker */,
 				185E247E1EB077F4006B5ABD /* closureTestView.swift */,
 				18DD67441EB97E49000BD37E /* StepCountWidget.swift */,
@@ -728,7 +725,6 @@
 				185E247D1EB041AD006B5ABD /* globalDefine.swift in Sources */,
 				18ABFB201ED6B6D800B179FF /* Department+CoreDataProperties.swift in Sources */,
 				607E8BB91EF2C56C00DA8FA2 /* testAnimationVC.m in Sources */,
-				18B7C0671ED292A700900095 /* SDWebImageInSwift.swift in Sources */,
 				18D760861E5E7701007124CD /* MASViewAttribute.m in Sources */,
 				18087AD21EFD03EA009CEF47 /* MD5Encryption.m in Sources */,
 				18DAAA511EC15DE200B5C6B5 /* parentTable.swift in Sources */,

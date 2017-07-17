@@ -65,8 +65,8 @@
     [self initData];
 //    [self initNewData];
 //    [self initHelloData];
-//    [self initUI];
-    [self initNewUI];
+    [self initUI];
+//    [self initNewUI];
 //    [self initAniUI];
     self.navigationController.navigationBar.translucent = NO;
 
@@ -288,14 +288,14 @@
     teImage.userInteractionEnabled = YES;
     [self.view addSubview:teImage];
     
-    [teImage setImageWithImageUrl:[NSURL URLWithString:@"https://raw.githubent.com/onevcat/Kingfisher/master/images/kingfisher-1.jpg"]
-                 placeholderImage:[UIImage imageNamed:@"topicGuide"]
-                    progressBlock:^(int64_t receivedSize, int64_t totalSize) {
-                        NSLog(@"received = %lld,total = %lld",receivedSize,totalSize);
-                    }
-                    completeBlock:^(UIImage * _Nullable image, NSError * _Nullable error, BOOL finish) {
-                        NSLog(@"%@",error);
-                    }];
+//    [teImage setImageWithImageUrl:[NSURL URLWithString:@"https://raw.githubent.com/onevcat/Kingfisher/master/images/kingfisher-1.jpg"]
+//                 placeholderImage:[UIImage imageNamed:@"topicGuide"]
+//                    progressBlock:^(int64_t receivedSize, int64_t totalSize) {
+//                        NSLog(@"received = %lld,total = %lld",receivedSize,totalSize);
+//                    }
+//                    completeBlock:^(UIImage * _Nullable image, NSError * _Nullable error, BOOL finish) {
+//                        NSLog(@"%@",error);
+//                    }];
     
     
     UIButton *clearMem = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 50)];
@@ -318,11 +318,11 @@
 }
 
 -(void)clearMenMethod{
-    [imageCacheInSwift.shareInstance removeMemory];
+    
 }
 
 -(void)clearDiskMethod{
-    [imageCacheInSwift.shareInstance removeDisk];
+    
 }
 
 -(void)initAniUI{
