@@ -85,13 +85,24 @@ class testAniView: UIView {
 //        return n + sum(n - 1)
     }
     
-    
+    func arrMap() {
+        
+        let arr = ["1","2","3","4"]
+        let ocArr = NSMutableArray.init()
+        let _ = arr.map { (num) in
+            ocArr.add(num)
+        }
+        
+        let newArr = ocArr.map { (num) in
+            num as! String + "new"
+        }
+        
+    }
     
     func initUI() {
         self.backgroundColor = hexColor(colorCode: 0xffffff)
         
-//        let ssuumm = sum(100000)
-//        print("sum = \(ssuumm)")
+        arrMap()
         
         testFlat()
         
