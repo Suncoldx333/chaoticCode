@@ -8,10 +8,43 @@
 
 import UIKit
 
+struct PrefixIterator : IteratorProtocol {
+    let string : String
+    var offset : String.Index
+    
+    init(string : String) {
+        self.string = string
+        offset = string.startIndex
+    }
+    
+    mutating func next() -> String? {
+        guard offset < string.endIndex else {
+            return nil
+        }
+        offset = string.index(after: offset)
+        return string[string.startIndex..<offset]
+    }
+}
+
+struct PrefixSequence : Sequence {
+    let string : String
+    
+    func makeIterator() -> PrefixIterator {
+        return PrefixIterator.init(string: string)
+    }
+}
+
+protocol Queue {
+    associatedtype Element
+    mutating func enqueue(_ newElement : Element)
+    mutating func dequeue() -> Element?
+}
+
 class testAniView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        initData()
         initUI()
     }
     
@@ -99,12 +132,22 @@ class testAniView: UIView {
         
     }
     
+    func titititi<T>(_ a : T) {
+        print("title = \(a)")
+    }
+    
+    func initData() {
+        
+        let _ = PrefixSequence.init(string: "Hello").map { (prefix) in
+            print(prefix)
+        }
+    }
+    
     func initUI() {
         self.backgroundColor = hexColor(colorCode: 0xffffff)
         
-        arrMap()
-        
-        testFlat()
+        let state = (0,1)
+        let new = (state.1,state.0 + state.1)
         
         
         let teDic = NSMutableDictionary.init()

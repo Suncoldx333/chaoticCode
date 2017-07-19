@@ -350,6 +350,11 @@
 
 -(void)initUI{
     
+    UIView *errorBouns = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    errorBouns.backgroundColor = [UIColor blackColor];
+    errorBouns.bounds = CGRectMake(50, 50, 100, 100);
+    [self.view addSubview:errorBouns];
+    
     for (NSInteger i = 0; i < 3; i++) {
         CGFloat newY = 100 + i * 20;
         UILabel *teFontLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, newY, 300, 20)];
