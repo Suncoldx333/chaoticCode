@@ -11,6 +11,13 @@ import UIKit
 typealias cellConfigurationBlock = (UITableViewCell) ->Void
 typealias testBlock = (Double) ->(String)
 
+let ScreenWidth : CGFloat = UIScreen .main .bounds .size .width
+let ScreenHeight : CGFloat = UIScreen .main .bounds .size .height
+let ScreenHeightUnit :CGFloat = UIScreen .main .bounds .size .height * 1.000 / 667.000
+let ScreenWidthUnit :CGFloat = UIScreen .main .bounds .size .width * 1.000 / 375.000
+
+typealias swiftNoPatameterBlock = () -> Void
+
 //颜色，Eg:ColorMethodho(0x00c18b)
 func ColorMethodho(hexValue : Int) -> UIColor {
     let red   = ((hexValue & 0xFF0000) >> 16)

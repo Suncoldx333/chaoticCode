@@ -20,8 +20,15 @@
 #import "SBJSON.h"
 #import "testAnimationVC.h"
 
+#import "teView.h"
+#import "teModel.h"
+#import "teModel+UnitTest.h"
+
 #import "MD5Encryption.h"
+#import "DeployableTableViewController.h"
 //#import "UIFont+swizzleFont.h"
+
+#import "KeyBoardVC.h"
 
 #define KEYSTR_RUNRECORD @"&ODJw#h03b_0EaV"  //跑步记录
 #define KEYSTR @"&wh2016_swcampus"  //其它
@@ -65,8 +72,8 @@
     [self initData];
 //    [self initNewData];
 //    [self initHelloData];
-    [self initUI];
-//    [self initNewUI];
+//    [self initUI];
+    [self initNewUI];
 //    [self initAniUI];
     self.navigationController.navigationBar.translucent = NO;
 
@@ -280,7 +287,8 @@
 
 -(void)initNewUI{
     
-    
+    teModel *model = [[teModel alloc] init];
+    [model arrInsertFunc];
     
     UIImageView *teImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
     teImage.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.2];
@@ -319,9 +327,15 @@
 
 -(void)clearMenMethod{
     
+    KeyBoardVC *key = [[KeyBoardVC alloc] init];
+    [self.navigationController pushViewController:key animated:YES];
+    
 }
 
 -(void)clearDiskMethod{
+    
+    DeployableTableViewController *depVC = [[DeployableTableViewController alloc] init];
+    [self.navigationController pushViewController:depVC animated:YES];
     
 }
 
