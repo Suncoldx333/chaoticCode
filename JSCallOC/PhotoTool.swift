@@ -156,7 +156,7 @@ class PhotoTool: NSObject {
         return assetArr
     }
     
-    func createImageBy(asset : PHAsset,and completion : PHAssetChangeResultBlock!) {
+    func createImageBy(asset : PHAsset,with completion : PHAssetChangeResultBlock!) {
         
         let option : PHImageRequestOptions = PHImageRequestOptions.init()
         option.resizeMode = PHImageRequestOptionsResizeMode.fast

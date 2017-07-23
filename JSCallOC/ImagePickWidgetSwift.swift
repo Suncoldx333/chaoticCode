@@ -8,8 +8,6 @@
 
 import UIKit
 
-let ScreenWidth : CGFloat = UIScreen.main.bounds.size.width
-let ScreenHeight : CGFloat = UIScreen.main.bounds.size.height
 public func hexColor(colorCode : Int) -> UIColor {
     let red   = ((colorCode & 0xFF0000) >> 16)
     let green = ((colorCode & 0xFF00) >> 8)

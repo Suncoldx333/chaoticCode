@@ -69,7 +69,7 @@ class ImagePickView: UIView {
         
         let changeOperation : Operation = BlockOperation.init {
             [unowned self]() in
-            self.tool.createImageBy(asset: firstAsset, and: { (data) in
+            self.tool.createImageBy(asset: firstAsset, with: { (data) in
                 
                 OperationQueue.main.addOperation({ 
                     self.chosenImage.image = UIImage.init(data: data)
