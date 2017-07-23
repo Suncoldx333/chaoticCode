@@ -57,6 +57,11 @@ class testAniView: UIView {
     func initUI() {
         self.backgroundColor = hexColor(colorCode: 0xffffff)
         
+        let cata = CataTestView.init(frame: CGRect.init(x: 0, y: 0, width: 100, height: 100))
+        cata.sign = "asdadada"
+        
+        print("sign = \(cata.sign),make = \(cata.makeSign())")
+        
         self.addSubview(btView)
         btView.center = CGPoint.init(x: self.frame.width / 2, y: self.frame.height / 2)
         

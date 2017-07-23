@@ -80,6 +80,8 @@
 		52BC7FBE1BFB692900642835 /* JKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BC7FBD1BFB692900642835 /* JKWebView.m */; };
 		52BC7FC21BFB6A2F00642835 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 52BC7FC01BFB6A2F00642835 /* index.html */; };
 		52BC7FC31BFB6A2F00642835 /* index.js in Resources */ = {isa = PBXBuildFile; fileRef = 52BC7FC11BFB6A2F00642835 /* index.js */; };
+		6059A0C81F1B7BEA001B1E68 /* CataTestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6059A0C71F1B7BEA001B1E68 /* CataTestView.m */; };
+		6059A0CB1F1B7C80001B1E68 /* CataTestView+BridgeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6059A0CA1F1B7C80001B1E68 /* CataTestView+BridgeTest.m */; };
 		607E8BB91EF2C56C00DA8FA2 /* testAnimationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 607E8BB81EF2C56C00DA8FA2 /* testAnimationVC.m */; };
 		607E8BBB1EF2C7A400DA8FA2 /* testAniView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607E8BBA1EF2C7A400DA8FA2 /* testAniView.swift */; };
 /* End PBXBuildFile section */
@@ -234,6 +236,10 @@
 		52BC7FBD1BFB692900642835 /* JKWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKWebView.m; sourceTree = "<group>"; };
 		52BC7FC01BFB6A2F00642835 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		52BC7FC11BFB6A2F00642835 /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
+		6059A0C61F1B7BEA001B1E68 /* CataTestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CataTestView.h; sourceTree = "<group>"; };
+		6059A0C71F1B7BEA001B1E68 /* CataTestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CataTestView.m; sourceTree = "<group>"; };
+		6059A0C91F1B7C80001B1E68 /* CataTestView+BridgeTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CataTestView+BridgeTest.h"; sourceTree = "<group>"; };
+		6059A0CA1F1B7C80001B1E68 /* CataTestView+BridgeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CataTestView+BridgeTest.m"; sourceTree = "<group>"; };
 		607E8BB71EF2C56C00DA8FA2 /* testAnimationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testAnimationVC.h; sourceTree = "<group>"; };
 		607E8BB81EF2C56C00DA8FA2 /* testAnimationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testAnimationVC.m; sourceTree = "<group>"; };
 		607E8BBA1EF2C7A400DA8FA2 /* testAniView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testAniView.swift; sourceTree = "<group>"; };
@@ -272,6 +278,10 @@
 				607E8BB71EF2C56C00DA8FA2 /* testAnimationVC.h */,
 				607E8BB81EF2C56C00DA8FA2 /* testAnimationVC.m */,
 				607E8BBA1EF2C7A400DA8FA2 /* testAniView.swift */,
+				6059A0C61F1B7BEA001B1E68 /* CataTestView.h */,
+				6059A0C71F1B7BEA001B1E68 /* CataTestView.m */,
+				6059A0C91F1B7C80001B1E68 /* CataTestView+BridgeTest.h */,
+				6059A0CA1F1B7C80001B1E68 /* CataTestView+BridgeTest.m */,
 			);
 			name = Animation;
 			sourceTree = "<group>";
@@ -670,10 +680,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				607E8BBB1EF2C7A400DA8FA2 /* testAniView.swift in Sources */,
-				18F405B51EEE9E47008828F9 /* BaseRTPathView.swift in Sources */,
-
 				18D760841E5E7701007124CD /* MASConstraintMaker.m in Sources */,
 				18E98E271ED3EDDB007E92AE /* SDWebImageManager.m in Sources */,
 				18E98E281ED3EDDB007E92AE /* SDWebImagePrefetcher.m in Sources */,
@@ -687,6 +694,7 @@
 				18E98E251ED3EDDB007E92AE /* SDWebImageDownloader.m in Sources */,
 				18E98E261ED3EDDB007E92AE /* SDWebImageDownloaderOperation.m in Sources */,
 				18E98E2A1ED3EDDB007E92AE /* UIImage+GIF.m in Sources */,
+				6059A0C81F1B7BEA001B1E68 /* CataTestView.m in Sources */,
 				1865778E1ED5411300F15CCE /* teOperation.m in Sources */,
 				18D760831E5E7701007124CD /* MASConstraint.m in Sources */,
 				18E8741E1ED67C3200CAF89C /* BaseCoreData.swift in Sources */,
@@ -700,6 +708,7 @@
 				18CE233B1E8A67E3008B9F76 /* NSString+SBJSON.m in Sources */,
 				18E98E211ED3EDDB007E92AE /* NSData+ImageContentType.m in Sources */,
 				18F2FCFB1EE64F8800553D20 /* PhotoAlbumModel.swift in Sources */,
+				6059A0CB1F1B7C80001B1E68 /* CataTestView+BridgeTest.m in Sources */,
 				18E98E2D1ED3EDDB007E92AE /* UIImageView+HighlightedWebCache.m in Sources */,
 				18E98E291ED3EDDB007E92AE /* UIButton+WebCache.m in Sources */,
 				18D760881E5E7701007124CD /* NSArray+MASAdditions.m in Sources */,

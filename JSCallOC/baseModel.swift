@@ -31,6 +31,17 @@ class baseModel: NSObject {
 //            
 //        }
         
+        let fir = [Int]();
+        let sec = [2];
+        let ad = fir + sec
+        
+        
+        
+        let teArr = [1,2,3,4,5]
+        let _ = teArr.map2 { (num) in
+            num + 9
+        }
+        
         let coreDataInstance : BaseCoreData = BaseCoreData.shareInstance
 //        let emp : Employee = NSEntityDescription.insertNewObject(forEntityName: "Employee", into: coreDataInstance.context) as! Employee
 //        emp.setValue(Date.init(), forKey: "birthday")
@@ -74,6 +85,7 @@ class baseModel: NSObject {
         }
         
     }
+
     
     func createAttribute(changingDic : [String : Any]) {
         
@@ -89,5 +101,13 @@ class baseModel: NSObject {
             _ = String.init(describing: ivar_getName(ivars?[Int.init(index)]))
         }
         
+    }
+}
+
+extension Array{
+    func map2<T>(_ transForm : (Element) -> T) -> [T] {
+        return reduce([]){
+            $0 + [transForm($1)]
+        }
     }
 }

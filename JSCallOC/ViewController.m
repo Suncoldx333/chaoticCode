@@ -20,6 +20,9 @@
 #import "SBJSON.h"
 #import "testAnimationVC.h"
 
+#import "CataTestView.h"
+#import "CataTestView+BridgeTest.h"
+
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>{
     NSInteger tetimerCount;
 }
@@ -56,12 +59,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self initData];
+    [self initData];
 //    [self initNewData];
 //    [self initHelloData];
-//    [self initUI];
+    [self initUI];
 //    [self initNewUI];
-    [self initAniUI];
+//    [self initAniUI];
     self.navigationController.navigationBar.translucent = NO;
 
 }
@@ -239,6 +242,14 @@
 }
 
 -(void)initAniUI{
+    
+    CataTestView *cata = [[CataTestView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    cata.sign = @"mmmma";
+    
+    
+    
+    NSLog(@"sign = %@,make = %@",cata.sign,[cata makeSign]);
+    
     [self.view addSubview:self.aniView];
     [self.view addSubview:self.aniGreenView];
     self.tapCount = 0;
