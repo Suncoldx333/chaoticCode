@@ -74,13 +74,9 @@
     [self initData];
 //    [self initNewData];
 //    [self initHelloData];
-<<<<<<< HEAD
-    [self initUI];
-//    [self initNewUI];
-=======
+
 //    [self initUI];
     [self initNewUI];
->>>>>>> origin/master
 //    [self initAniUI];
     self.navigationController.navigationBar.translucent = NO;
 

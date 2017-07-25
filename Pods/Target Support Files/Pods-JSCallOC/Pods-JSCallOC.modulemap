@@ -1,0 +1,6 @@
+framework module Pods_JSCallOC {
+  umbrella header "Pods-JSCallOC-umbrella.h"
+
+  export *
+  module * { export * }
+}

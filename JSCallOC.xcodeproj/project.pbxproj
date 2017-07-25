@@ -94,6 +94,8 @@
 		6059A0CB1F1B7C80001B1E68 /* CataTestView+BridgeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6059A0CA1F1B7C80001B1E68 /* CataTestView+BridgeTest.m */; };
 		607E8BB91EF2C56C00DA8FA2 /* testAnimationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 607E8BB81EF2C56C00DA8FA2 /* testAnimationVC.m */; };
 		607E8BBB1EF2C7A400DA8FA2 /* testAniView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607E8BBA1EF2C7A400DA8FA2 /* testAniView.swift */; };
+		608C36341F278E6A00A5DA55 /* RxSwiftLearnVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608C36331F278E6A00A5DA55 /* RxSwiftLearnVC.swift */; };
+		6BCACCD80287C8EAF0DAE653 /* Pods_JSCallOC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 388137095DFAF6BC02CD65A8 /* Pods_JSCallOC.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -244,6 +246,9 @@
 		18F2FCFC1EE681F500553D20 /* ImagePickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickView.swift; sourceTree = "<group>"; };
 		18F523631E9C7C8B00ACF0D4 /* GlobalTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalTool.h; sourceTree = "<group>"; };
 		18F523641E9C7C8B00ACF0D4 /* GlobalTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalTool.m; sourceTree = "<group>"; };
+		388137095DFAF6BC02CD65A8 /* Pods_JSCallOC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JSCallOC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		42652FE601722F97D4A24DAC /* Pods-JSCallOC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSCallOC.release.xcconfig"; path = "Pods/Target Support Files/Pods-JSCallOC/Pods-JSCallOC.release.xcconfig"; sourceTree = "<group>"; };
+		4932F40DA1444B9B1CA37035 /* Pods-JSCallOC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSCallOC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JSCallOC/Pods-JSCallOC.debug.xcconfig"; sourceTree = "<group>"; };
 		52BC7F861BFB68A800642835 /* JSCallOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSCallOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52BC7F8A1BFB68A800642835 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		52BC7F8C1BFB68A800642835 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -271,6 +276,7 @@
 		607E8BB71EF2C56C00DA8FA2 /* testAnimationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testAnimationVC.h; sourceTree = "<group>"; };
 		607E8BB81EF2C56C00DA8FA2 /* testAnimationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testAnimationVC.m; sourceTree = "<group>"; };
 		607E8BBA1EF2C7A400DA8FA2 /* testAniView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testAniView.swift; sourceTree = "<group>"; };
+		608C36331F278E6A00A5DA55 /* RxSwiftLearnVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxSwiftLearnVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				184955B31EE0163000AE7634 /* Bugly.framework in Frameworks */,
+				6BCACCD80287C8EAF0DAE653 /* Pods_JSCallOC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +489,14 @@
 			name = switchAnimation;
 			sourceTree = "<group>";
 		};
+		50AD1A327A2D7A0BF6AB9988 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				388137095DFAF6BC02CD65A8 /* Pods_JSCallOC.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		52BC7F7D1BFB68A800642835 = {
 			isa = PBXGroup;
 			children = (
@@ -489,6 +504,8 @@
 				52BC7FA21BFB68A800642835 /* JSCallOCTests */,
 				52BC7FAD1BFB68A800642835 /* JSCallOCUITests */,
 				52BC7F871BFB68A800642835 /* Products */,
+				AFF9A5B8F26FEDABF16BD275 /* Pods */,
+				50AD1A327A2D7A0BF6AB9988 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -505,6 +522,7 @@
 		52BC7F881BFB68A800642835 /* JSCallOC */ = {
 			isa = PBXGroup;
 			children = (
+				608C36321F278E3100A5DA55 /* New Group */,
 				18F405B31EEE9E23008828F9 /* switchAnimation */,
 				184955B21EE0163000AE7634 /* Bugly.framework */,
 				180EE1661ED7D19C00381806 /* Animation */,
@@ -605,6 +623,23 @@
 			path = html;
 			sourceTree = "<group>";
 		};
+		608C36321F278E3100A5DA55 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				608C36331F278E6A00A5DA55 /* RxSwiftLearnVC.swift */,
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
+		AFF9A5B8F26FEDABF16BD275 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4932F40DA1444B9B1CA37035 /* Pods-JSCallOC.debug.xcconfig */,
+				42652FE601722F97D4A24DAC /* Pods-JSCallOC.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -612,9 +647,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52BC7FB31BFB68A800642835 /* Build configuration list for PBXNativeTarget "JSCallOC" */;
 			buildPhases = (
+				AAE6C28D33673BA865869CAD /* [CP] Check Pods Manifest.lock */,
 				52BC7F821BFB68A800642835 /* Sources */,
 				52BC7F831BFB68A800642835 /* Frameworks */,
 				52BC7F841BFB68A800642835 /* Resources */,
+				F2216E839571F3396BC7516C /* [CP] Embed Pods Frameworks */,
+				613053F135FB85D378F560AC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -737,6 +775,66 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		613053F135FB85D378F560AC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JSCallOC/Pods-JSCallOC-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AAE6C28D33673BA865869CAD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JSCallOC-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2216E839571F3396BC7516C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-JSCallOC/Pods-JSCallOC-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JSCallOC/Pods-JSCallOC-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		52BC7F821BFB68A800642835 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -763,6 +861,7 @@
 				18D760831E5E7701007124CD /* MASConstraint.m in Sources */,
 				18E8741E1ED67C3200CAF89C /* BaseCoreData.swift in Sources */,
 				1861A1561F23231700055620 /* KeyBoardVC.m in Sources */,
+				608C36341F278E6A00A5DA55 /* RxSwiftLearnVC.swift in Sources */,
 				18CE233A1E8A67E3008B9F76 /* NSObject+SBJSON.m in Sources */,
 				182B63D71EC00EEF00E2DADA /* UIViewController+testSubFunc.m in Sources */,
 				18D7608B1E5E7701007124CD /* ViewController+MASAdditions.m in Sources */,
@@ -956,6 +1055,7 @@
 		};
 		52BC7FB41BFB68A800642835 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4932F40DA1444B9B1CA37035 /* Pods-JSCallOC.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -976,6 +1076,7 @@
 		};
 		52BC7FB51BFB68A800642835 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42652FE601722F97D4A24DAC /* Pods-JSCallOC.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
