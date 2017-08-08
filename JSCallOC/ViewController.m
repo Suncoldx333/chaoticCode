@@ -79,17 +79,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initData];
-<<<<<<< Updated upstream
-//    [self initNewData];
-//    [self initHelloData];
 
-//    [self initUI];
-    [self initNewUI];
-//    [self initAniUI];
-=======
     [self initUI];
     
->>>>>>> Stashed changes
     self.navigationController.navigationBar.translucent = NO;
 
 }

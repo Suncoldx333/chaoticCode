@@ -581,13 +581,10 @@
 		52BC7F881BFB68A800642835 /* JSCallOC */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< Updated upstream
 				608C36321F278E3100A5DA55 /* New Group */,
-=======
 				185B8D031F3960AF00B1C9C5 /* ResizeImage */,
 				1800C85E1F2ADD5900E3E8B9 /* DataManage */,
 				1800C8571F2ACD7F00E3E8B9 /* BitMap */,
->>>>>>> Stashed changes
 				18F405B31EEE9E23008828F9 /* switchAnimation */,
 				184955B21EE0163000AE7634 /* Bugly.framework */,
 				180EE1661ED7D19C00381806 /* Animation */,
