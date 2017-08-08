@@ -29,8 +29,10 @@
 #import "MD5Encryption.h"
 #import "DeployableTableViewController.h"
 //#import "UIFont+swizzleFont.h"
+#import "ResizeImageVC.h"
 
 #import "KeyBoardVC.h"
+#import "BitMapVC.h"
 
 #define KEYSTR_RUNRECORD @"&ODJw#h03b_0EaV"  //跑步记录
 #define KEYSTR @"&wh2016_swcampus"  //其它
@@ -54,9 +56,13 @@
 
 @property (nonatomic,strong) UIView *oriView;
 
+@property (nonatomic,strong) UITableView *list;
+
 @end
 
-@implementation ViewController
+@implementation ViewController{
+    NSMutableArray<UIViewController *> *titles;
+}
 
 @synthesize testView;
 @synthesize teStronStr;
@@ -64,6 +70,7 @@
 
 @synthesize blovk,blovk2;
 
+#pragma mark - View lifecircle
 -(void)viewWillAppear:(BOOL)animated{
 //    [super viewWillAppear:animated];
     NSLog(@"here is originalMethod");
@@ -72,17 +79,49 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initData];
+<<<<<<< Updated upstream
 //    [self initNewData];
 //    [self initHelloData];
 
 //    [self initUI];
     [self initNewUI];
 //    [self initAniUI];
+=======
+    [self initUI];
+    
+>>>>>>> Stashed changes
     self.navigationController.navigationBar.translucent = NO;
 
 }
 
+-(void)helloBoy{
+    NSLog(@"main");
+}
+
+#pragma mark - Data initialize
 -(void)initData{
+
+    SwiftyDiffVC *diff1 = [[SwiftyDiffVC alloc] init];
+    diff1.teAssco = @"90";
+    NSLog(@"vc = %p,pro = %p",diff1,diff1.teAssco);
+    diff1 = nil;
+    NSLog(@"vc = %p,pro = %p",diff1,diff1.teAssco);
+    
+    titles = [[NSMutableArray alloc] init];
+    SwiftyDiffVC *diff = [[SwiftyDiffVC alloc] init];
+    [titles addObject:diff];
+
+    ResizeImageVC *resize = [[ResizeImageVC alloc] init];
+    [titles addObject:resize];
+    
+    NSDate *ori = [NSDate date];
+    
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"yyyy"];
+    
+    NSString *today = [format stringFromDate:ori];
+    NSDate *zeorDate = [format dateFromString:today];
+    NSTimeInterval zero = [zeorDate timeIntervalSince1970];
     
     NSString *hhhh = nil;
     if ([hhhh rangeOfString:@"swift"].location != NSNotFound) {
@@ -135,6 +174,145 @@
     [combinedData setObject:[NSNumber numberWithInt:4] forKey:@"calorie"];
     
     NSString *sig = [self incomingDictionaryReturnsTheEncryptedStringForDic:combinedData aboutScore:YES];
+    
+}
+
+#pragma mark - UI initialize
+-(void)initUI{
+    
+    self.view.backgroundColor = hexColor(0xe6e6e6);
+    [self.view addSubview:self.list];
+    
+//    UIView *errorBouns = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+//    errorBouns.backgroundColor = [UIColor blackColor];
+//    errorBouns.bounds = CGRectMake(50, 50, 100, 100);
+//    [self.view addSubview:errorBouns];
+//    
+//    for (NSInteger i = 0; i < 3; i++) {
+//        CGFloat newY = 100 + i * 20;
+//        UILabel *teFontLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, newY, 300, 20)];
+//        switch (i) {
+//            case 0:
+//                teFontLabel.text = @"systemf --- 我有一个捣鼓朋友";
+//                teFontLabel.font = [UIFont systemFontOfSize:17];
+//                break;
+//                
+//            case 1:
+//                teFontLabel.text = @"HeitiTi --- 我有一个捣鼓朋友";
+//                teFontLabel.font = [UIFont boldSystemFontOfSize:17];
+//                break;
+//                
+//            case 2:
+//                teFontLabel.text = @"regular --- 我有一个捣鼓朋友";
+//                teFontLabel.font = [UIFont fontWithName:@"PingFangSC-Semibold" size:17];
+//                break;
+//                
+//            default:
+//                break;
+//        }
+//        
+//        teFontLabel.tag = 10086 + i;
+//        
+//        teFontLabel.textColor = [UIColor blackColor];
+//        teFontLabel.textAlignment = NSTextAlignmentCenter;
+//        [self.view addSubview:teFontLabel];
+//    }
+//    
+//        UILabel *teFontLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 100, 300, 100)];
+//        teFontLabel.text = @"kkkldsfjhsaf";
+//        teFontLabel.font = [UIFont systemFontOfSize:15];
+//        teFontLabel.textColor = [UIColor blackColor];
+//        teFontLabel.textAlignment = NSTextAlignmentCenter;
+//        [self.view addSubview:teFontLabel];
+//    
+//    
+//    
+//    self.oriView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+//    self.oriView.backgroundColor = [UIColor grayColor];
+//    //    [self.view addSubview:self.oriView];
+//    
+//    UIView *copyedView = self.oriView;
+//    copyedView.frame = CGRectMake(150, 0, 100, 100);
+//    //    [self.view addSubview:copyedView];
+//    
+//    self.navigationItem.title = @"TEST";
+//    self.tapCount = 0;
+//    self.timerCount = 0;
+//    self.view.backgroundColor = [UIColor whiteColor];
+//    
+//    //    [self.view addSubview:self.aniView];
+//    //    [self.view addSubview:self.aniGreenView];
+//    
+//    UIImageView *teImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+//    teImage.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.2];
+//    teImage.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
+//    teImage.userInteractionEnabled = YES;
+//    //    [self.view addSubview:teImage];
+//    
+//    [teImage sd_setImageWithURL:[NSURL URLWithString:@"http://gxapp-images.oss-cn-hangzhou.aliyuncs.com/news-images/20170510/5387f9a7c2af45eda6a70ceea78d8bac.jpg"]
+//               placeholderImage:[UIImage imageNamed:@"topicGuide"]
+//                      completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+//                          
+//                      }];
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(jumpToAni)];
+//    [self.view addGestureRecognizer:tap];
+}
+
+#pragma mark -Private method
+#pragma mark - ----Lazy loading
+-(UITableView *)list{
+    if (!_list) {
+        _list = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight) style:UITableViewStyleGrouped];
+        _list.delegate = self;
+        _list.dataSource = self;
+        _list.separatorStyle = UITableViewCellSeparatorStyleNone;
+        [_list registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cellId"];
+    }
+    return _list;
+}
+
+#pragma mark - UITableView(Delegate,Datasource)
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return titles.count;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 0.0001;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 0.0001;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 45.5;
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    CALayer *underLine = [[CALayer alloc] init];
+    underLine.frame = CGRectMake(0, 45, ScreenWidth, 0.5);
+    underLine.backgroundColor = hexColor(0xe6e6e6).CGColor;
+    
+    [cell.contentView.layer addSublayer:underLine];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    cell.textLabel.text = [titles objectAtIndex:indexPath.row].className;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellId"];
+    return cell;
+    
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [self.navigationController pushViewController:[titles objectAtIndex:indexPath.row] animated:YES];
     
 }
 
@@ -337,8 +515,11 @@
 
 -(void)clearDiskMethod{
     
-    DeployableTableViewController *depVC = [[DeployableTableViewController alloc] init];
-    [self.navigationController pushViewController:depVC animated:YES];
+    BitMapVC *map = [[BitMapVC alloc] init];
+    [self.navigationController pushViewController:map animated:YES];
+//    
+//    DeployableTableViewController *depVC = [[DeployableTableViewController alloc] init];
+//    [self.navigationController pushViewController:depVC animated:YES];
     
 }
 
@@ -373,82 +554,7 @@
     
 }
 
--(void)initUI{
-    
-    UIView *errorBouns = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-    errorBouns.backgroundColor = [UIColor blackColor];
-    errorBouns.bounds = CGRectMake(50, 50, 100, 100);
-    [self.view addSubview:errorBouns];
-    
-    for (NSInteger i = 0; i < 3; i++) {
-        CGFloat newY = 100 + i * 20;
-        UILabel *teFontLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, newY, 300, 20)];
-        switch (i) {
-            case 0:
-                teFontLabel.text = @"systemf --- 我有一个捣鼓朋友";
-                teFontLabel.font = [UIFont systemFontOfSize:17];
-                break;
-                
-            case 1:
-                teFontLabel.text = @"HeitiTi --- 我有一个捣鼓朋友";
-                teFontLabel.font = [UIFont boldSystemFontOfSize:17];
-                break;
-                
-            case 2:
-                teFontLabel.text = @"regular --- 我有一个捣鼓朋友";
-                teFontLabel.font = [UIFont fontWithName:@"PingFangSC-Semibold" size:17];
-                break;
-                
-            default:
-                break;
-        }
-        
-        teFontLabel.tag = 10086 + i;
-        
-        teFontLabel.textColor = [UIColor blackColor];
-        teFontLabel.textAlignment = NSTextAlignmentCenter;
-        [self.view addSubview:teFontLabel];
-    }
-    
-//    UILabel *teFontLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 100, 300, 100)];
-//    teFontLabel.text = @"kkkldsfjhsaf";
-//    teFontLabel.font = [UIFont systemFontOfSize:15];
-//    teFontLabel.textColor = [UIColor blackColor];
-//    teFontLabel.textAlignment = NSTextAlignmentCenter;
-//    [self.view addSubview:teFontLabel];
-    
-    
-    
-    self.oriView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-    self.oriView.backgroundColor = [UIColor grayColor];
-//    [self.view addSubview:self.oriView];
-    
-    UIView *copyedView = self.oriView;
-    copyedView.frame = CGRectMake(150, 0, 100, 100);
-//    [self.view addSubview:copyedView];
-    
-    self.navigationItem.title = @"TEST";
-    self.tapCount = 0;
-    self.timerCount = 0;
-    self.view.backgroundColor = [UIColor whiteColor];
-    
-//    [self.view addSubview:self.aniView];
-//    [self.view addSubview:self.aniGreenView];
-    
-    UIImageView *teImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-    teImage.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.2];
-    teImage.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
-    teImage.userInteractionEnabled = YES;
-//    [self.view addSubview:teImage];
 
-    [teImage sd_setImageWithURL:[NSURL URLWithString:@"http://gxapp-images.oss-cn-hangzhou.aliyuncs.com/news-images/20170510/5387f9a7c2af45eda6a70ceea78d8bac.jpg"]
-               placeholderImage:[UIImage imageNamed:@"topicGuide"]
-                      completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                          
-                      }];
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(jumpToAni)];
-    [self.view addGestureRecognizer:tap];
-}
 
 -(void)jumpToAni{
     testAnimationVC *aniVC = [[testAnimationVC alloc] init];
@@ -741,27 +847,6 @@
 //-(void)showWhereFuncIs{
 //    NSLog(@"hereIsMain");
 //}
-
-//-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-//    return 1;
-//}
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 2;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 10;
-}
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"test"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"test"];
-    }
-    cell.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.2];
-    return cell;
-}
 
 #pragma mark -动画效果
 -(void)turnAndScaleInZ:(UIView *)teView{

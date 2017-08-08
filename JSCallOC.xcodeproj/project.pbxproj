@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1800C85A1F2ACDA900E3E8B9 /* BitMapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1800C8591F2ACDA900E3E8B9 /* BitMapVC.m */; };
+		1800C85D1F2ACE1A00E3E8B9 /* BitMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1800C85C1F2ACE1A00E3E8B9 /* BitMapView.m */; };
 		180279231ED95E1B009BBA97 /* UIViewController+Tracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 180279221ED95E1B009BBA97 /* UIViewController+Tracking.m */; };
 		18087AD21EFD03EA009CEF47 /* MD5Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 18087AD11EFD03EA009CEF47 /* MD5Encryption.m */; };
 		180EE1651ED7D0B300381806 /* AniViewCon.m in Sources */ = {isa = PBXBuildFile; fileRef = 180EE1641ED7D0B200381806 /* AniViewCon.m */; };
@@ -14,9 +16,12 @@
 		182B63D71EC00EEF00E2DADA /* UIViewController+testSubFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 182B63D61EC00EEF00E2DADA /* UIViewController+testSubFunc.m */; };
 		184955B11EE00D6A00AE7634 /* HelloOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 184955B01EE00D6A00AE7634 /* HelloOperation.m */; };
 		184955B31EE0163000AE7634 /* Bugly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184955B21EE0163000AE7634 /* Bugly.framework */; };
+		185B8D061F39613D00B1C9C5 /* ResizeImageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 185B8D051F39613D00B1C9C5 /* ResizeImageVC.m */; };
 		185E247D1EB041AD006B5ABD /* globalDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E247C1EB041AD006B5ABD /* globalDefine.swift */; };
 		185E247F1EB077F4006B5ABD /* closureTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E247E1EB077F4006B5ABD /* closureTestView.swift */; };
 		185F85921E83CD530051B761 /* testChild.m in Sources */ = {isa = PBXBuildFile; fileRef = 185F85911E83CD530051B761 /* testChild.m */; };
+		1861607E1F36BAD200A877CE /* SwiftyDiffVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861607D1F36BAD200A877CE /* SwiftyDiffVC.swift */; };
+		186160821F36BD6200A877CE /* NSObject+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 186160811F36BD6200A877CE /* NSObject+Utility.m */; };
 		1861A1531F23228E00055620 /* SwiftyImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861A1521F23228E00055620 /* SwiftyImportView.swift */; };
 		1861A1561F23231700055620 /* KeyBoardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1861A1551F23231700055620 /* KeyBoardVC.m */; };
 		1865778E1ED5411300F15CCE /* teOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1865778D1ED5411300F15CCE /* teOperation.m */; };
@@ -116,6 +121,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1800C8581F2ACDA900E3E8B9 /* BitMapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitMapVC.h; sourceTree = "<group>"; };
+		1800C8591F2ACDA900E3E8B9 /* BitMapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitMapVC.m; sourceTree = "<group>"; };
+		1800C85B1F2ACE1A00E3E8B9 /* BitMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitMapView.h; sourceTree = "<group>"; };
+		1800C85C1F2ACE1A00E3E8B9 /* BitMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitMapView.m; sourceTree = "<group>"; };
 		180279211ED95E1B009BBA97 /* UIViewController+Tracking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Tracking.h"; sourceTree = "<group>"; };
 		180279221ED95E1B009BBA97 /* UIViewController+Tracking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Tracking.m"; sourceTree = "<group>"; };
 		18087AD01EFD03EA009CEF47 /* MD5Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5Encryption.h; sourceTree = "<group>"; };
@@ -129,10 +138,16 @@
 		184955AF1EE00D6A00AE7634 /* HelloOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloOperation.h; sourceTree = "<group>"; };
 		184955B01EE00D6A00AE7634 /* HelloOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelloOperation.m; sourceTree = "<group>"; };
 		184955B21EE0163000AE7634 /* Bugly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bugly.framework; sourceTree = "<group>"; };
+		185B8D041F39613D00B1C9C5 /* ResizeImageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResizeImageVC.h; sourceTree = "<group>"; };
+		185B8D051F39613D00B1C9C5 /* ResizeImageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResizeImageVC.m; sourceTree = "<group>"; };
 		185E247C1EB041AD006B5ABD /* globalDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = globalDefine.swift; sourceTree = "<group>"; };
 		185E247E1EB077F4006B5ABD /* closureTestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = closureTestView.swift; sourceTree = "<group>"; };
 		185F85901E83CD530051B761 /* testChild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testChild.h; sourceTree = "<group>"; };
 		185F85911E83CD530051B761 /* testChild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testChild.m; sourceTree = "<group>"; };
+		1861607B1F36B0FC00A877CE /* JSCallOC-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JSCallOC-Prefix.pch"; sourceTree = "<group>"; };
+		1861607D1F36BAD200A877CE /* SwiftyDiffVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyDiffVC.swift; sourceTree = "<group>"; };
+		186160801F36BD6200A877CE /* NSObject+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Utility.h"; sourceTree = "<group>"; };
+		186160811F36BD6200A877CE /* NSObject+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Utility.m"; sourceTree = "<group>"; };
 		1861A1521F23228E00055620 /* SwiftyImportView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyImportView.swift; sourceTree = "<group>"; };
 		1861A1541F23231700055620 /* KeyBoardVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyBoardVC.h; sourceTree = "<group>"; };
 		1861A1551F23231700055620 /* KeyBoardVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyBoardVC.m; sourceTree = "<group>"; };
@@ -306,6 +321,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1800C8571F2ACD7F00E3E8B9 /* BitMap */ = {
+			isa = PBXGroup;
+			children = (
+				1800C8581F2ACDA900E3E8B9 /* BitMapVC.h */,
+				1800C8591F2ACDA900E3E8B9 /* BitMapVC.m */,
+				1800C85B1F2ACE1A00E3E8B9 /* BitMapView.h */,
+				1800C85C1F2ACE1A00E3E8B9 /* BitMapView.m */,
+			);
+			name = BitMap;
+			sourceTree = "<group>";
+		};
+		1800C85E1F2ADD5900E3E8B9 /* DataManage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DataManage;
+			sourceTree = "<group>";
+		};
 		180EE1661ED7D19C00381806 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +354,32 @@
 				6059A0CA1F1B7C80001B1E68 /* CataTestView+BridgeTest.m */,
 			);
 			name = Animation;
+			sourceTree = "<group>";
+		};
+		185B8D031F3960AF00B1C9C5 /* ResizeImage */ = {
+			isa = PBXGroup;
+			children = (
+				185B8D041F39613D00B1C9C5 /* ResizeImageVC.h */,
+				185B8D051F39613D00B1C9C5 /* ResizeImageVC.m */,
+			);
+			name = ResizeImage;
+			sourceTree = "<group>";
+		};
+		1861607C1F36BAA900A877CE /* Swifty */ = {
+			isa = PBXGroup;
+			children = (
+				1861607D1F36BAD200A877CE /* SwiftyDiffVC.swift */,
+			);
+			name = Swifty;
+			sourceTree = "<group>";
+		};
+		1861607F1F36BD2000A877CE /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				186160801F36BD6200A877CE /* NSObject+Utility.h */,
+				186160811F36BD6200A877CE /* NSObject+Utility.m */,
+			);
+			name = Category;
 			sourceTree = "<group>";
 		};
 		1861A1511F23224100055620 /* KeyBoardModule */ = {
@@ -522,7 +581,13 @@
 		52BC7F881BFB68A800642835 /* JSCallOC */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< Updated upstream
 				608C36321F278E3100A5DA55 /* New Group */,
+=======
+				185B8D031F3960AF00B1C9C5 /* ResizeImage */,
+				1800C85E1F2ADD5900E3E8B9 /* DataManage */,
+				1800C8571F2ACD7F00E3E8B9 /* BitMap */,
+>>>>>>> Stashed changes
 				18F405B31EEE9E23008828F9 /* switchAnimation */,
 				184955B21EE0163000AE7634 /* Bugly.framework */,
 				180EE1661ED7D19C00381806 /* Animation */,
@@ -533,6 +598,8 @@
 				52BC7F8D1BFB68A800642835 /* AppDelegate.m */,
 				52BC7F8F1BFB68A800642835 /* ViewController.h */,
 				52BC7F901BFB68A800642835 /* ViewController.m */,
+				1861607F1F36BD2000A877CE /* Category */,
+				1861607C1F36BAA900A877CE /* Swifty */,
 				1861A1511F23224100055620 /* KeyBoardModule */,
 				18D9A9981F2088F80015C741 /* teModel.h */,
 				18D9A9991F2088F80015C741 /* teModel.m */,
@@ -590,6 +657,7 @@
 			children = (
 				52BC7FBF1BFB6A2F00642835 /* html */,
 				52BC7F8A1BFB68A800642835 /* main.m */,
+				1861607B1F36B0FC00A877CE /* JSCallOC-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -851,6 +919,7 @@
 				18CE233F1E8A67E3008B9F76 /* SBJsonWriter.m in Sources */,
 				52BC7FBE1BFB692900642835 /* JKWebView.m in Sources */,
 				52BC7F911BFB68A800642835 /* ViewController.m in Sources */,
+				1800C85A1F2ACDA900E3E8B9 /* BitMapVC.m in Sources */,
 				18DD67451EB97E49000BD37E /* StepCountWidget.swift in Sources */,
 				180279231ED95E1B009BBA97 /* UIViewController+Tracking.m in Sources */,
 				18E98E251ED3EDDB007E92AE /* SDWebImageDownloader.m in Sources */,
@@ -877,6 +946,7 @@
 				18F2FCFB1EE64F8800553D20 /* PhotoAlbumModel.swift in Sources */,
 				6059A0CB1F1B7C80001B1E68 /* CataTestView+BridgeTest.m in Sources */,
 				18E98E2D1ED3EDDB007E92AE /* UIImageView+HighlightedWebCache.m in Sources */,
+				1861607E1F36BAD200A877CE /* SwiftyDiffVC.swift in Sources */,
 				18E98E291ED3EDDB007E92AE /* UIButton+WebCache.m in Sources */,
 				18D760881E5E7701007124CD /* NSArray+MASAdditions.m in Sources */,
 				18E98E2E1ED3EDDB007E92AE /* UIImageView+WebCache.m in Sources */,
@@ -905,6 +975,7 @@
 				52BC7F8B1BFB68A800642835 /* main.m in Sources */,
 				185F85921E83CD530051B761 /* testChild.m in Sources */,
 				18E98E241ED3EDDB007E92AE /* SDWebImageDecoder.m in Sources */,
+				1800C85D1F2ACE1A00E3E8B9 /* BitMapView.m in Sources */,
 				185E247F1EB077F4006B5ABD /* closureTestView.swift in Sources */,
 				18D9A99A1F2088F80015C741 /* teModel.m in Sources */,
 				18E98E2B1ED3EDDB007E92AE /* UIImage+MultiFormat.m in Sources */,
@@ -915,7 +986,9 @@
 				18D760891E5E7701007124CD /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				18E874101ED6744800CAF89C /* Model.xcdatamodeld in Sources */,
 				18E98E2F1ED3EDDB007E92AE /* UIView+WebCacheOperation.m in Sources */,
+				185B8D061F39613D00B1C9C5 /* ResizeImageVC.m in Sources */,
 				18E98DFE1ED3D216007E92AE /* ImageReader.m in Sources */,
+				186160821F36BD6200A877CE /* NSObject+Utility.m in Sources */,
 				184955B11EE00D6A00AE7634 /* HelloOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1063,6 +1136,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/JSCallOC",
 				);
+				GCC_PREFIX_HEADER = "/Users/apple/Documents/chaoticCode/JSCallOC/JSCallOC-Prefix.pch";
 				INFOPLIST_FILE = JSCallOC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jakill.1978;
@@ -1084,6 +1158,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/JSCallOC",
 				);
+				GCC_PREFIX_HEADER = "/Users/apple/Documents/chaoticCode/JSCallOC/JSCallOC-Prefix.pch";
 				INFOPLIST_FILE = JSCallOC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jakill.1978;

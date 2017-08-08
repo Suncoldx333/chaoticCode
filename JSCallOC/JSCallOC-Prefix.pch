@@ -1,0 +1,19 @@
+//
+//  JSCallOC-Prefix.pch
+//  JSCallOC
+//
+//  Created by 11111 on 2017/8/6.
+//  Copyright © 2017年 wangdan. All rights reserved.
+//
+
+#ifndef JSCallOC_Prefix_pch
+#define JSCallOC_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "GlobalTool.h"
+#import "NSObject+Utility.h"
+
+
+#endif /* JSCallOC_Prefix_pch */

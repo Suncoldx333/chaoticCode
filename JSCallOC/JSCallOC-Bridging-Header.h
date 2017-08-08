@@ -5,5 +5,9 @@
 #import "ViewController.h"
 #import <Bugly/Bugly.h>
 #import <CommonCrypto/CommonDigest.h>
+<<<<<<< Updated upstream
 #import "CataTestView.h"
 #import "CataTestView+BridgeTest.h"
+=======
+#import "GlobalTool.h"
+>>>>>>> Stashed changes
