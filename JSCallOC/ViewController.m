@@ -25,11 +25,13 @@
 #import "teView.h"
 #import "teModel.h"
 #import "teModel+UnitTest.h"
+#import "TextureVC.h"
 
 #import "MD5Encryption.h"
 #import "DeployableTableViewController.h"
 //#import "UIFont+swizzleFont.h"
 #import "ResizeImageVC.h"
+#import "LLDBLearn.h"
 
 #import "KeyBoardVC.h"
 #import "BitMapVC.h"
@@ -61,7 +63,7 @@
 @end
 
 @implementation ViewController{
-    NSMutableArray<UIViewController *> *titles;
+    NSMutableArray<NSString *> *titles;
 }
 
 @synthesize testView;
@@ -92,19 +94,19 @@
 
 #pragma mark - Data initialize
 -(void)initData{
-
-    SwiftyDiffVC *diff1 = [[SwiftyDiffVC alloc] init];
-    diff1.teAssco = @"90";
-    NSLog(@"vc = %p,pro = %p",diff1,diff1.teAssco);
-    diff1 = nil;
-    NSLog(@"vc = %p,pro = %p",diff1,diff1.teAssco);
     
     titles = [[NSMutableArray alloc] init];
-    SwiftyDiffVC *diff = [[SwiftyDiffVC alloc] init];
-    [titles addObject:diff];
+    NSString *className = NSStringFromClass([SwiftyDiffVC class]);
+    [titles addObject:className];
 
-    ResizeImageVC *resize = [[ResizeImageVC alloc] init];
+    NSString *resize = NSStringFromClass([ResizeImageVC class]);
     [titles addObject:resize];
+    
+    NSString *texture = NSStringFromClass([TextureVC class]);
+    [titles addObject:texture];
+    
+    NSString *lldb = NSStringFromClass([LLDBLearn class]);
+    [titles addObject:lldb];
     
     NSDate *ori = [NSDate date];
     
@@ -292,7 +294,8 @@
     [cell.contentView.layer addSublayer:underLine];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    cell.textLabel.text = [titles objectAtIndex:indexPath.row].className;
+    cell.textLabel.font = [UIFont systemFontOfSize:15];
+    cell.textLabel.text = [titles objectAtIndex:indexPath.row];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -303,8 +306,10 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *className = [titles objectAtIndex:indexPath.row];
+    id viewController = [[NSClassFromString(className) alloc] init];
     
-    [self.navigationController pushViewController:[titles objectAtIndex:indexPath.row] animated:YES];
+    [self.navigationController pushViewController:viewController animated:YES];
     
 }
 
