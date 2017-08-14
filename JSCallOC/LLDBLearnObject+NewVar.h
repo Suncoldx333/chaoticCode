@@ -10,6 +10,6 @@
 
 @interface LLDBLearnObject (NewVar)
 
-@property (nonatomic,copy) NSString *varByCata;
+@property (nonatomic,assign) NSString *varByCata;
 
 @end

@@ -10,8 +10,8 @@
 #import <CoreData/CoreData.h>
 #import "ViewController.h"
 #import "MayIHelpYou-Swift.h"
-
 #import <Bugly/Bugly.h>
+#import <KMCGeigerCounter/KMCGeigerCounter.h>
 
 @interface AppDelegate ()
 
@@ -33,6 +33,9 @@
     CustomNavController *nav = [[CustomNavController alloc] initWithRootViewController:controller];
     
     self.window.rootViewController = nav;
+    
+    [self.window makeKeyAndVisible];
+//    [KMCGeigerCounter sharedGeigerCounter].enabled = YES;
     
     return YES;
 }

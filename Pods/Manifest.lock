@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - KMCGeigerCounter (0.2.2)
   - PINCache (3.0.1-beta.5):
     - PINCache/Arc-exception-safe (= 3.0.1-beta.5)
     - PINCache/Core (= 3.0.1-beta.5)
@@ -48,6 +49,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
+  - KMCGeigerCounter (~> 0.2.2)
   - RxCocoa (~> 3.0)
   - RxDataSources (~> 1.0.0)
   - RxSwift (~> 3.0)
@@ -56,6 +58,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  KMCGeigerCounter: f8cc3c4aa19fc6f8cec168fb03b364b84c118a7a
   PINCache: 98e7b1ef782824ad231ade51987c218b758c30d8
   PINOperation: ac23db44796d4a564ecf9b5ea7163510f579b71d
   PINRemoteImage: d71988f11914a050d6d4cf51efc4ad1de8c0a9d8
@@ -65,6 +68,6 @@ SPEC CHECKSUMS:
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   Texture: 8cf0872fe33328c20d7e6c1fcbf1f23a82162f2f
 
-PODFILE CHECKSUM: 41e639aa1bc8a39b13d8ab4f52ab4329b0e266af
+PODFILE CHECKSUM: 77fc48b87cbc997ae5ce1bd1a8e299ef0b6b4103
 
 COCOAPODS: 1.2.1

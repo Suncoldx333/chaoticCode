@@ -20,7 +20,7 @@
 
 -(void)setVarByCata:(NSString *)varByCata{
     
-    objc_setAssociatedObject(self, @"hello", varByCata, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    objc_setAssociatedObject(self, @"hello", varByCata, OBJC_ASSOCIATION_ASSIGN);
     
 }
 
