@@ -35,7 +35,7 @@
 
 -(void)swizzle_viewWillAppear:(BOOL)animated{
     [self swizzle_viewWillAppear:animated];
-    NSLog(@"swizzledViewWillAppear : %@",self);
+//    NSLog(@"swizzledViewWillAppear : %@",self);
 }
 
 @end
