@@ -40,9 +40,17 @@ class SwiftyDiffVC: UIViewController {
         return inner
     }()
     
+    lazy var testCopyBtView: UIView = {
+        let inner = UIView.init(frame: CGRect.init(x: 0, y: 200, width: 100, height: 100))
+        inner.backgroundColor = ColorMethodho(hexValue: 0x00c18b).withAlphaComponent(0.2)
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(copyOnWriteEvent))
+        inner.addGestureRecognizer(tap)
+        return inner
+    }()
+    
     fileprivate func initUI() {
         self.view.backgroundColor = ColorMethodho(hexValue: 0xe6e6e6)
-        
+        self.view.addSubview(testCopyBtView)
         self.view.addSubview(emojiLabel)
         self.view.addSubview(emojiAttrLable)
     }
@@ -75,7 +83,15 @@ class SwiftyDiffVC: UIViewController {
         return attr
     }
     
-
+    func copyOnWriteEvent() {
+        
+        let d = "lllop"
+        var a = [1,2,3]
+        var b = a
+        let c = b
+        
+        print("d = \(d)")
+    }
 }
 
 

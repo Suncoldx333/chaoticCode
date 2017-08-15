@@ -108,6 +108,9 @@
     NSString *lldb = NSStringFromClass([LLDBLearn class]);
     [titles addObject:lldb];
     
+    NSString *svc = NSStringFromClass([SVCPracticeTable class]);
+    [titles addObject:svc];
+    
     NSDate *ori = [NSDate date];
     
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
@@ -237,17 +240,6 @@
 //    //    [self.view addSubview:self.aniView];
 //    //    [self.view addSubview:self.aniGreenView];
 //    
-//    UIImageView *teImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-//    teImage.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.2];
-//    teImage.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
-//    teImage.userInteractionEnabled = YES;
-//    //    [self.view addSubview:teImage];
-//    
-//    [teImage sd_setImageWithURL:[NSURL URLWithString:@"http://gxapp-images.oss-cn-hangzhou.aliyuncs.com/news-images/20170510/5387f9a7c2af45eda6a70ceea78d8bac.jpg"]
-//               placeholderImage:[UIImage imageNamed:@"topicGuide"]
-//                      completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-//                          
-//                      }];
 //    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(jumpToAni)];
 //    [self.view addGestureRecognizer:tap];
 }

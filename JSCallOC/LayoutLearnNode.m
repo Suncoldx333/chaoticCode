@@ -27,6 +27,7 @@
     usernameNode = [[ASTextNode alloc] init];
     NSDictionary *attrs = @{ NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size:15.0f] };
     NSAttributedString *string = [[NSAttributedString alloc] initWithString:@"usrname" attributes:attrs];
+    usernameNode.backgroundColor = hexColor(0xffffff);
     usernameNode.attributedText = string;
     
     postLocationNode = [[ASTextNode alloc] init];
@@ -35,12 +36,21 @@
     
     postTimeNode = [[ASTextNode alloc] init];
     NSAttributedString *string_time = [[NSAttributedString alloc] initWithString:@"postTime" attributes:attrs];
+    postTimeNode.backgroundColor = hexColor(0xffffff);
     postTimeNode.attributedText = string_time;
     
     
     [self addSubnode:usernameNode];
     [self addSubnode:postLocationNode];
     [self addSubnode:postTimeNode];
+}
+
+-(void)changdText:(NSString *)text{
+    
+    NSDictionary *attrs = @{ NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size:15.0f] };
+    NSAttributedString *string = [[NSAttributedString alloc] initWithString:text attributes:attrs];
+    
+    usernameNode.attributedText = string;
 }
 
 - (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize
@@ -54,13 +64,15 @@
     // if fetching post location data from server,
     // check if it is available yet and include it if so
     nameLocationStack.children = @[usernameNode,postLocationNode];
-
+    
+//    usernameNode.style.flexGrow = 1.0;
+    usernameNode.style.flexShrink = 1.0;
     
     // horizontal stack
     ASStackLayoutSpec *headerStackSpec = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionHorizontal
                                                                                  spacing:40
-                                                                          justifyContent:ASStackLayoutJustifyContentSpaceAround
-                                                                              alignItems:ASStackLayoutAlignItemsCenter
+                                                                          justifyContent:ASStackLayoutJustifyContentStart
+                                                                              alignItems:ASStackLayoutAlignItemsStart
                                                                                 children:@[usernameNode, postTimeNode]];
     
     // inset the horizontal stack

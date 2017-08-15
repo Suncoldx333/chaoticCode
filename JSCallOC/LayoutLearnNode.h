@@ -10,4 +10,6 @@
 
 @interface LayoutLearnNode : ASDisplayNode
 
+-(void)changdText:(NSString *)text;
+
 @end
