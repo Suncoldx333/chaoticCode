@@ -34,6 +34,7 @@
 		18A1ED461F418C7100FAD25E /* LLDBLearnObject+NewVar.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A1ED451F418C7100FAD25E /* LLDBLearnObject+NewVar.m */; };
 		18A95C661F428E2E0078954D /* SVCPractice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A95C651F428E2E0078954D /* SVCPractice.swift */; };
 		18A95C691F42DBDB0078954D /* ImageNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A95C681F42DBDB0078954D /* ImageNode.m */; };
+		18A95C6D1F42F7EB0078954D /* RxSwiftTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A95C6C1F42F7EB0078954D /* RxSwiftTable.swift */; };
 		18ABFB1B1ED6B6A100B179FF /* Employee+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ABFB191ED6B6A100B179FF /* Employee+CoreDataClass.swift */; };
 		18ABFB1C1ED6B6A100B179FF /* Employee+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ABFB1A1ED6B6A100B179FF /* Employee+CoreDataProperties.swift */; };
 		18ABFB1F1ED6B6D800B179FF /* Department+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ABFB1D1ED6B6D800B179FF /* Department+CoreDataClass.swift */; };
@@ -160,6 +161,7 @@
 		18A95C651F428E2E0078954D /* SVCPractice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVCPractice.swift; sourceTree = "<group>"; };
 		18A95C671F42DBDB0078954D /* ImageNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageNode.h; sourceTree = "<group>"; };
 		18A95C681F42DBDB0078954D /* ImageNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageNode.m; sourceTree = "<group>"; };
+		18A95C6C1F42F7EB0078954D /* RxSwiftTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxSwiftTable.swift; sourceTree = "<group>"; };
 		18ABFB191ED6B6A100B179FF /* Employee+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Employee+CoreDataClass.swift"; path = "../Employee+CoreDataClass.swift"; sourceTree = "<group>"; };
 		18ABFB1A1ED6B6A100B179FF /* Employee+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Employee+CoreDataProperties.swift"; path = "../Employee+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		18ABFB1D1ED6B6D800B179FF /* Department+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Department+CoreDataClass.swift"; path = "../Department+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 		1882835B1F3D9361003891BE /* OtherVCs */ = {
 			isa = PBXGroup;
 			children = (
+				18A95C6B1F42F7880078954D /* TalbeViewWithRxSwift */,
 				18A95C641F428DDF0078954D /* StateVC */,
 				18A1ED3D1F4143B300FAD25E /* DataManage&LLDB */,
 				1882835C1F3D937E003891BE /* AsyncDisplay */,
@@ -415,6 +418,14 @@
 				18A95C651F428E2E0078954D /* SVCPractice.swift */,
 			);
 			name = StateVC;
+			sourceTree = "<group>";
+		};
+		18A95C6B1F42F7880078954D /* TalbeViewWithRxSwift */ = {
+			isa = PBXGroup;
+			children = (
+				18A95C6C1F42F7EB0078954D /* RxSwiftTable.swift */,
+			);
+			name = TalbeViewWithRxSwift;
 			sourceTree = "<group>";
 		};
 		18CE232C1E8A67E3008B9F76 /* json */ = {
@@ -912,6 +923,7 @@
 				1861607E1F36BAD200A877CE /* SwiftyDiffVC.swift in Sources */,
 				18D760881E5E7701007124CD /* NSArray+MASAdditions.m in Sources */,
 				180EE1651ED7D0B300381806 /* AniViewCon.m in Sources */,
+				18A95C6D1F42F7EB0078954D /* RxSwiftTable.swift in Sources */,
 				18D760871E5E7701007124CD /* MASViewConstraint.m in Sources */,
 				1861A1531F23228E00055620 /* SwiftyImportView.swift in Sources */,
 				18ABFB1F1ED6B6D800B179FF /* Department+CoreDataClass.swift in Sources */,

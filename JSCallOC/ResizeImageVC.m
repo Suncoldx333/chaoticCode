@@ -2,6 +2,8 @@
 //  ResizeImageVC.m
 //  JSCallOC
 //
+//  图片平铺效果
+//
 //  Created by 11111 on 2017/8/8.
 //  Copyright © 2017年 wangdan. All rights reserved.
 //

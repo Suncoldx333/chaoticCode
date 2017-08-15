@@ -1,6 +1,8 @@
 //
 //  SVCPractice.swift
 //  JSCallOC
+//  
+//  验证State C V 模式
 //
 //  Created by 11111 on 2017/8/15.
 //  Copyright © 2017年 wangdan. All rights reserved.

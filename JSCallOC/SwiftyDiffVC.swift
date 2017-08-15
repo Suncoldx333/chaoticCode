@@ -2,6 +2,8 @@
 //  SwiftyDiffVC.swift
 //  JSCallOC
 //
+//  Emoji表情在Swift中的异常
+//
 //  Created by 11111 on 2017/8/6.
 //  Copyright © 2017年 wangdan. All rights reserved.
 //

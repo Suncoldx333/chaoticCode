@@ -10,6 +10,7 @@
 
 @implementation ImageNode{
     ASNetworkImageNode *netImage;
+    ASDisplayNode *show;
 }
 
 -(instancetype)init{
@@ -27,16 +28,15 @@
     netImage.cropRect = CGRectMake(1, 0, 0, 0);
     [netImage setURL:[NSURL URLWithString:@"http://gxapp-images.oss-cn-hangzhou.aliyuncs.com/news-images/20170510/5387f9a7c2af45eda6a70ceea78d8bac.jpg"] resetToDefault:YES];
     [self addSubnode:netImage];
+    
+    show = [[ASDisplayNode alloc] init];
+    show.backgroundColor = hexColor(0x404040);
+//    [self addSubnode:show];
 }
 
 -(ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize{
-    ASStackLayoutSpec *spec = [ASStackLayoutSpec horizontalStackLayoutSpec];
-    spec.children = @[netImage];
-//    netImage.style.preferredSize = CGSizeMake(50, 50);
-//    spec.style.flexGrow = 1.0;
-//    spec.style.flexShrink = 1.0;
     
-    return [ASInsetLayoutSpec insetLayoutSpecWithInsets:UIEdgeInsetsMake(10, 10, 10, 10) child:spec];
+    return [ASInsetLayoutSpec insetLayoutSpecWithInsets:UIEdgeInsetsMake(5, 10, 15, 20) child:netImage];
 }
 
 @end
