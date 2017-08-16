@@ -2,7 +2,7 @@
 //  SwiftyDiffVC.swift
 //  JSCallOC
 //
-//  Emoji表情在Swift中的异常
+//  Emoji表情在Swift中的异常,以及其他验证想法的代码
 //
 //  Created by 11111 on 2017/8/6.
 //  Copyright © 2017年 wangdan. All rights reserved.
@@ -50,11 +50,18 @@ class SwiftyDiffVC: UIViewController {
         return inner
     }()
     
+    var structModel : modelStruct!
+    var classModel : modelClass!
+    
     fileprivate func initUI() {
         self.view.backgroundColor = ColorMethodho(hexValue: 0xe6e6e6)
         self.view.addSubview(testCopyBtView)
         self.view.addSubview(emojiLabel)
         self.view.addSubview(emojiAttrLable)
+        
+        structModel = modelStruct.init(name: "路飞")
+        classModel = modelClass.init()
+        classModel.name = "乔司"
     }
     
     fileprivate func addEmojiToLabel() {
@@ -87,13 +94,28 @@ class SwiftyDiffVC: UIViewController {
     
     func copyOnWriteEvent() {
         
-        let d = "lllop"
-        var a = [1,2,3]
-        var b = a
-        let c = b
+        let structModel1 = structModel
+        structModel.name = "路飞1"
+        print("ori = \(structModel.name),another = \(structModel1?.name ?? "ori")")
         
-        print("d = \(d)")
+        let classModel1 = classModel
+        classModel.name = "乔司1"
+        print("ori = \(classModel.name),another = \(classModel1?.name ?? "ori")")
+        
+        let airports : [String : String] = ["YYZ": "Toronto Pearson", "DUB": "Dublin"]
+        for (code ,name) in airports {
+            print("\(code) : \(name)")
+        }
+        
     }
 }
 
+struct modelStruct {
+    var name : String!
+    
+}
 
+class modelClass: NSObject {
+    var name : String!
+    
+}

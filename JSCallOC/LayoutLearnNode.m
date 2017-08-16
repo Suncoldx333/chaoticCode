@@ -12,6 +12,9 @@
     ASTextNode *usernameNode;
     ASTextNode *postLocationNode;
     ASTextNode *postTimeNode;
+    
+    ASStackLayoutSpec *layouts;
+    NSMutableArray *children;
 }
 
 -(instancetype)init{
@@ -32,51 +35,52 @@
     
     postLocationNode = [[ASTextNode alloc] init];
     NSAttributedString *string_post = [[NSAttributedString alloc] initWithString:@"postLocation" attributes:attrs];
+    postLocationNode.backgroundColor = hexColor(0xffffff);
     postLocationNode.attributedText = string_post;
     
     postTimeNode = [[ASTextNode alloc] init];
     NSAttributedString *string_time = [[NSAttributedString alloc] initWithString:@"postTime" attributes:attrs];
     postTimeNode.backgroundColor = hexColor(0xffffff);
     postTimeNode.attributedText = string_time;
+    usernameNode.style.spacingAfter = 5;
     
+    postLocationNode.style.spacingBefore = 10;
+    postLocationNode.style.spacingAfter = 10;
+    
+    postTimeNode.style.spacingBefore = 15;
     
     [self addSubnode:usernameNode];
     [self addSubnode:postLocationNode];
     [self addSubnode:postTimeNode];
+    children = [[NSMutableArray alloc] init];
+    [children addObject:usernameNode];
+//    [children addObject:postLocationNode];
+    [children addObject:postTimeNode];
+    
+    layouts = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionHorizontal
+                                                      spacing:0
+                                               justifyContent:ASStackLayoutJustifyContentStart
+                                                   alignItems:ASStackLayoutAlignItemsStart
+                                                     children:children];
 }
 
 -(void)changdText:(NSString *)text{
     
-    NSDictionary *attrs = @{ NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size:15.0f] };
-    NSAttributedString *string = [[NSAttributedString alloc] initWithString:text attributes:attrs];
+    NSLog(@"time out!");
+    [children removeObject:postLocationNode];
+//    layouts = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionHorizontal
+//                                                      spacing:0
+//                                               justifyContent:ASStackLayoutJustifyContentStart
+//                                                   alignItems:ASStackLayoutAlignItemsStart
+//                                                     children:children];
+//    
+//    [self setNeedsLayout];
     
-    usernameNode.attributedText = string;
 }
 
-- (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize
-{
-    // when the username / location text is too long,
-    // shrink the stack to fit onscreen rather than push content to the right, offscreen
-    ASStackLayoutSpec *nameLocationStack = [ASStackLayoutSpec verticalStackLayoutSpec];
-    nameLocationStack.style.flexShrink = 1.0;
-    nameLocationStack.style.flexGrow = 1.0;
+- (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize{
     
-    // if fetching post location data from server,
-    // check if it is available yet and include it if so
-    nameLocationStack.children = @[usernameNode,postLocationNode];
-    
-//    usernameNode.style.flexGrow = 1.0;
-    usernameNode.style.flexShrink = 1.0;
-    
-    // horizontal stack
-    ASStackLayoutSpec *headerStackSpec = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionHorizontal
-                                                                                 spacing:40
-                                                                          justifyContent:ASStackLayoutJustifyContentStart
-                                                                              alignItems:ASStackLayoutAlignItemsStart
-                                                                                children:@[usernameNode, postTimeNode]];
-    
-    // inset the horizontal stack
-    return [ASInsetLayoutSpec insetLayoutSpecWithInsets:UIEdgeInsetsMake(0, 0, 0, 0) child:headerStackSpec];
+    return [ASInsetLayoutSpec insetLayoutSpecWithInsets:UIEdgeInsetsMake(0, 0, 0, 0) child:layouts];
 }
 
 @end

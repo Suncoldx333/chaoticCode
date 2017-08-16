@@ -37,7 +37,7 @@
     [super viewDidLoad];
     [self initData];
     [self initUI];
-//    [self timeBegin];
+    [self timeBegin];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -82,7 +82,7 @@
                                              target:self
                                            selector:@selector(change)
                                            userInfo:nil
-                                            repeats:YES];
+                                            repeats:NO];
 }
 
 -(void)change{
