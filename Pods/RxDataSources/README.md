@@ -1,3 +1,5 @@
+[![Travis CI](https://travis-ci.org/RxSwiftCommunity/RxDataSources.svg?branch=master)](https://travis-ci.org/RxSwiftCommunity/RxDataSources)
+
 Table and Collection view data sources
 ======================================
 
@@ -7,7 +9,7 @@ Table and Collection view data sources
   - the algorithm has the assumption that all sections and items are unique so there is no ambiguity
   - in case there is ambiguity, fallbacks automagically on non animated refresh
 - [x] it applies additional heuristics to send the least number of commands to sectioned view
-  - even though the running time is linear, preferred number of sent commands is usually a lot less then linear
+  - even though the running time is linear, preferred number of sent commands is usually a lot less than linear
   - it is preferred (and possible) to cap the number of changes to some small number, and in case the number of changes grows towards linear, just do normal reload
 - [x] Supports **extending your item and section structures**
   - just extend your item with `IdentifiableType` and `Equatable`, and your section with `AnimatableSectionModelType`
@@ -34,10 +36,10 @@ RxSwift helps alleviate some of the burden with a simple data binding mechanism:
 ```swift
 let data = Observable<[String]>.just(["first element", "second element", "third element"])
 
-data.bindTo(tableView.rx.items(cellIdentifier: "Cell")) { index, model, cell in
+data.bind(to: tableView.rx.items(cellIdentifier: "Cell")) { index, model, cell in
   cell.textLabel?.text = model
 }
-.addDisposableTo(disposeBag)
+.disposed(by: disposeBag)
 ```
 
 This works well with simple data sets but does not handle cases where you need to bind complex data sets with multiples sections, or when you need to perform animations when adding/modifying/deleting items.  
@@ -49,8 +51,8 @@ With RxDataSources, it is super easy to just write
 ```swift
 let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Int>>()
 Observable.just([SectionModel(model: "title", items: [1, 2, 3])])
-    .bindTo(tableView.rx.items(dataSource: dataSource))
-    .addDisposableTo(disposeBag)
+    .bind(to: tableView.rx.items(dataSource: dataSource))
+    .disposed(by: disposeBag)
 ```
 ![RxDataSources example app](https://raw.githubusercontent.com/kzaher/rxswiftcontent/rxdatasources/RxDataSources.gif)
 
@@ -95,7 +97,7 @@ let dataSource = RxTableViewSectionedReloadDataSource<SectionOfCustomData>()
 - etc
 
 ```swift 
-dataSource.configureCell = { ds, tv, ip, item in
+dataSource.configureCell = { (ds: RxTableViewSectionedReloadDataSource<SectionOfCustomData>, tv: UITableView, ip: IndexPath, item: Item) in
   let cell = tv.dequeueReusableCell(withIdentifier: "Cell", for: ip)
   cell.textLabel?.text = "Item \(item.anInt): \(item.aString) - \(item.aCGPoint.x):\(item.aCGPoint.y)"
   return cell
@@ -113,15 +115,15 @@ let sections = [
 ]
 
 Observable.just(sections)
-  .bindTo(tableView.rx.items(dataSource: dataSource))
-  .addDisposableTo(disposeBag)
+  .bind(to: tableView.rx.items(dataSource: dataSource))
+  .disposed(by: disposeBag)
 ```
 
 
 ### Animations
 To implement animations with RxDataSources, the same steps are required as with non-animated data, execept:
 - SectionOfCustomData needs to conform to `AnimatableSectionModelType`
-- dataSource needs to be an instance of `RxTableViewSectionedAnimatedDataSource` or `RxTableViewSectionedAnimatedDataSource`
+- dataSource needs to be an instance of `RxTableViewSectionedAnimatedDataSource` or `RxCollectionViewSectionedAnimatedDataSource`
 
 
 ## Requirements

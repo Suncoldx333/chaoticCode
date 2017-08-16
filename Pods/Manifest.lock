@@ -32,7 +32,7 @@ PODS:
     - PINRemoteImage/Core
   - RxCocoa (3.6.1):
     - RxSwift (~> 3.6)
-  - RxDataSources (1.0.0):
+  - RxDataSources (1.0.4):
     - RxCocoa (~> 3.0)
     - RxSwift (~> 3.0)
   - RxSwift (3.6.1)
@@ -50,9 +50,9 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
   - KMCGeigerCounter (~> 0.2.2)
-  - RxCocoa (~> 3.0)
-  - RxDataSources (~> 1.0.0)
-  - RxSwift (~> 3.0)
+  - RxCocoa (~> 3.6.1)
+  - RxDataSources (~> 1.0.4)
+  - RxSwift (~> 3.6.1)
   - SDWebImage (~> 4.0.0)
   - Texture (~> 2.3.4)
 
@@ -63,11 +63,11 @@ SPEC CHECKSUMS:
   PINOperation: ac23db44796d4a564ecf9b5ea7163510f579b71d
   PINRemoteImage: d71988f11914a050d6d4cf51efc4ad1de8c0a9d8
   RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
-  RxDataSources: 824693e84d00781d0a5e5cedc1ff95ce9250aacd
+  RxDataSources: b3389acc5fe2eefb8fcd81a2b76a876ad08bc82a
   RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   Texture: 8cf0872fe33328c20d7e6c1fcbf1f23a82162f2f
 
-PODFILE CHECKSUM: 77fc48b87cbc997ae5ce1bd1a8e299ef0b6b4103
+PODFILE CHECKSUM: 56db32ba3d1feb12f28313e4590303ef192c3b69
 
 COCOAPODS: 1.2.1

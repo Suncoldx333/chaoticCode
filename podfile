@@ -5,7 +5,7 @@ target 'JSCallOC' do
   pod 'KMCGeigerCounter','~>0.2.2' 
   pod 'SDWebImage','~>4.0.0' 
   pod 'AFNetworking','~>3.1.0'
-  pod 'RxSwift','~>3.0'
-  pod 'RxCocoa','~>3.0'
-  pod 'RxDataSources','~>1.0.0'
+  pod 'RxSwift','~>3.6.1'
+  pod 'RxCocoa','~>3.6.1'
+  pod 'RxDataSources','~>1.0.4'
 end

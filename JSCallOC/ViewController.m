@@ -110,7 +110,7 @@
     
     NSString *svc = NSStringFromClass([SVCPracticeTable class]);
     [titles addObject:svc];
-    
+    [titles addObject:NSStringFromClass([RxSwiftTable class])];
     NSDate *ori = [NSDate date];
     
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
