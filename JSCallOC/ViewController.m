@@ -179,69 +179,7 @@
     
     self.view.backgroundColor = hexColor(0xe6e6e6);
     [self.view addSubview:self.list];
-    
-//    UIView *errorBouns = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-//    errorBouns.backgroundColor = [UIColor blackColor];
-//    errorBouns.bounds = CGRectMake(50, 50, 100, 100);
-//    [self.view addSubview:errorBouns];
-//    
-//    for (NSInteger i = 0; i < 3; i++) {
-//        CGFloat newY = 100 + i * 20;
-//        UILabel *teFontLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, newY, 300, 20)];
-//        switch (i) {
-//            case 0:
-//                teFontLabel.text = @"systemf --- 我有一个捣鼓朋友";
-//                teFontLabel.font = [UIFont systemFontOfSize:17];
-//                break;
-//                
-//            case 1:
-//                teFontLabel.text = @"HeitiTi --- 我有一个捣鼓朋友";
-//                teFontLabel.font = [UIFont boldSystemFontOfSize:17];
-//                break;
-//                
-//            case 2:
-//                teFontLabel.text = @"regular --- 我有一个捣鼓朋友";
-//                teFontLabel.font = [UIFont fontWithName:@"PingFangSC-Semibold" size:17];
-//                break;
-//                
-//            default:
-//                break;
-//        }
-//        
-//        teFontLabel.tag = 10086 + i;
-//        
-//        teFontLabel.textColor = [UIColor blackColor];
-//        teFontLabel.textAlignment = NSTextAlignmentCenter;
-//        [self.view addSubview:teFontLabel];
-//    }
-//    
-//        UILabel *teFontLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 100, 300, 100)];
-//        teFontLabel.text = @"kkkldsfjhsaf";
-//        teFontLabel.font = [UIFont systemFontOfSize:15];
-//        teFontLabel.textColor = [UIColor blackColor];
-//        teFontLabel.textAlignment = NSTextAlignmentCenter;
-//        [self.view addSubview:teFontLabel];
-//    
-//    
-//    
-//    self.oriView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-//    self.oriView.backgroundColor = [UIColor grayColor];
-//    //    [self.view addSubview:self.oriView];
-//    
-//    UIView *copyedView = self.oriView;
-//    copyedView.frame = CGRectMake(150, 0, 100, 100);
-//    //    [self.view addSubview:copyedView];
-//    
-//    self.navigationItem.title = @"TEST";
-//    self.tapCount = 0;
-//    self.timerCount = 0;
-//    self.view.backgroundColor = [UIColor whiteColor];
-//    
-//    //    [self.view addSubview:self.aniView];
-//    //    [self.view addSubview:self.aniGreenView];
-//    
-//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(jumpToAni)];
-//    [self.view addGestureRecognizer:tap];
+
 }
 
 #pragma mark -Private method

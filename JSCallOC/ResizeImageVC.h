@@ -10,4 +10,6 @@
 
 @interface ResizeImageVC : UIViewController
 
+@property (nonatomic,strong,readonly) NSString *helloStr;
+
 @end
