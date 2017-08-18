@@ -16,6 +16,7 @@
 		181A19A41F3EDF08007FC8C4 /* TextureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A19A31F3EDF08007FC8C4 /* TextureVC.m */; };
 		181A19A71F3F3BB5007FC8C4 /* LayoutLearnNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A19A61F3F3BB5007FC8C4 /* LayoutLearnNode.m */; };
 		182B63D71EC00EEF00E2DADA /* UIViewController+testSubFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 182B63D61EC00EEF00E2DADA /* UIViewController+testSubFunc.m */; };
+		1836C6E21F4684B300D478AC /* BlueTooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1836C6E11F4684B300D478AC /* BlueTooth.swift */; };
 		184955B11EE00D6A00AE7634 /* HelloOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 184955B01EE00D6A00AE7634 /* HelloOperation.m */; };
 		184955B31EE0163000AE7634 /* Bugly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184955B21EE0163000AE7634 /* Bugly.framework */; };
 		185B8D061F39613D00B1C9C5 /* ResizeImageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 185B8D051F39613D00B1C9C5 /* ResizeImageVC.m */; };
@@ -131,6 +132,7 @@
 		181A19A61F3F3BB5007FC8C4 /* LayoutLearnNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayoutLearnNode.m; sourceTree = "<group>"; };
 		182B63D51EC00EEF00E2DADA /* UIViewController+testSubFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+testSubFunc.h"; sourceTree = "<group>"; };
 		182B63D61EC00EEF00E2DADA /* UIViewController+testSubFunc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+testSubFunc.m"; sourceTree = "<group>"; };
+		1836C6E11F4684B300D478AC /* BlueTooth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueTooth.swift; sourceTree = "<group>"; };
 		184955AF1EE00D6A00AE7634 /* HelloOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloOperation.h; sourceTree = "<group>"; };
 		184955B01EE00D6A00AE7634 /* HelloOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelloOperation.m; sourceTree = "<group>"; };
 		184955B21EE0163000AE7634 /* Bugly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bugly.framework; sourceTree = "<group>"; };
@@ -329,6 +331,14 @@
 			name = Animation;
 			sourceTree = "<group>";
 		};
+		1836C6DD1F46842900D478AC /* BlueTooth */ = {
+			isa = PBXGroup;
+			children = (
+				1836C6E11F4684B300D478AC /* BlueTooth.swift */,
+			);
+			name = BlueTooth;
+			sourceTree = "<group>";
+		};
 		185B8D031F3960AF00B1C9C5 /* ResizeImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -376,6 +386,7 @@
 		1882835B1F3D9361003891BE /* OtherVCs */ = {
 			isa = PBXGroup;
 			children = (
+				1836C6DD1F46842900D478AC /* BlueTooth */,
 				18A95C6B1F42F7880078954D /* TalbeViewWithRxSwift */,
 				18A95C641F428DDF0078954D /* StateVC */,
 				18A1ED3D1F4143B300FAD25E /* DataManage&LLDB */,
@@ -942,6 +953,7 @@
 				18F2FCF91EE6424D00553D20 /* PhotoTool.swift in Sources */,
 				18F523651E9C7C8B00ACF0D4 /* GlobalTool.m in Sources */,
 				18ABFB1B1ED6B6A100B179FF /* Employee+CoreDataClass.swift in Sources */,
+				1836C6E21F4684B300D478AC /* BlueTooth.swift in Sources */,
 				52BC7F8E1BFB68A800642835 /* AppDelegate.m in Sources */,
 				18A1ED461F418C7100FAD25E /* LLDBLearnObject+NewVar.m in Sources */,
 				18ABFB1C1ED6B6A100B179FF /* Employee+CoreDataProperties.swift in Sources */,

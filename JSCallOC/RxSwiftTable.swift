@@ -108,7 +108,9 @@ class RxSwiftTable: UIViewController {
 //            
 //        })
         
-        obWill.asDriver().debug()
+        obWill.asDriver()
+            .throttle(20)
+            .debug()
             .map { (str) in
             str + "done"
         }.drive(willLabel.rx.text)
@@ -207,7 +209,7 @@ class RxSwiftTable: UIViewController {
         
         willChangeStr = NSNumber.init(value: randomNum).stringValue
         obWill.value = willChangeStr
-        print("curStr = \(willChangeStr)")
+        printWithTime("curStr = \(willChangeStr)")
     }
 
 }

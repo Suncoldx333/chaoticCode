@@ -18,7 +18,7 @@ public func hexColor(colorCode : Int) -> UIColor {
 
 extension NSObject{
     
-    func printWithTime(content : AnyObject) {
+    func printWithTime(_ content : Any) {
         
         let nowDate = Date.init()
         let timeFor = DateFormatter.init()

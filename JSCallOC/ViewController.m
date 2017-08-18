@@ -111,6 +111,8 @@
     NSString *svc = NSStringFromClass([SVCPracticeTable class]);
     [titles addObject:svc];
     [titles addObject:NSStringFromClass([RxSwiftTable class])];
+    [titles addObject:NSStringFromClass([BlueTooth class])];
+    
     NSDate *ori = [NSDate date];
     
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
