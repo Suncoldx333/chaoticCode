@@ -38,6 +38,11 @@
 		18ABFB1F1ED6B6D800B179FF /* Department+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ABFB1D1ED6B6D800B179FF /* Department+CoreDataClass.swift */; };
 		18ABFB201ED6B6D800B179FF /* Department+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ABFB1E1ED6B6D800B179FF /* Department+CoreDataProperties.swift */; };
 		18B5D3C41F205299006725C1 /* teView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B5D3C31F205299006725C1 /* teView.m */; };
+		18B850DE1F4A890F00D487B7 /* SizeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B850DD1F4A890F00D487B7 /* SizeNode.m */; };
+		18B850EC1F4AC70B00D487B7 /* CellNodeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B850EB1F4AC70B00D487B7 /* CellNodeModel.m */; };
+		18B850EF1F4AC90900D487B7 /* ListCellNodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B850EE1F4AC90900D487B7 /* ListCellNodel.m */; };
+		18B850F21F4ACADB00D487B7 /* TextStyles.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B850F11F4ACADB00D487B7 /* TextStyles.m */; };
+		18B850F51F4AD8B800D487B7 /* InnerSizeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B850F41F4AD8B800D487B7 /* InnerSizeNode.m */; };
 		18D9A9941F20829E0015C741 /* testViewRan.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D9A9931F20829E0015C741 /* testViewRan.m */; };
 		18D9A9971F2085B40015C741 /* teView+UnitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D9A9961F2085B40015C741 /* teView+UnitTest.m */; };
 		18D9A99A1F2088F80015C741 /* teModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D9A9991F2088F80015C741 /* teModel.m */; };
@@ -165,6 +170,16 @@
 		18ABFB1E1ED6B6D800B179FF /* Department+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Department+CoreDataProperties.swift"; path = "../Department+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		18B5D3C21F205299006725C1 /* teView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = teView.h; sourceTree = "<group>"; };
 		18B5D3C31F205299006725C1 /* teView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = teView.m; sourceTree = "<group>"; };
+		18B850DC1F4A890F00D487B7 /* SizeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SizeNode.h; sourceTree = "<group>"; };
+		18B850DD1F4A890F00D487B7 /* SizeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SizeNode.m; sourceTree = "<group>"; };
+		18B850EA1F4AC70B00D487B7 /* CellNodeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellNodeModel.h; sourceTree = "<group>"; };
+		18B850EB1F4AC70B00D487B7 /* CellNodeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellNodeModel.m; sourceTree = "<group>"; };
+		18B850ED1F4AC90900D487B7 /* ListCellNodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListCellNodel.h; sourceTree = "<group>"; };
+		18B850EE1F4AC90900D487B7 /* ListCellNodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListCellNodel.m; sourceTree = "<group>"; };
+		18B850F01F4ACADB00D487B7 /* TextStyles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextStyles.h; sourceTree = "<group>"; };
+		18B850F11F4ACADB00D487B7 /* TextStyles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextStyles.m; sourceTree = "<group>"; };
+		18B850F31F4AD8B800D487B7 /* InnerSizeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InnerSizeNode.h; sourceTree = "<group>"; };
+		18B850F41F4AD8B800D487B7 /* InnerSizeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InnerSizeNode.m; sourceTree = "<group>"; };
 		18D9A9931F20829E0015C741 /* testViewRan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testViewRan.m; sourceTree = "<group>"; };
 		18D9A9951F2085B40015C741 /* teView+UnitTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "teView+UnitTest.h"; sourceTree = "<group>"; };
 		18D9A9961F2085B40015C741 /* teView+UnitTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "teView+UnitTest.m"; sourceTree = "<group>"; };
@@ -368,10 +383,8 @@
 			children = (
 				181A19A21F3EDF08007FC8C4 /* TextureVC.h */,
 				181A19A31F3EDF08007FC8C4 /* TextureVC.m */,
-				181A19A51F3F3BB5007FC8C4 /* LayoutLearnNode.h */,
-				181A19A61F3F3BB5007FC8C4 /* LayoutLearnNode.m */,
-				18A95C671F42DBDB0078954D /* ImageNode.h */,
-				18A95C681F42DBDB0078954D /* ImageNode.m */,
+				18B850E91F4AC53100D487B7 /* Model */,
+				18B850E81F4AC52300D487B7 /* Nodes */,
 			);
 			name = AsyncDisplay;
 			sourceTree = "<group>";
@@ -413,6 +426,34 @@
 				185E247C1EB041AD006B5ABD /* globalDefine.swift */,
 			);
 			name = GlobalDefine;
+			sourceTree = "<group>";
+		};
+		18B850E81F4AC52300D487B7 /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				181A19A51F3F3BB5007FC8C4 /* LayoutLearnNode.h */,
+				181A19A61F3F3BB5007FC8C4 /* LayoutLearnNode.m */,
+				18A95C671F42DBDB0078954D /* ImageNode.h */,
+				18A95C681F42DBDB0078954D /* ImageNode.m */,
+				18B850DC1F4A890F00D487B7 /* SizeNode.h */,
+				18B850DD1F4A890F00D487B7 /* SizeNode.m */,
+				18B850F31F4AD8B800D487B7 /* InnerSizeNode.h */,
+				18B850F41F4AD8B800D487B7 /* InnerSizeNode.m */,
+				18B850ED1F4AC90900D487B7 /* ListCellNodel.h */,
+				18B850EE1F4AC90900D487B7 /* ListCellNodel.m */,
+			);
+			name = Nodes;
+			sourceTree = "<group>";
+		};
+		18B850E91F4AC53100D487B7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				18B850EA1F4AC70B00D487B7 /* CellNodeModel.h */,
+				18B850EB1F4AC70B00D487B7 /* CellNodeModel.m */,
+				18B850F01F4ACADB00D487B7 /* TextStyles.h */,
+				18B850F11F4ACADB00D487B7 /* TextStyles.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		18E8740D1ED672A800CAF89C /* BaseCoreData */ = {
@@ -807,16 +848,20 @@
 				181A19A41F3EDF08007FC8C4 /* TextureVC.m in Sources */,
 				18DECAC11F03998400BF1D3D /* UIFont+swizzleFont.m in Sources */,
 				52BC7FBE1BFB692900642835 /* JKWebView.m in Sources */,
+				18B850EC1F4AC70B00D487B7 /* CellNodeModel.m in Sources */,
 				52BC7F911BFB68A800642835 /* ViewController.m in Sources */,
+				18B850F51F4AD8B800D487B7 /* InnerSizeNode.m in Sources */,
 				1800C85A1F2ACDA900E3E8B9 /* BitMapVC.m in Sources */,
 				18DD67451EB97E49000BD37E /* StepCountWidget.swift in Sources */,
 				180279231ED95E1B009BBA97 /* UIViewController+Tracking.m in Sources */,
 				6059A0C81F1B7BEA001B1E68 /* CataTestView.m in Sources */,
+				18B850F21F4ACADB00D487B7 /* TextStyles.m in Sources */,
 				18E8741E1ED67C3200CAF89C /* BaseCoreData.swift in Sources */,
 				1861A1561F23231700055620 /* KeyBoardVC.m in Sources */,
 				182B63D71EC00EEF00E2DADA /* UIViewController+testSubFunc.m in Sources */,
 				18F2FCFD1EE681F500553D20 /* ImagePickView.swift in Sources */,
 				180EE1681ED7D1C500381806 /* animationInSwift.swift in Sources */,
+				18B850EF1F4AC90900D487B7 /* ListCellNodel.m in Sources */,
 				18D9A9971F2085B40015C741 /* teView+UnitTest.m in Sources */,
 				18D9A99D1F2089750015C741 /* teModel+UnitTest.m in Sources */,
 				18B5D3C41F205299006725C1 /* teView.m in Sources */,
@@ -824,6 +869,7 @@
 				6059A0CB1F1B7C80001B1E68 /* CataTestView+BridgeTest.m in Sources */,
 				1861607E1F36BAD200A877CE /* SwiftyDiffVC.swift in Sources */,
 				18A95C6D1F42F7EB0078954D /* RxSwiftTable.swift in Sources */,
+				18B850DE1F4A890F00D487B7 /* SizeNode.m in Sources */,
 				1861A1531F23228E00055620 /* SwiftyImportView.swift in Sources */,
 				18ABFB1F1ED6B6D800B179FF /* Department+CoreDataClass.swift in Sources */,
 				18A95C661F428E2E0078954D /* SVCPractice.swift in Sources */,

@@ -14,16 +14,21 @@
 #import <SDWebImage/SDImageCache.h>
 #import <AsyncDisplayKit/AsyncDisplayKit.h>
 #import "ImageNode.h"
+#import "SizeNode.h"
+#import "CellNodeModel.h"
+#import "ListCellNodel.h"
 
 @interface TextureVC ()<ASTableDelegate,ASTableDataSource>{
     NSMutableArray *dataArr;
     NSURL *imageUrl;
+    NSMutableArray<CellNodeModel *> *tableNodeDataArr;
 }
 
 @property (nonatomic,strong) ASTableNode *tableNode;
 @property (nonatomic,strong) LayoutLearnNode *nodeOne;
 @property (nonatomic,strong) UIImageView *tradImageView;
 @property (nonatomic,strong) ImageNode *textureImageView;
+@property (nonatomic,strong) SizeNode *sizenode;
 
 @end
 
@@ -66,15 +71,48 @@
         [dataArr addObject:[NSString stringWithFormat:@"Line_%ld",(long)i]];
     }
     
+    tableNodeDataArr = [[NSMutableArray alloc] init];
+    CellNodeModel *model = [[CellNodeModel alloc] init];
+    model.author = @"余华";
+    model.speechName = @"许三观卖血记";
+    [tableNodeDataArr addObject:model];
+    
+    model = [[CellNodeModel alloc] init];
+    model.author = @"老舍";
+    model.year = @"1990";
+    model.speechName = @"茶馆";
+    [tableNodeDataArr addObject:model];
+    
+    model = [[CellNodeModel alloc] init];
+    model.author = @"王小波";
+    model.speechName = @"沉默的大多数";
+    [tableNodeDataArr addObject:model];
+    
+    model = [[CellNodeModel alloc] init];
+    model.author = @"围城";
+    model.year = @"1009";
+    model.speechName = @"钱钟书";
+    [tableNodeDataArr addObject:model];
+    
 }
 
 -(void)initUI{
     
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapEvent)];
+//    [self.view addGestureRecognizer:tap];
+    
     self.view.backgroundColor = hexColor(0xffffff);
-    [self.view addSubnode:self.nodeOne];
-    [self.view addSubview:self.tradImageView];
-    [self.view addSubnode:self.textureImageView];
+    
+//    [self.view addSubnode:self.tableNode];
+    
+//    [self.view addSubnode:self.nodeOne];
+//    [self.view addSubview:self.tradImageView];
+//    [self.view addSubnode:self.textureImageView];
+    [self.view addSubnode:self.sizenode];
+}
 
+-(void)tapEvent{
+    [self.sizenode transitionLayoutWithAnimation:YES shouldMeasureAsync:NO measurementCompletion:nil];
 }
 
 -(void)timeBegin{
@@ -114,6 +152,15 @@
     return _tradImageView;
 }
 
+-(SizeNode *)sizenode{
+    if (!_sizenode) {
+        _sizenode = [[SizeNode alloc] init];
+        _sizenode.frame = CGRectMake(0, 150, ScreenWidth, ScreenWidth / 2);
+        _sizenode.backgroundColor = [hexColor(0x00c18b) colorWithAlphaComponent:0.2];
+    }
+    return _sizenode;
+}
+
 -(LayoutLearnNode *)nodeOne{
     if (!_nodeOne) {
         _nodeOne = [[LayoutLearnNode alloc] init];
@@ -127,25 +174,36 @@
 -(ASTableNode *)tableNode{
     if (!_tableNode) {
         _tableNode = [[ASTableNode alloc] initWithStyle:UITableViewStyleGrouped];
-//        _tableNode.delegate = self;
-//        _tableNode.dataSource = self;
+        _tableNode.delegate = self;
+        _tableNode.dataSource = self;
         _tableNode.view.separatorStyle = UITableViewCellSeparatorStyleNone;
-        
+        _tableNode.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
     }
     return _tableNode;
 }
 
-#pragma mark -UITableNode(Delegate,Datasource)
+#pragma mark -ASTableNode(Delegate,Datasource)
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 0.0001;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 0.0001;
+}
+
+-(ASCellNodeBlock)tableNode:(ASTableNode *)tableNode nodeBlockForRowAtIndexPath:(NSIndexPath *)indexPath{
+    CellNodeModel *model = [tableNodeDataArr objectAtIndex:indexPath.row];
+    return ^{
+        return [[ListCellNodel alloc] initWithModel:model];
+    };
+}
+
 -(NSInteger)numberOfSectionsInTableNode:(ASTableNode *)tableNode{
     return 1;
 }
 
 -(NSInteger)tableNode:(ASTableNode *)tableNode numberOfRowsInSection:(NSInteger)section{
-    return dataArr.count;
+    return tableNodeDataArr.count;
 }
-
-//-(ASCellNodeBlock)tableNode:(ASTableNode *)tableNode nodeBlockForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    ASCellNode *()
-//}
 
 @end

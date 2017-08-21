@@ -14,7 +14,7 @@ class SwiftyDiffVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//        initData()
         initUI()
     }
 
@@ -27,6 +27,13 @@ class SwiftyDiffVC: UIViewController {
         super.viewWillAppear(animated)
         addEmojiToLabel()
     }
+    
+    var testDid : String!{
+        didSet{
+            print("old = \(oldValue),new = \(testDid)")
+        }
+    }
+    
     
     lazy var emojiLabel: UILabel = {
         let inner = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: ScreenWidth, height: 45))
@@ -52,6 +59,10 @@ class SwiftyDiffVC: UIViewController {
     
     var structModel : modelStruct!
     var classModel : modelClass!
+    
+    fileprivate func initData() {
+        testDid = "shit"
+    }
     
     fileprivate func initUI() {
         self.view.backgroundColor = ColorMethodho(hexValue: 0xe6e6e6)
@@ -93,6 +104,8 @@ class SwiftyDiffVC: UIViewController {
     }
     
     func copyOnWriteEvent() {
+        
+        testDid = "hello"
         
         let structModel1 = structModel
         structModel.name = "路飞1"

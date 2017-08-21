@@ -294,12 +294,12 @@
 }
 
 -(void)initHelloData{
+    
     NSInteger avgStepFreq = 0;
     NSInteger total = 47;
     NSUInteger count = 50;
     double frepDouble = total * 1.000 / (count * 1.000 / 6.000);
     avgStepFreq = [NSNumber numberWithDouble:frepDouble].integerValue;
-    
     
     blovk = [NSBlockOperation blockOperationWithBlock:^{
         NSLog(@"1在第%@个线程",[NSThread currentThread]);
