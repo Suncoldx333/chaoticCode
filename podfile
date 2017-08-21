@@ -2,6 +2,9 @@ platform :ios,'8.1'
 use_frameworks!
 target 'JSCallOC' do
   pod 'Texture','~>2.3.4'
+  pod 'Masonry','~>1.0.2'
+  pod 'SBJson','~>5.0.0'
+  pod 'Bugly','~>2.4.8'
   pod 'CocoaAsyncSocket','~>7.6.1'
   pod 'KMCGeigerCounter','~>0.2.2' 
   pod 'SDWebImage','~>4.0.0' 

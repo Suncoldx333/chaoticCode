@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Masonry.h"
+#import <Masonry/Masonry.h>
 #import <objc/runtime.h>
 #import "UIViewController+testSubFunc.h"
-#import "teOperation.h"
 
 @interface ViewController : UIViewController<CAAnimationDelegate>
 
@@ -20,7 +19,6 @@
 @property (nonatomic,strong) NSString *teStronStr;
 @property (nonatomic,copy) NSBlockOperation *blovk;
 @property (nonatomic,copy) NSBlockOperation *blovk2;
-@property (nonatomic,copy) teOperation *teOpera;
 
 @end
 

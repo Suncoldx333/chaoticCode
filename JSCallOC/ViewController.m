@@ -14,10 +14,9 @@
 
 #import "ImageReader.h"
 
-#import "AniViewCon.h"
 #import "HelloOperation.h"
 #import "UIImageView+WebCache.h"
-#import "SBJSON.h"
+#import <SBJson/SBJson5.h>
 #import "testAnimationVC.h"
 
 #import "CataTestView.h"
@@ -68,7 +67,6 @@
 
 @synthesize testView;
 @synthesize teStronStr;
-@synthesize teOpera;
 
 @synthesize blovk,blovk2;
 
@@ -302,7 +300,6 @@
     double frepDouble = total * 1.000 / (count * 1.000 / 6.000);
     avgStepFreq = [NSNumber numberWithDouble:frepDouble].integerValue;
     
-    teOpera = [[teOperation alloc] init];
     
     blovk = [NSBlockOperation blockOperationWithBlock:^{
         NSLog(@"1在第%@个线程",[NSThread currentThread]);

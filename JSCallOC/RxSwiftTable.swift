@@ -108,13 +108,30 @@ class RxSwiftTable: UIViewController {
 //            
 //        })
         
-        obWill.asDriver()
-            .throttle(20)
-            .debug()
-            .map { (str) in
-            str + "done"
-        }.drive(willLabel.rx.text)
-        .addDisposableTo(disposeBag)
+//        obWill.asDriver()
+//            .throttle(20)
+//            .debug()
+//            .map { (str) in
+//            str + "done"
+//        }.drive(willLabel.rx.text)
+//        .addDisposableTo(disposeBag)
+        
+        obWill.asObservable()
+            .startWith("吃饭")
+            .subscribe { (event) in
+                print("\(event)")
+        }
+            .addDisposableTo(disposeBag)
+        
+        Observable
+            .of(["C","C++","OC"])
+            .startWith(["吃饭"])
+            .startWith(["睡觉"])
+            .startWith(["打豆豆"])
+            .subscribe { (event) in
+            print("\(event)")
+        }
+            .addDisposableTo(disposeBag)
         
 //        obWill.asObservable()
 //            .distinctUntilChanged({ (old, new) -> Bool in

@@ -14,8 +14,10 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - Bugly (2.4.8)
   - CocoaAsyncSocket (7.6.1)
   - KMCGeigerCounter (0.2.2)
+  - Masonry (1.0.2)
   - PINCache (3.0.1-beta.5):
     - PINCache/Arc-exception-safe (= 3.0.1-beta.5)
     - PINCache/Core (= 3.0.1-beta.5)
@@ -37,6 +39,7 @@ PODS:
     - RxCocoa (~> 3.0)
     - RxSwift (~> 3.0)
   - RxSwift (3.6.1)
+  - SBJson (5.0.0)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
@@ -50,27 +53,33 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
+  - Bugly (~> 2.4.8)
   - CocoaAsyncSocket (~> 7.6.1)
   - KMCGeigerCounter (~> 0.2.2)
+  - Masonry (~> 1.0.2)
   - RxCocoa (~> 3.6.1)
   - RxDataSources (~> 1.0.4)
   - RxSwift (~> 3.6.1)
+  - SBJson (~> 5.0.0)
   - SDWebImage (~> 4.0.0)
   - Texture (~> 2.3.4)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  Bugly: da3c02408c14838d498429320545a8e439392978
   CocoaAsyncSocket: 7eadd3f59e1a6c84e2aefc93e9ff7b55156fe174
   KMCGeigerCounter: f8cc3c4aa19fc6f8cec168fb03b364b84c118a7a
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   PINCache: 98e7b1ef782824ad231ade51987c218b758c30d8
   PINOperation: ac23db44796d4a564ecf9b5ea7163510f579b71d
   PINRemoteImage: d71988f11914a050d6d4cf51efc4ad1de8c0a9d8
   RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
   RxDataSources: b3389acc5fe2eefb8fcd81a2b76a876ad08bc82a
   RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
+  SBJson: 73c848dc34be51fda282fab12bda6c426f5ead08
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   Texture: 8cf0872fe33328c20d7e6c1fcbf1f23a82162f2f
 
-PODFILE CHECKSUM: c68590ea883ffc5be6600021fad3f6d81370f739
+PODFILE CHECKSUM: 07ba326823938954e39c9048e0faf4c56608fa0d
 
 COCOAPODS: 1.2.1
