@@ -44,7 +44,7 @@
     
     view2.style.preferredSize = CGSizeMake(100, 50);
     view2.style.spacingBefore = 10;
-//    view2.style.spacingAfter = 10;
+    view2.style.spacingAfter = 30;
     
     ASStackLayoutSpec *spec = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionVertical
                                                                       spacing:0
@@ -53,6 +53,17 @@
                                                                      children:@[view1,view2]];
     return spec;
     
+}
+
+-(void)layout{
+    [super layout];
+//    CGFloat x = self.frame.origin.x;
+//    CGFloat y = self.frame.origin.y;
+//    CGFloat width = self.frame.size.width;
+    CGFloat height = self.frame.size.height;
+    
+//    NSLog(@"x = %f,y = %f,width = %f,height = %f",x,y,width,height);
+    self.innerHeightCalBlock(height);
 }
 
 @end

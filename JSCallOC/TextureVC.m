@@ -22,6 +22,7 @@
     NSMutableArray *dataArr;
     NSURL *imageUrl;
     NSMutableArray<CellNodeModel *> *tableNodeDataArr;
+    CGFloat lastHeight;
 }
 
 @property (nonatomic,strong) ASTableNode *tableNode;
@@ -43,6 +44,7 @@
     [self initData];
     [self initUI];
     [self timeBegin];
+    [self configureBlock];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -109,6 +111,7 @@
 //    [self.view addSubview:self.tradImageView];
 //    [self.view addSubnode:self.textureImageView];
     [self.view addSubnode:self.sizenode];
+    lastHeight = self.sizenode.frame.size.height;
 }
 
 -(void)tapEvent{
@@ -180,6 +183,34 @@
         _tableNode.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
     }
     return _tableNode;
+}
+
+#pragma mark - Configure block
+-(void)configureBlock{
+    
+    __weak typeof(self) weakSelf = self;
+    
+    self.sizenode.heightCalBlock = ^(CGFloat height) {
+        [weakSelf changeBgView:height];
+    };
+    
+}
+
+#pragma mark - UI change
+-(void)changeBgView:(CGFloat)height{
+    
+    if (lastHeight != height) {
+        lastHeight = height;
+        NSLog(@"height = %f",height);
+        
+        CGFloat oriX = self.sizenode.frame.origin.x;
+        CGFloat oriY = self.sizenode.frame.origin.y;
+        CGFloat oriWidth = self.sizenode.frame.size.width;
+        
+        self.sizenode.frame = CGRectMake(oriX, oriY, oriWidth, height);
+        
+    }
+    
 }
 
 #pragma mark -ASTableNode(Delegate,Datasource)

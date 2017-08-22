@@ -59,6 +59,10 @@
     inner = [[InnerSizeNode alloc] init];
     inner.backgroundColor = hexColor(0xe6e6e6);
     inner.layerBacked = YES;
+    __weak typeof(self) weakSelf = self;
+    inner.innerHeightCalBlock = ^(CGFloat height) {
+        weakSelf.heightCalBlock(height);
+    };
     [self addSubnode:inner];
 }
 
@@ -87,8 +91,8 @@
     
     ASStackLayoutSpec *innerStack = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionHorizontal
                                                                             spacing:0
-                                                                     justifyContent:ASStackLayoutJustifyContentCenter
-                                                                         alignItems:ASStackLayoutAlignItemsCenter
+                                                                     justifyContent:ASStackLayoutJustifyContentStart
+                                                                         alignItems:ASStackLayoutAlignItemsStart
                                                                            children:@[inner]];
     
     return innerStack;

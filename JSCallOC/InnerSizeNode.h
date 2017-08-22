@@ -10,4 +10,6 @@
 
 @interface InnerSizeNode : ASDisplayNode
 
+@property (nonatomic,copy) void(^innerHeightCalBlock)(CGFloat height);
+
 @end
