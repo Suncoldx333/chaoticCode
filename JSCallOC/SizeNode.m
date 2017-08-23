@@ -85,7 +85,7 @@
                                                                        spacing:0
                                                                 justifyContent:ASStackLayoutJustifyContentStart
                                                                     alignItems:ASStackLayoutAlignItemsStart
-                                                                      children:@[staticNode]];
+                                                                       children:@[staticNode]];
     
     ASInsetLayoutSpec *inset = [ASInsetLayoutSpec insetLayoutSpecWithInsets:UIEdgeInsetsMake(10, 10, 10, 10) child:staticNode];
     

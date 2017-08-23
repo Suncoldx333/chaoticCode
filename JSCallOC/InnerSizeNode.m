@@ -46,11 +46,17 @@
     view2.style.spacingBefore = 10;
     view2.style.spacingAfter = 30;
     
+    ASStackLayoutSpec *ho = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionHorizontal
+                                                                    spacing:0
+                                                             justifyContent:ASStackLayoutJustifyContentCenter
+                                                                 alignItems:ASStackLayoutAlignItemsStart
+                                                                   children:@[view1]];
+    
     ASStackLayoutSpec *spec = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionVertical
                                                                       spacing:0
                                                                justifyContent:ASStackLayoutJustifyContentStart
                                                                    alignItems:ASStackLayoutAlignItemsStart
-                                                                     children:@[view1,view2]];
+                                                                     children:@[ho,view2]];
     return spec;
     
 }

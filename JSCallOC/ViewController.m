@@ -34,6 +34,7 @@
 
 #import "KeyBoardVC.h"
 #import "BitMapVC.h"
+#import "BDDiffVC.h"
 
 #define KEYSTR_RUNRECORD @"&ODJw#h03b_0EaV"  //跑步记录
 #define KEYSTR @"&wh2016_swcampus"  //其它
@@ -110,6 +111,7 @@
     [titles addObject:svc];
     [titles addObject:NSStringFromClass([RxSwiftTable class])];
     [titles addObject:NSStringFromClass([BlueTooth class])];
+    [titles addObject:NSStringFromClass([BDDiffVC class])];
     
     NSDate *ori = [NSDate date];
     

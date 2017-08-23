@@ -12,6 +12,8 @@
 		180279231ED95E1B009BBA97 /* UIViewController+Tracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 180279221ED95E1B009BBA97 /* UIViewController+Tracking.m */; };
 		18087AD21EFD03EA009CEF47 /* MD5Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 18087AD11EFD03EA009CEF47 /* MD5Encryption.m */; };
 		180EE1681ED7D1C500381806 /* animationInSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180EE1671ED7D1C500381806 /* animationInSwift.swift */; };
+		1812C6371F4D212F00F34380 /* BDDiffVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1812C6361F4D212F00F34380 /* BDDiffVC.m */; };
+		1812C63A1F4D221300F34380 /* BDDiffView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1812C6391F4D221300F34380 /* BDDiffView.m */; };
 		181A19A41F3EDF08007FC8C4 /* TextureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A19A31F3EDF08007FC8C4 /* TextureVC.m */; };
 		181A19A71F3F3BB5007FC8C4 /* LayoutLearnNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A19A61F3F3BB5007FC8C4 /* LayoutLearnNode.m */; };
 		182B63D71EC00EEF00E2DADA /* UIViewController+testSubFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 182B63D61EC00EEF00E2DADA /* UIViewController+testSubFunc.m */; };
@@ -129,6 +131,10 @@
 		18087AD11EFD03EA009CEF47 /* MD5Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MD5Encryption.m; sourceTree = "<group>"; };
 		180EE1621ED7C57700381806 /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 		180EE1671ED7D1C500381806 /* animationInSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = animationInSwift.swift; sourceTree = "<group>"; };
+		1812C6351F4D212F00F34380 /* BDDiffVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDDiffVC.h; sourceTree = "<group>"; };
+		1812C6361F4D212F00F34380 /* BDDiffVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDDiffVC.m; sourceTree = "<group>"; };
+		1812C6381F4D221300F34380 /* BDDiffView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDDiffView.h; sourceTree = "<group>"; };
+		1812C6391F4D221300F34380 /* BDDiffView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDDiffView.m; sourceTree = "<group>"; };
 		181A19A21F3EDF08007FC8C4 /* TextureVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureVC.h; sourceTree = "<group>"; };
 		181A19A31F3EDF08007FC8C4 /* TextureVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureVC.m; sourceTree = "<group>"; };
 		181A19A51F3F3BB5007FC8C4 /* LayoutLearnNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutLearnNode.h; sourceTree = "<group>"; };
@@ -309,6 +315,17 @@
 			name = IdeaValidating;
 			sourceTree = "<group>";
 		};
+		1812C6301F4D20D400F34380 /* Diff_Block_Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				1812C6351F4D212F00F34380 /* BDDiffVC.h */,
+				1812C6361F4D212F00F34380 /* BDDiffVC.m */,
+				1812C6381F4D221300F34380 /* BDDiffView.h */,
+				1812C6391F4D221300F34380 /* BDDiffView.m */,
+			);
+			name = Diff_Block_Delegate;
+			sourceTree = "<group>";
+		};
 		1836C6DD1F46842900D478AC /* BlueTooth */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,6 +383,7 @@
 		1882835B1F3D9361003891BE /* OtherVCs */ = {
 			isa = PBXGroup;
 			children = (
+				1812C6301F4D20D400F34380 /* Diff_Block_Delegate */,
 				1800C8571F2ACD7F00E3E8B9 /* BitMap */,
 				1836C6DD1F46842900D478AC /* BlueTooth */,
 				18A95C6B1F42F7880078954D /* TalbeViewWithRxSwift */,
@@ -845,6 +863,7 @@
 			files = (
 				607E8BBB1EF2C7A400DA8FA2 /* testAniView.swift in Sources */,
 				187136C81F204B7700408C99 /* DeployableTableViewController.m in Sources */,
+				1812C6371F4D212F00F34380 /* BDDiffVC.m in Sources */,
 				181A19A41F3EDF08007FC8C4 /* TextureVC.m in Sources */,
 				18DECAC11F03998400BF1D3D /* UIFont+swizzleFont.m in Sources */,
 				52BC7FBE1BFB692900642835 /* JKWebView.m in Sources */,
@@ -881,6 +900,7 @@
 				18087AD21EFD03EA009CEF47 /* MD5Encryption.m in Sources */,
 				18DAAA511EC15DE200B5C6B5 /* parentTable.swift in Sources */,
 				18F2FCF91EE6424D00553D20 /* PhotoTool.swift in Sources */,
+				1812C63A1F4D221300F34380 /* BDDiffView.m in Sources */,
 				18F523651E9C7C8B00ACF0D4 /* GlobalTool.m in Sources */,
 				18ABFB1B1ED6B6A100B179FF /* Employee+CoreDataClass.swift in Sources */,
 				1836C6E21F4684B300D478AC /* BlueTooth.swift in Sources */,
