@@ -70,6 +70,13 @@ typedef enum : NSUInteger {
     };
     [self.view addSubview:view];
     
+    UIImage *image1 = [UIImage imageNamed:@"switchToData"];
+    UIImage *image2 = [UIImage imageNamed:@"switchToData"];
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    imageView.image = image1;
+    [self.view addSubview:imageView];
+    
 }
 
 -(void)tapEventFunc{

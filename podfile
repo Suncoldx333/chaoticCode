@@ -4,6 +4,7 @@ target 'JSCallOC' do
   pod 'Texture','~>2.3.4'
   pod 'Masonry','~>1.0.2'
   pod 'SBJson','~>5.0.0'
+  pod 'UITableView+FDTemplateLayoutCell','~>1.6'
   pod 'Bugly','~>2.4.8'
   pod 'CocoaAsyncSocket','~>7.6.1'
   pod 'KMCGeigerCounter','~>0.2.2' 
