@@ -9,6 +9,12 @@
 #import "BDDiffVC.h"
 #import "BDDiffView.h"
 
+typedef enum : NSUInteger {
+    holo = 1,
+    sorry = 2,
+    shit = 3,
+} Clause;
+
 @interface BDDiffVC ()<BDDiffViewDelegate>
 
 @end
@@ -17,12 +23,39 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initData];
     [self initUI];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)initData{
+    NSInteger hello = 12;
+    
+    switch (hello) {
+        case 23:
+            NSLog(@"now switch 12");
+            break;
+            
+        case 12:
+            NSLog(@"now switch 23");
+            break;
+            
+        default:
+            NSLog(@"break");
+            break;
+    }
+    
+    if (hello == 12) {
+        NSLog(@"now if 12");
+    }else if (hello == 23){
+        NSLog(@"now if 23");
+    }else{
+        NSLog(@"now if default");
+    }
 }
 
 -(void)initUI{

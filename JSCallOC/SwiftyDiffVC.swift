@@ -14,7 +14,7 @@ class SwiftyDiffVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        initData()
+        initData()
         initUI()
     }
 
@@ -33,7 +33,6 @@ class SwiftyDiffVC: UIViewController {
             print("old = \(oldValue),new = \(testDid)")
         }
     }
-    
     
     lazy var emojiLabel: UILabel = {
         let inner = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: ScreenWidth, height: 45))
@@ -61,7 +60,8 @@ class SwiftyDiffVC: UIViewController {
     var classModel : modelClass!
     
     fileprivate func initData() {
-        testDid = "shit"
+//        testDid = "shit"
+        
     }
     
     fileprivate func initUI() {
