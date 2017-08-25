@@ -61,6 +61,7 @@ class SwiftyDiffVC: UIViewController {
     
     fileprivate func initData() {
 //        testDid = "shit"
+        let image = #imageLiteral(resourceName: "switchToRunning")
         
     }
     
@@ -73,6 +74,8 @@ class SwiftyDiffVC: UIViewController {
         structModel = modelStruct.init(name: "路飞")
         classModel = modelClass.init()
         classModel.name = "乔司"
+        
+        
     }
     
     fileprivate func addEmojiToLabel() {

@@ -17,6 +17,9 @@
 		181A19A41F3EDF08007FC8C4 /* TextureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A19A31F3EDF08007FC8C4 /* TextureVC.m */; };
 		181A19A71F3F3BB5007FC8C4 /* LayoutLearnNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A19A61F3F3BB5007FC8C4 /* LayoutLearnNode.m */; };
 		182B63D71EC00EEF00E2DADA /* UIViewController+testSubFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 182B63D61EC00EEF00E2DADA /* UIViewController+testSubFunc.m */; };
+		182D20601F4FBAE00057DC34 /* AsyncSafeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 182D205F1F4FBAE00057DC34 /* AsyncSafeVC.m */; };
+		182D20631F4FBBBD0057DC34 /* AsyncSafeOCManage.m in Sources */ = {isa = PBXBuildFile; fileRef = 182D20621F4FBBBD0057DC34 /* AsyncSafeOCManage.m */; };
+		182D20651F4FBBFD0057DC34 /* AsyncSafeSwiftyManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D20641F4FBBFD0057DC34 /* AsyncSafeSwiftyManage.swift */; };
 		1836C6E21F4684B300D478AC /* BlueTooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1836C6E11F4684B300D478AC /* BlueTooth.swift */; };
 		184955B11EE00D6A00AE7634 /* HelloOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 184955B01EE00D6A00AE7634 /* HelloOperation.m */; };
 		185B8D061F39613D00B1C9C5 /* ResizeImageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 185B8D051F39613D00B1C9C5 /* ResizeImageVC.m */; };
@@ -141,6 +144,11 @@
 		181A19A61F3F3BB5007FC8C4 /* LayoutLearnNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayoutLearnNode.m; sourceTree = "<group>"; };
 		182B63D51EC00EEF00E2DADA /* UIViewController+testSubFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+testSubFunc.h"; sourceTree = "<group>"; };
 		182B63D61EC00EEF00E2DADA /* UIViewController+testSubFunc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+testSubFunc.m"; sourceTree = "<group>"; };
+		182D205E1F4FBAE00057DC34 /* AsyncSafeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSafeVC.h; sourceTree = "<group>"; };
+		182D205F1F4FBAE00057DC34 /* AsyncSafeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSafeVC.m; sourceTree = "<group>"; };
+		182D20611F4FBBBD0057DC34 /* AsyncSafeOCManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSafeOCManage.h; sourceTree = "<group>"; };
+		182D20621F4FBBBD0057DC34 /* AsyncSafeOCManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSafeOCManage.m; sourceTree = "<group>"; };
+		182D20641F4FBBFD0057DC34 /* AsyncSafeSwiftyManage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncSafeSwiftyManage.swift; sourceTree = "<group>"; };
 		1836C6E11F4684B300D478AC /* BlueTooth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueTooth.swift; sourceTree = "<group>"; };
 		184955AF1EE00D6A00AE7634 /* HelloOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloOperation.h; sourceTree = "<group>"; };
 		184955B01EE00D6A00AE7634 /* HelloOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelloOperation.m; sourceTree = "<group>"; };
@@ -326,6 +334,18 @@
 			name = Diff_Block_Delegate;
 			sourceTree = "<group>";
 		};
+		182D205C1F4FBA7B0057DC34 /* AsyncSafe */ = {
+			isa = PBXGroup;
+			children = (
+				182D205E1F4FBAE00057DC34 /* AsyncSafeVC.h */,
+				182D205F1F4FBAE00057DC34 /* AsyncSafeVC.m */,
+				182D20611F4FBBBD0057DC34 /* AsyncSafeOCManage.h */,
+				182D20621F4FBBBD0057DC34 /* AsyncSafeOCManage.m */,
+				182D20641F4FBBFD0057DC34 /* AsyncSafeSwiftyManage.swift */,
+			);
+			name = AsyncSafe;
+			sourceTree = "<group>";
+		};
 		1836C6DD1F46842900D478AC /* BlueTooth */ = {
 			isa = PBXGroup;
 			children = (
@@ -383,6 +403,7 @@
 		1882835B1F3D9361003891BE /* OtherVCs */ = {
 			isa = PBXGroup;
 			children = (
+				182D205C1F4FBA7B0057DC34 /* AsyncSafe */,
 				1812C6301F4D20D400F34380 /* Diff_Block_Delegate */,
 				1800C8571F2ACD7F00E3E8B9 /* BitMap */,
 				1836C6DD1F46842900D478AC /* BlueTooth */,
@@ -867,9 +888,11 @@
 				181A19A41F3EDF08007FC8C4 /* TextureVC.m in Sources */,
 				18DECAC11F03998400BF1D3D /* UIFont+swizzleFont.m in Sources */,
 				52BC7FBE1BFB692900642835 /* JKWebView.m in Sources */,
+				182D20631F4FBBBD0057DC34 /* AsyncSafeOCManage.m in Sources */,
 				18B850EC1F4AC70B00D487B7 /* CellNodeModel.m in Sources */,
 				52BC7F911BFB68A800642835 /* ViewController.m in Sources */,
 				18B850F51F4AD8B800D487B7 /* InnerSizeNode.m in Sources */,
+				182D20601F4FBAE00057DC34 /* AsyncSafeVC.m in Sources */,
 				1800C85A1F2ACDA900E3E8B9 /* BitMapVC.m in Sources */,
 				18DD67451EB97E49000BD37E /* StepCountWidget.swift in Sources */,
 				180279231ED95E1B009BBA97 /* UIViewController+Tracking.m in Sources */,
@@ -885,6 +908,7 @@
 				18D9A99D1F2089750015C741 /* teModel+UnitTest.m in Sources */,
 				18B5D3C41F205299006725C1 /* teView.m in Sources */,
 				18F2FCFB1EE64F8800553D20 /* PhotoAlbumModel.swift in Sources */,
+				182D20651F4FBBFD0057DC34 /* AsyncSafeSwiftyManage.swift in Sources */,
 				6059A0CB1F1B7C80001B1E68 /* CataTestView+BridgeTest.m in Sources */,
 				1861607E1F36BAD200A877CE /* SwiftyDiffVC.swift in Sources */,
 				18A95C6D1F42F7EB0078954D /* RxSwiftTable.swift in Sources */,

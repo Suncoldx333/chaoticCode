@@ -70,12 +70,16 @@ typedef enum : NSUInteger {
     };
     [self.view addSubview:view];
     
-    UIImage *image1 = [UIImage imageNamed:@"switchToData"];
-    UIImage *image2 = [UIImage imageNamed:@"switchToData"];
+    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 300, ScreenWidth / 2, 300)];
+    bgView.backgroundColor = hexColor(0xe6e6e6);
+    [self.view addSubview:bgView];
     
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-    imageView.image = image1;
-    [self.view addSubview:imageView];
+    UIView *sub = [[UIView alloc] initWithFrame:CGRectMake(ScreenWidth / 4, 0, ScreenWidth / 2, 100)];
+    sub.backgroundColor = hexColor(0x404040);
+    [bgView addSubview:sub];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapEventFunc)];
+    [sub addGestureRecognizer:tap];
     
 }
 
