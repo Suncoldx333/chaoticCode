@@ -40,7 +40,6 @@ class AsyncSafeSwiftyManage: NSObject {
         switch type {
         case DataType.swifty.rawValue:
             let _ = self.swiftyDataArr.map({ (str) in
-                
                 str == "0" ? print("\(Date.init()) swifty show \(str)") : print("now swifty show \(str)")
                 
             })

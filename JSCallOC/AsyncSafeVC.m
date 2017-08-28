@@ -14,6 +14,7 @@
 
 @property (nonatomic,strong) AsyncSafeSwiftyManage *manage;
 @property (nonatomic,strong) AsyncSafeOCManage *ocManage;
+@property (nonatomic,strong) NSString *asyncStr;
 
 @end
 
@@ -63,6 +64,18 @@
     [removeActView addGestureRecognizer:tap];
 }
 
+-(void)asyncStrChange{
+    
+    dispatch_queue_t queue = dispatch_queue_create("parallel", DISPATCH_QUEUE_CONCURRENT);
+    for (NSInteger i = 0; i < 10000; i++) {
+        dispatch_async(queue, ^{
+            self.asyncStr = [NSString stringWithFormat:@"now is %ld",(long)i];
+            NSLog(@"asyncStr = %@",self.asyncStr);
+        });
+    }
+    
+}
+
 -(void)configureOperation{
     
     __weak typeof(self) weakSelf = self;
@@ -87,6 +100,10 @@
 }
 
 -(void)removementDelay:(UITapGestureRecognizer *)sender{
+    
+    NSLog(@"now tap");
+    
+    [self asyncStrChange];
     
     CGFloat x = [sender locationInView:removeActView].x;
     if (x < ScreenWidth / 2) {
