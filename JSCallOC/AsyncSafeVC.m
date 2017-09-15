@@ -14,7 +14,7 @@
 
 @property (nonatomic,strong) AsyncSafeSwiftyManage *manage;
 @property (nonatomic,strong) AsyncSafeOCManage *ocManage;
-@property (nonatomic,strong) NSString *asyncStr;
+@property (nonatomic,copy) NSString *asyncStr;
 
 @end
 
@@ -23,6 +23,7 @@
     UIView *removeActView;
     NSBlockOperation *testOpe;
     NSBlockOperation *swiftyConflictOpe;
+    UIButton *checkBt;
 }
 
 - (void)viewDidLoad {
@@ -41,6 +42,11 @@
 }
 
 -(void)initData{
+    
+    NSMutableDictionary *dic = nil;
+    NSNumber *selDis = [NSNumber numberWithInt:[[dic objectForKey:@"sporttype"] intValue]];
+
+    
     self.manage = [AsyncSafeSwiftyManage share];
     self.ocManage = [[AsyncSafeOCManage alloc] init];
     
@@ -62,11 +68,20 @@
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removementDelay:)];
     [removeActView addGestureRecognizer:tap];
+    
+    checkBt = [[UIButton alloc] initWithFrame:CGRectMake(0, 150, 100, 50)];
+    [checkBt setTitle:@"check" forState:UIControlStateNormal];
+    [checkBt setBackgroundColor:hexColor(0xe6e6e6)];
+    [checkBt addTarget:self
+                action:@selector(checkFinalState)
+      forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:checkBt];
 }
 
 -(void)asyncStrChange{
     
     dispatch_queue_t queue = dispatch_queue_create("parallel", DISPATCH_QUEUE_CONCURRENT);
+    
     for (NSInteger i = 0; i < 10000; i++) {
         dispatch_async(queue, ^{
             self.asyncStr = [NSString stringWithFormat:@"now is %ld",(long)i];
@@ -74,6 +89,10 @@
         });
     }
     
+}
+
+-(void)checkFinalState{
+    [self.manage checkCurArr];
 }
 
 -(void)configureOperation{
@@ -91,8 +110,10 @@
     }];
     
     swiftyConflictOpe = [NSBlockOperation blockOperationWithBlock:^{
+        
         [weakSelf.manage traverseArrWithType:1];
     }];
+
     
     [swiftyConflictOpe addExecutionBlock:^{
         [weakSelf.manage swiftyDeleteAll];
@@ -101,9 +122,7 @@
 
 -(void)removementDelay:(UITapGestureRecognizer *)sender{
     
-    NSLog(@"now tap");
-    
-    [self asyncStrChange];
+//    [self asyncStrChange];
     
     CGFloat x = [sender locationInView:removeActView].x;
     if (x < ScreenWidth / 2) {
@@ -113,7 +132,6 @@
         
         [swiftyConflictOpe start];//Array为值类型，多线程操作时仅发生复制，对原有对象不操作
     }
-
 }
 
 @end

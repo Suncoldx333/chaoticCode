@@ -204,6 +204,22 @@ extension Double{
 //    }
 //}
 
+extension NSObject{
+    
+    /// 互斥锁方法,swift内没有类似@Synchronized的直接调用的方法
+    /// 由于是对NSObject的扩展，使用时可能要注意命名重复
+    ///
+    /// - Parameters:
+    ///   - lock: 互斥锁的对象
+    ///   - f: 需要执行的方法
+    func customSynchronized(_ lock : Any,f:() ->()) {
+        objc_sync_enter(lock)
+        f()
+        objc_sync_exit(lock)
+    }
+    
+}
+
 extension DispatchQueue{
     private static var onceTracker = [String]()
     

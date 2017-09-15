@@ -12,4 +12,6 @@
 
 +(NSDictionary *)nameStyle;
 
+-(void)whichWillBeFirst;
+
 @end

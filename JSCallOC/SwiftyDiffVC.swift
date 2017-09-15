@@ -59,11 +59,61 @@ class SwiftyDiffVC: UIViewController {
     var structModel : modelStruct!
     var classModel : modelClass!
     
+    //MARK: -
     fileprivate func initData() {
 //        testDid = "shit"
-        let image = #imageLiteral(resourceName: "switchToRunning")
+        _ = #imageLiteral(resourceName: "switchToRunning")
         
+        let suits = ["1","2","3","4"]
+        let ranks = ["a","b","c","d"]
+        
+        let combine = [suits,ranks]
+        
+        let result = combine.flatMap {
+            $0.map({
+                $0 + "yooo"
+            })
+        }
+        print("result = \(result)")
+        
+        let users = [["name" : "jack","age" : "10"],["name" : "lilei","age" : "19"],["name" : "lili","age" : "89"]]
+        let _ = users.flatMap {
+            $0.flatMap({
+                print("\($0)")
+            })
+        }
+        
+        let testDic = ["name" : "jack","age" : "10"]
+        let result1 = testDic.flatMap {
+            $0.key + $0.value
+        }
+        print("result = \(result1)")
+
+        let sample = SVG.init()
+        sample.addCircle()
+        
+        let another : Drawing = SVG.init()
+        another.addCircle()
+        
+        let assSample = AssSVG.init()
+        print("next = \(assSample.next() ?? 0)")
+        
+        print("f = \(f_show(5)),g = \(g_show(5))")
+        
+        stringCompare()
+        addressCompare()
+        
+        let escap = escapingTest.init()
+        let escap2 = escapingTest.init()
+        
+        escap.method1()
+        escap.method2()
+        escap.method3()
+        
+        print("+ result = \(escap + escap2)")
     }
+    
+    
     
     fileprivate func initUI() {
         self.view.backgroundColor = ColorMethodho(hexValue: 0xe6e6e6)
@@ -78,6 +128,7 @@ class SwiftyDiffVC: UIViewController {
         
     }
     
+    //MARK: -
     fileprivate func addEmojiToLabel() {
         
         let emojis = GlobalTool.createEmojis()
@@ -126,6 +177,70 @@ class SwiftyDiffVC: UIViewController {
     }
 }
 
+struct UserInfo {
+    var name : String!
+    var age : String!
+    
+}
+
+extension SwiftyDiffVC{
+    
+    func stringCompare() {
+        
+        let single = "Pok\u{00E9}mon"
+        let double = "Pok\u{0065}\u{0301}mon"
+        
+        print("\((single,double))")
+        print("singleCount = \(single.utf16.count),doubleCount = \(double.utf16.count)")
+    }
+    
+    func f_show<L : CustomStringConvertible>(_ x : L) -> Int {
+        return MemoryLayout.size(ofValue: x)
+    }
+    
+    func g_show(_ x : CustomStringConvertible) -> Int {
+        return MemoryLayout.size(ofValue: x)
+    }
+    
+    func addressCompare() {
+        
+        var first = addressTest.init()
+        withUnsafePointer(to: &first) {
+            print("address = \($0)")
+        }
+        
+        first.hello = "first"
+        withUnsafePointer(to: &first) {
+            print("address = \($0)")
+        }
+        
+        first.hello = "second"
+        withUnsafePointer(to: &first) {
+            print("address = \($0)")
+        }
+        
+        var second = first
+        withUnsafePointer(to: &second) {
+            print("address = \($0)")
+        }
+        
+        var firstArr = NSArray.init()
+        withUnsafePointer(to: &firstArr) {
+            print("arr address = \($0)")
+        }
+        
+        var secondArr = firstArr
+        withUnsafePointer(to: &secondArr) {
+            print("arr address = \($0)")
+        }
+    }
+    
+    func addArr( arr : inout Array<String>) {
+        arr.append("2")
+    }
+    
+}
+
 struct modelStruct {
     var name : String!
     
@@ -135,3 +250,99 @@ class modelClass: NSObject {
     var name : String!
     
 }
+
+//MARK: - 
+struct addressTest{
+    var hello : String!
+    
+}
+
+//MARK: -
+protocol associatedPro {
+    associatedtype care = NSInteger
+    func next() -> Self.care?
+}
+
+struct AssSVG {
+    
+}
+
+extension AssSVG : associatedPro{
+    func next() -> Int? {
+        return 1
+    }
+}
+
+//MARK: -
+protocol Drawing {
+    func addEllipse(rect : CGRect,fill : UIColor)
+    func addRectangle(rect : CGRect,fill : UIColor)
+}
+
+extension Drawing{
+    func addCircle() {
+        print("addCircle")
+    }
+}
+
+struct SVG {
+    
+}
+
+extension SVG{
+    func addCircle() {
+        print("svg addCircle")
+    }
+}
+
+extension SVG : Drawing{
+    func addEllipse(rect: CGRect, fill: UIColor) {
+        print("addEllipse")
+    }
+    
+    func addRectangle(rect: CGRect, fill: UIColor) {
+        print("addRectangle")
+    }
+}
+
+//MARK: -
+class escapingTest {
+    var foo = "foo"
+    
+    static func +(lhs : escapingTest,rhs : escapingTest) -> String {
+        return lhs.foo + rhs.foo
+    }
+    
+    func method1() {
+        doWork {
+            print(foo)
+        }
+        foo = "bar"
+    }
+    
+    func method2() {
+        doWorkAsync {
+            print(self.foo)
+        }
+        foo = "bar"
+    }
+    
+    func method3() {
+        doWorkAsync {
+            [weak self] _ in
+            print(self?.foo ?? "now nil")
+        }
+        foo = "bar"
+    }
+    
+    fileprivate func doWork(block : () -> ()){
+        block()
+    }
+    
+    fileprivate func doWorkAsync(block : @escaping () -> ()){
+        DispatchQueue.main.async {
+            block()
+        }
+    }
+}
+

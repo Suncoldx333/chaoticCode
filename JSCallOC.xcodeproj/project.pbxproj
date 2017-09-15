@@ -16,6 +16,7 @@
 		1812C63A1F4D221300F34380 /* BDDiffView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1812C6391F4D221300F34380 /* BDDiffView.m */; };
 		181A19A41F3EDF08007FC8C4 /* TextureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A19A31F3EDF08007FC8C4 /* TextureVC.m */; };
 		181A19A71F3F3BB5007FC8C4 /* LayoutLearnNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A19A61F3F3BB5007FC8C4 /* LayoutLearnNode.m */; };
+		1822FD6A1F68D9EB0031C819 /* SwiftLab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822FD691F68D9EB0031C819 /* SwiftLab.swift */; };
 		182B63D71EC00EEF00E2DADA /* UIViewController+testSubFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 182B63D61EC00EEF00E2DADA /* UIViewController+testSubFunc.m */; };
 		182D20601F4FBAE00057DC34 /* AsyncSafeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 182D205F1F4FBAE00057DC34 /* AsyncSafeVC.m */; };
 		182D20631F4FBBBD0057DC34 /* AsyncSafeOCManage.m in Sources */ = {isa = PBXBuildFile; fileRef = 182D20621F4FBBBD0057DC34 /* AsyncSafeOCManage.m */; };
@@ -67,6 +68,7 @@
 		18F2FCFD1EE681F500553D20 /* ImagePickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2FCFC1EE681F500553D20 /* ImagePickView.swift */; };
 		18F523651E9C7C8B00ACF0D4 /* GlobalTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F523641E9C7C8B00ACF0D4 /* GlobalTool.m */; };
 		18F9D3541F46F32D00648ED6 /* ImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18F9D34B1F46F1ED00648ED6 /* ImagePicker.framework */; };
+		18F9E7BF1F593E72006A4F7F /* TextStyles+WhichFirst.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F9E7BE1F593E72006A4F7F /* TextStyles+WhichFirst.m */; };
 		52BC7F8B1BFB68A800642835 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BC7F8A1BFB68A800642835 /* main.m */; };
 		52BC7F8E1BFB68A800642835 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BC7F8D1BFB68A800642835 /* AppDelegate.m */; };
 		52BC7F911BFB68A800642835 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BC7F901BFB68A800642835 /* ViewController.m */; };
@@ -142,6 +144,7 @@
 		181A19A31F3EDF08007FC8C4 /* TextureVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureVC.m; sourceTree = "<group>"; };
 		181A19A51F3F3BB5007FC8C4 /* LayoutLearnNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutLearnNode.h; sourceTree = "<group>"; };
 		181A19A61F3F3BB5007FC8C4 /* LayoutLearnNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayoutLearnNode.m; sourceTree = "<group>"; };
+		1822FD691F68D9EB0031C819 /* SwiftLab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftLab.swift; sourceTree = "<group>"; };
 		182B63D51EC00EEF00E2DADA /* UIViewController+testSubFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+testSubFunc.h"; sourceTree = "<group>"; };
 		182B63D61EC00EEF00E2DADA /* UIViewController+testSubFunc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+testSubFunc.m"; sourceTree = "<group>"; };
 		182D205E1F4FBAE00057DC34 /* AsyncSafeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSafeVC.h; sourceTree = "<group>"; };
@@ -220,6 +223,8 @@
 		18F523631E9C7C8B00ACF0D4 /* GlobalTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalTool.h; sourceTree = "<group>"; };
 		18F523641E9C7C8B00ACF0D4 /* GlobalTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalTool.m; sourceTree = "<group>"; };
 		18F9D3451F46F1EC00648ED6 /* ImagePicker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ImagePicker.xcodeproj; path = ImagePicker/ImagePicker.xcodeproj; sourceTree = "<group>"; };
+		18F9E7BD1F593E72006A4F7F /* TextStyles+WhichFirst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TextStyles+WhichFirst.h"; sourceTree = "<group>"; };
+		18F9E7BE1F593E72006A4F7F /* TextStyles+WhichFirst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TextStyles+WhichFirst.m"; sourceTree = "<group>"; };
 		388137095DFAF6BC02CD65A8 /* Pods_JSCallOC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JSCallOC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		42652FE601722F97D4A24DAC /* Pods-JSCallOC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSCallOC.release.xcconfig"; path = "Pods/Target Support Files/Pods-JSCallOC/Pods-JSCallOC.release.xcconfig"; sourceTree = "<group>"; };
 		4932F40DA1444B9B1CA37035 /* Pods-JSCallOC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSCallOC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JSCallOC/Pods-JSCallOC.debug.xcconfig"; sourceTree = "<group>"; };
@@ -334,6 +339,14 @@
 			name = Diff_Block_Delegate;
 			sourceTree = "<group>";
 		};
+		1822FD671F68D9AE0031C819 /* SwiftyProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				1822FD691F68D9EB0031C819 /* SwiftLab.swift */,
+			);
+			name = SwiftyProtocol;
+			sourceTree = "<group>";
+		};
 		182D205C1F4FBA7B0057DC34 /* AsyncSafe */ = {
 			isa = PBXGroup;
 			children = (
@@ -403,6 +416,7 @@
 		1882835B1F3D9361003891BE /* OtherVCs */ = {
 			isa = PBXGroup;
 			children = (
+				1822FD671F68D9AE0031C819 /* SwiftyProtocol */,
 				182D205C1F4FBA7B0057DC34 /* AsyncSafe */,
 				1812C6301F4D20D400F34380 /* Diff_Block_Delegate */,
 				1800C8571F2ACD7F00E3E8B9 /* BitMap */,
@@ -410,14 +424,14 @@
 				18A95C6B1F42F7880078954D /* TalbeViewWithRxSwift */,
 				18A95C641F428DDF0078954D /* StateVC */,
 				18A1ED3D1F4143B300FAD25E /* DataManage&LLDB */,
-				1882835C1F3D937E003891BE /* AsyncDisplay */,
+				1882835C1F3D937E003891BE /* AsyncDisplay&cate */,
 				185B8D031F3960AF00B1C9C5 /* ResizeImage */,
 				1861607C1F36BAA900A877CE /* Swifty */,
 			);
 			name = OtherVCs;
 			sourceTree = "<group>";
 		};
-		1882835C1F3D937E003891BE /* AsyncDisplay */ = {
+		1882835C1F3D937E003891BE /* AsyncDisplay&cate */ = {
 			isa = PBXGroup;
 			children = (
 				181A19A21F3EDF08007FC8C4 /* TextureVC.h */,
@@ -425,7 +439,7 @@
 				18B850E91F4AC53100D487B7 /* Model */,
 				18B850E81F4AC52300D487B7 /* Nodes */,
 			);
-			name = AsyncDisplay;
+			name = "AsyncDisplay&cate";
 			sourceTree = "<group>";
 		};
 		18A1ED3D1F4143B300FAD25E /* DataManage&LLDB */ = {
@@ -491,6 +505,8 @@
 				18B850EB1F4AC70B00D487B7 /* CellNodeModel.m */,
 				18B850F01F4ACADB00D487B7 /* TextStyles.h */,
 				18B850F11F4ACADB00D487B7 /* TextStyles.m */,
+				18F9E7BD1F593E72006A4F7F /* TextStyles+WhichFirst.h */,
+				18F9E7BE1F593E72006A4F7F /* TextStyles+WhichFirst.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -888,6 +904,7 @@
 				181A19A41F3EDF08007FC8C4 /* TextureVC.m in Sources */,
 				18DECAC11F03998400BF1D3D /* UIFont+swizzleFont.m in Sources */,
 				52BC7FBE1BFB692900642835 /* JKWebView.m in Sources */,
+				1822FD6A1F68D9EB0031C819 /* SwiftLab.swift in Sources */,
 				182D20631F4FBBBD0057DC34 /* AsyncSafeOCManage.m in Sources */,
 				18B850EC1F4AC70B00D487B7 /* CellNodeModel.m in Sources */,
 				52BC7F911BFB68A800642835 /* ViewController.m in Sources */,
@@ -913,6 +930,7 @@
 				1861607E1F36BAD200A877CE /* SwiftyDiffVC.swift in Sources */,
 				18A95C6D1F42F7EB0078954D /* RxSwiftTable.swift in Sources */,
 				18B850DE1F4A890F00D487B7 /* SizeNode.m in Sources */,
+				18F9E7BF1F593E72006A4F7F /* TextStyles+WhichFirst.m in Sources */,
 				1861A1531F23228E00055620 /* SwiftyImportView.swift in Sources */,
 				18ABFB1F1ED6B6D800B179FF /* Department+CoreDataClass.swift in Sources */,
 				18A95C661F428E2E0078954D /* SVCPractice.swift in Sources */,

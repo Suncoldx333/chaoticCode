@@ -33,6 +33,12 @@ typedef enum : NSUInteger {
 }
 
 -(void)initData{
+    
+    NSString *willChangeStr = @"12#23#34#45#56#67#78";
+    NSArray *changedArr = [willChangeStr componentsSeparatedByString:@"#"];
+    NSString *reChangeStr = [changedArr componentsJoinedByString:@"~"];
+    NSLog(@"reStr = %@",reChangeStr);
+    
     NSInteger hello = 12;
     
     switch (hello) {

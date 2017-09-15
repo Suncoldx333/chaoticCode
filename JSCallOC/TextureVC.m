@@ -18,6 +18,9 @@
 #import "CellNodeModel.h"
 #import "ListCellNodel.h"
 
+#import "TextStyles.h"
+//#import "TextStyles+WhichFirst.h"
+
 @interface TextureVC ()<ASTableDelegate,ASTableDataSource>{
     NSMutableArray *dataArr;
     NSURL *imageUrl;
@@ -95,6 +98,9 @@
     model.year = @"1009";
     model.speechName = @"钱钟书";
     [tableNodeDataArr addObject:model];
+    
+    TextStyles *style = [[TextStyles alloc] init];
+    [style whichWillBeFirst];
     
 }
 

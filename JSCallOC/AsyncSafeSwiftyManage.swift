@@ -23,38 +23,50 @@ class AsyncSafeSwiftyManage: NSObject {
             objective = 2
     }
     
+    func checkCurArr() {
+        withUnsafePointer(to: &self.swiftyDataArr, {
+            print("4 = \($0)")
+        })
+        printWithTime("at last arr count = \(swiftyDataArr.count)")
+        
+    }
+    
     //MARK: - Swifty
     func swiftyDeleteAll() {
+        withUnsafePointer(to: &swiftyDataArr) {
+            print("1 = \($0)")
+        }
         
-        guard var swiftyArr = swiftyDataArr else {
+        guard (swiftyDataArr) != nil else {
             fatalError("you may initialize arr first")
             
         }
-        
-        swiftyArr.removeAll()
-        print("now swifty count = \(swiftyArr.count)")
+        withUnsafePointer(to: &swiftyDataArr) {
+            print("2 = \($0)")
+        }
+        swiftyDataArr.removeLast(100)
+        print("now swifty count = \(swiftyDataArr.count)")
     }
     
     func traverseArr(type : NSInteger) {
         
-        switch type {
-        case DataType.swifty.rawValue:
-            let _ = self.swiftyDataArr.map({ (str) in
-                str == "0" ? print("\(Date.init()) swifty show \(str)") : print("now swifty show \(str)")
+        if type == DataType.swifty.rawValue {
+            
+            customSynchronized(swiftyDataArr, f: { 
+                withUnsafePointer(to: &swiftyDataArr, {
+                    print("3 = \($0)")
+                })
                 
+                for str : String in swiftyDataArr {
+                    str == "0" ? print("\(Date.init()) swifty show \(str)") : print("now swifty show \(str)")
+                }
+                
+//                let _ = swiftyDataArr.map({ (str) in
+//                    str == "0" ? print("\(Date.init()) swifty show \(str)") : print("now swifty show \(str)")
+//                    
+//                })
             })
             
-            break
-            
-        case DataType.objective.rawValue:
-            let _ = self.ocDataArr.map({ (str) in
-                print("now objective show \(str)")
-            })
-            break
-            
-        default:
-            fatalError("you may deliver error type")
-            break
         }
         
     }

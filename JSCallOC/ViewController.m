@@ -114,6 +114,7 @@
     [titles addObject:NSStringFromClass([BlueTooth class])];
     [titles addObject:NSStringFromClass([BDDiffVC class])];
     [titles addObject:NSStringFromClass([AsyncSafeVC class])];
+    [titles addObject:NSStringFromClass([SwiftLab class])];
     
     NSDate *ori = [NSDate date];
     
