@@ -62,8 +62,7 @@ class SWPointPathManage: NSObject {
             })
             pathsContainUnFixedPoint.append(oppositePaths)
         }
-        
-        //穷举
+        //穷举,时间太长，待优化
         printWithTime("穷举开始")
         var pathsCanConnect = [Array<PathModel>]()
         for outIndex in 0..<4 {
