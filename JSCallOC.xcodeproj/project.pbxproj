@@ -14,6 +14,7 @@
 		180EE1681ED7D1C500381806 /* animationInSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180EE1671ED7D1C500381806 /* animationInSwift.swift */; };
 		1812C6371F4D212F00F34380 /* BDDiffVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1812C6361F4D212F00F34380 /* BDDiffVC.m */; };
 		1812C63A1F4D221300F34380 /* BDDiffView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1812C6391F4D221300F34380 /* BDDiffView.m */; };
+		18197F691F71208900CDF2E5 /* PointPathManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18197F681F71208900CDF2E5 /* PointPathManage.swift */; };
 		181A19A41F3EDF08007FC8C4 /* TextureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A19A31F3EDF08007FC8C4 /* TextureVC.m */; };
 		181A19A71F3F3BB5007FC8C4 /* LayoutLearnNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A19A61F3F3BB5007FC8C4 /* LayoutLearnNode.m */; };
 		1822FD6A1F68D9EB0031C819 /* SwiftLab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822FD691F68D9EB0031C819 /* SwiftLab.swift */; };
@@ -140,6 +141,7 @@
 		1812C6361F4D212F00F34380 /* BDDiffVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDDiffVC.m; sourceTree = "<group>"; };
 		1812C6381F4D221300F34380 /* BDDiffView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDDiffView.h; sourceTree = "<group>"; };
 		1812C6391F4D221300F34380 /* BDDiffView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDDiffView.m; sourceTree = "<group>"; };
+		18197F681F71208900CDF2E5 /* PointPathManage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointPathManage.swift; sourceTree = "<group>"; };
 		181A19A21F3EDF08007FC8C4 /* TextureVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureVC.h; sourceTree = "<group>"; };
 		181A19A31F3EDF08007FC8C4 /* TextureVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureVC.m; sourceTree = "<group>"; };
 		181A19A51F3F3BB5007FC8C4 /* LayoutLearnNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutLearnNode.h; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				1822FD691F68D9EB0031C819 /* SwiftLab.swift */,
+				18197F681F71208900CDF2E5 /* PointPathManage.swift */,
 			);
 			name = SwiftyProtocol;
 			sourceTree = "<group>";
@@ -950,6 +953,7 @@
 				18A1ED461F418C7100FAD25E /* LLDBLearnObject+NewVar.m in Sources */,
 				18ABFB1C1ED6B6A100B179FF /* Employee+CoreDataProperties.swift in Sources */,
 				18E88A5B1E7A8DCD000DD208 /* testModel.swift in Sources */,
+				18197F691F71208900CDF2E5 /* PointPathManage.swift in Sources */,
 				52BC7F8B1BFB68A800642835 /* main.m in Sources */,
 				185F85921E83CD530051B761 /* testChild.m in Sources */,
 				1800C85D1F2ACE1A00E3E8B9 /* BitMapView.m in Sources */,

@@ -29,6 +29,11 @@
     
     [Bugly startWithAppId:@"6f75bca7da"];
     
+//    userDefaultManage *manage = [userDefaultManage shareInstance];
+//    
+//    [manage userDefaultInitialize];
+//    [manage userDefaultStore];
+    
     ViewController *controller = [[ViewController alloc] init];
     CustomNavController *nav = [[CustomNavController alloc] initWithRootViewController:controller];
     

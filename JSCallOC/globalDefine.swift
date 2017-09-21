@@ -48,8 +48,9 @@ func ViewHeight(v : UIView) -> CGFloat{
     return height
 }
 
-struct cellHeightKey {
+struct allKeys {
     static let cellHeightCacheKey = UnsafeRawPointer.init(bitPattern: "cellHeightCache".hashValue)
+    static let userDefaultTestKey = "userDefaultTest"
 
 }
 
@@ -68,10 +69,10 @@ extension UITableView{
     
     var heightCache : cellHeightCache? {
         set{
-            objc_setAssociatedObject(self, cellHeightKey.cellHeightCacheKey, heightCache, objc_AssociationPolicy.OBJC_ASSOCIATION_COPY_NONATOMIC)
+            objc_setAssociatedObject(self, allKeys.cellHeightCacheKey, heightCache, objc_AssociationPolicy.OBJC_ASSOCIATION_COPY_NONATOMIC)
         }
         get{
-            return objc_getAssociatedObject(self, cellHeightKey.cellHeightCacheKey) as? cellHeightCache
+            return objc_getAssociatedObject(self, allKeys.cellHeightCacheKey) as? cellHeightCache
         }
     }
     
@@ -243,6 +244,23 @@ class globalDefine: NSObject {
     }
     
 }
+
+//extension UserDefaults{
+//    func saveNonPropertyModel(_ model : Any, _ key : String) -> Data {
+//        
+//        let paths = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)
+//        let path : String! = paths.first?.appending(key)
+//        
+//        let fileManage = FileManager.init()
+//        if !fileManage.fileExists(atPath: path) {
+//            do{
+//                try fileManage.createDirectory(atPath: path, withIntermediateDirectories: true, attributes: nil)
+//            }catch{
+//                print("oppos!")
+//            }
+//        }
+//    }
+//}
 
 class cellHeightCache: NSObject {
     

@@ -111,3 +111,35 @@ extension Array{
         }
     }
 }
+
+class userDefaultManage: NSObject {
+    static let shareInstance = userDefaultManage.init()
+    override init() {
+        
+    }
+    
+    fileprivate var model : userDefaultModel! = userDefaultModel.init()
+    
+    func userDefaultInitialize() {
+        model.usrName = "shanshan"
+        model.usrAge = "16"
+    }
+    
+    func userDefaultStore() {
+        
+        
+        
+//        let modelData = Data.in
+        UserDefaults.standard.set(model, forKey: allKeys.userDefaultTestKey)
+        UserDefaults.standard.synchronize()
+    }
+}
+
+class userDefaultModel: NSObject {
+    var usrName : String! = "leihou"
+    var usrAge : String! = "18"
+    
+    
+}
+
+

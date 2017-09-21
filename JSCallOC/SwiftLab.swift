@@ -45,6 +45,16 @@ class SwiftLab: UIViewController {
         return inner
     }()
     func initData() {
+        testCombine()
+
+        calculatePointPath()
+        let before = [1,2,3,4]
+        let after = [NSInteger]()
+        let resullt = createRandom(number: before.count, before: before, after: after)
+        printWithTime("newBefore = \(resullt.0),newAfter = \(resullt.1)")
+        
+        testRemove(testArr: before)
+
         
         let draw : ImageDrawing = ImageSVG()
         draw.addEllipse(rect: CGRect.zero, fill: ColorMethodho(hexValue: 0xffffff))
@@ -58,6 +68,97 @@ class SwiftLab: UIViewController {
             .map {
             $0 + "after"
         }.bind(to: model.name)
+    }
+    
+    func testCombine() {
+        let dataArr = ["1","2"]
+        let dataSet = Set.init(dataArr)
+        
+        let dataArr1 = ["2","1"]
+        let dataSet1 = Set.init(dataArr)
+
+        if dataArr == dataArr1 {
+            printWithTime("equal")
+        }
+    }
+    
+    
+    func calculatePointPath() {
+        
+        
+        
+        let lats = ["30.214898","30.215370","30.214021","30.214360","30.213502"]
+        let lons = ["120.204429","120.205466","120.205103","120.203441","120.203993"]
+        var models = [PointModel]()
+        
+        for index in 1..<6 {
+            let model1 = PointModel.init()
+            model1.pointFlag = "1505359921000"
+            model1.pointId = String.init(format: "%d", index)
+            model1.pointLat = lats[index - 1]
+            model1.pointLon = lons[index - 1]
+            model1.pointIsFixed = index == 1 ? "1" : "0"
+            models.append(model1)
+        }
+        
+        
+        let manage = SWPointPathManage.shareInstance
+        var duration : Double = 0
+        let timeFor = DateFormatter.init()
+        timeFor.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
+        
+        for _ in 0..<1 {
+            let beginDate = Date.init()
+            let begin : Double = beginDate.timeIntervalSince1970 * 1000
+            let _ = manage.exhaustionAllSatisfedPath(models, queueMemberCount: 4, minLength: 800)
+//            guard let error = result.error else {
+//                let _ = result.result.map({ (model) in
+//                    print("id = \(model.pointId),sequence = \(model.pointSequence)")
+//                })
+//                return
+//            }
+//            printWithTime("error = \(error)")
+            let endDate = Date.init()
+            let end : Double = endDate.timeIntervalSince1970 * 1000
+            duration = duration + end - begin
+        }
+        print("duration = \(duration)")
+        
+//        printWithTime("~~~~~~~~now sequence end~~~~~~~~")
+
+        
+        
+    }
+    
+    func testRemove(testArr : Array<NSInteger>) {
+        
+        let count = testArr.count
+        var newTest = testArr
+        var minArrs = [Array<NSInteger>]()
+        for index in 0..<count {
+            newTest.remove(at: index)
+            minArrs.append(newTest)
+            newTest = testArr
+        }
+        printWithTime(minArrs)
+        
+    }
+    
+    func createRandom(number : Int,before : Array<NSInteger>,after : Array<NSInteger>) -> (Array<NSInteger>,Array<NSInteger>) {
+        
+        if number < 1 {
+            return (before,after)
+        }
+        
+        var newBefore = before
+        var newAfter = after
+        let newRandomNum = number - 1
+        
+        let ranomNum = NSInteger.init(arc4random()%UInt32.init(number))
+        newAfter.append(before[ranomNum])
+        newBefore.remove(at: ranomNum)
+        
+        return createRandom(number: newRandomNum, before: newBefore, after: newAfter)
     }
     
     func changeModel() {
