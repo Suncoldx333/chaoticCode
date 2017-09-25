@@ -45,9 +45,11 @@ class SwiftLab: UIViewController {
         return inner
     }()
     func initData() {
+        performenceCompare()
         testCombine()
         testCodable()
         calculatePointPath()
+        
         let before = [1,2,3,4]
         let after = [NSInteger]()
         let resullt = createRandom(number: before.count, before: before, after: after)
@@ -71,6 +73,39 @@ class SwiftLab: UIViewController {
 }
 
 extension SwiftLab{
+    
+    func performenceCompare() {
+        var refers = [ReferenceModel]()
+        var unRefers = [UnReferenceModel]()
+        
+        for index in 0..<1000 {
+            let modelId = String.init(format: "%d", index)
+            
+            let referModel = ReferenceModel.init()
+            referModel.modelId = modelId
+            refers.append(referModel)
+            
+            var unReferModel = UnReferenceModel.init()
+            unReferModel.modelId = modelId
+            unRefers.append(unReferModel)
+        }
+        
+        var duration : Double = 0
+        let timeFor = DateFormatter.init()
+        timeFor.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
+        let beginDate = Date.init()
+        let begin : Double = beginDate.timeIntervalSince1970 * 1000
+        for model in refers {
+            let _ = model.modelId
+//            print("id = \(model.modelId)")
+            
+        }
+        let endDate = Date.init()
+        let end : Double = endDate.timeIntervalSince1970 * 1000
+        duration = duration + end - begin
+        print("duration = \(duration)")
+        
+    }
     
     func testCodable() {
         
@@ -142,8 +177,6 @@ extension SwiftLab{
     
     func calculatePointPath() {
         
-        
-        
         let lats = ["30.214898","30.215370","30.214021","30.214360","30.213502"]
         let lons = ["120.204429","120.205466","120.205103","120.203441","120.203993"]
         var models = [PointModel]()
@@ -183,6 +216,16 @@ extension SwiftLab{
         
         //        printWithTime("~~~~~~~~now sequence end~~~~~~~~")
     }
+}
+
+//MARK: - for performence compare
+class ReferenceModel : NSObject{
+    var modelId : String!
+    
+}
+
+struct UnReferenceModel {
+    var modelId : String!
 }
 
 //MARK: - 
