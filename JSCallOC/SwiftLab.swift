@@ -46,7 +46,7 @@ class SwiftLab: UIViewController {
     }()
     func initData() {
         testCombine()
-
+        testCodable()
         calculatePointPath()
         let before = [1,2,3,4]
         let after = [NSInteger]()
@@ -54,7 +54,6 @@ class SwiftLab: UIViewController {
         printWithTime("newBefore = \(resullt.0),newAfter = \(resullt.1)")
         
         testRemove(testArr: before)
-
         
         let draw : ImageDrawing = ImageSVG()
         draw.addEllipse(rect: CGRect.zero, fill: ColorMethodho(hexValue: 0xffffff))
@@ -69,65 +68,20 @@ class SwiftLab: UIViewController {
             $0 + "after"
         }.bind(to: model.name)
     }
-    
-    func testCombine() {
-        let dataArr = ["1","2"]
-        let dataSet = Set.init(dataArr)
-        
-        let dataArr1 = ["2","1"]
-        let dataSet1 = Set.init(dataArr)
+}
 
-        if dataArr == dataArr1 {
-            printWithTime("equal")
-        }
-    }
+extension SwiftLab{
     
-    
-    func calculatePointPath() {
+    func testCodable() {
         
-        
-        
-        let lats = ["30.214898","30.215370","30.214021","30.214360","30.213502"]
-        let lons = ["120.204429","120.205466","120.205103","120.203441","120.203993"]
-        var models = [PointModel]()
-        
-        for index in 1..<6 {
-            let model1 = PointModel.init()
-            model1.pointFlag = "1505359921000"
-            model1.pointId = String.init(format: "%d", index)
-            model1.pointLat = lats[index - 1]
-            model1.pointLon = lons[index - 1]
-            model1.pointIsFixed = index == 1 ? "1" : "0"
-            models.append(model1)
-        }
-        
-        
-        let manage = SWPointPathManage.shareInstance
-        var duration : Double = 0
-        let timeFor = DateFormatter.init()
-        timeFor.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
-        
-        for _ in 0..<1 {
-            let beginDate = Date.init()
-            let begin : Double = beginDate.timeIntervalSince1970 * 1000
-            let _ = manage.exhaustionAllSatisfedPath(models, queueMemberCount: 4, minLength: 800)
-//            guard let error = result.error else {
-//                let _ = result.result.map({ (model) in
-//                    print("id = \(model.pointId),sequence = \(model.pointSequence)")
-//                })
-//                return
-//            }
-//            printWithTime("error = \(error)")
-            let endDate = Date.init()
-            let end : Double = endDate.timeIntervalSince1970 * 1000
-            duration = duration + end - begin
-        }
-        print("duration = \(duration)")
-        
-//        printWithTime("~~~~~~~~now sequence end~~~~~~~~")
-
-        
-        
+//        let willCodeArray = infoModel.init(name: Variable.init("hello"))
+//        do {
+//            let data = try JSONSerialization.data(withJSONObject: willCodeArray, options: [])
+//            let newArray = try JSONSerialization.jsonObject(with: data, options: [])
+//            print("array = \(newArray)")
+//        } catch  {
+//            print("unAvailable type")
+//        }
     }
     
     func testRemove(testArr : Array<NSInteger>) {
@@ -164,15 +118,71 @@ class SwiftLab: UIViewController {
     func changeModel() {
         tapCount = tapCount + 1
         outterName.value = "hanmeimei" + "~~" + String.init(format: "%d", tapCount)
-
+        
         print("model = \(model.name.value)")
         
         if tapCount > 10 {
             dis?.dispose()
         }
-        
     }
-
+    
+    func testCombine() {
+        
+        let dataArr = ["1","2"]
+        let dataSet = Set.init(dataArr)
+        
+        let dataArr1 = ["2","1"]
+        let dataSet1 = Set.init(dataArr)
+        
+        if dataArr == dataArr1 {
+            printWithTime("equal")
+        }
+    }
+    
+    
+    func calculatePointPath() {
+        
+        
+        
+        let lats = ["30.214898","30.215370","30.214021","30.214360","30.213502"]
+        let lons = ["120.204429","120.205466","120.205103","120.203441","120.203993"]
+        var models = [PointModel]()
+        
+        for index in 1..<6 {
+            let model1 = PointModel.init()
+            model1.pointFlag = "1505359921000"
+            model1.pointId = String.init(format: "%d", index)
+            model1.pointLat = lats[index - 1]
+            model1.pointLon = lons[index - 1]
+            model1.pointIsFixed = index == 1 ? "1" : "0"
+            models.append(model1)
+        }
+        
+        
+        let manage = SWPointPathManage.shareInstance
+        var duration : Double = 0
+        let timeFor = DateFormatter.init()
+        timeFor.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
+        
+        for _ in 0..<100 {
+            let beginDate = Date.init()
+            let begin : Double = beginDate.timeIntervalSince1970 * 1000
+            let _ = manage.exhaustionAllSatisfedPath(models, queueMemberCount: 4, minLength: 800)
+            //            guard let error = result.error else {
+            //                let _ = result.result.map({ (model) in
+            //                    print("id = \(model.pointId),sequence = \(model.pointSequence)")
+            //                })
+            //                return
+            //            }
+            //            printWithTime("error = \(error)")
+            let endDate = Date.init()
+            let end : Double = endDate.timeIntervalSince1970 * 1000
+            duration = duration + end - begin
+        }
+        print("duration = \(duration)")
+        
+        //        printWithTime("~~~~~~~~now sequence end~~~~~~~~")
+    }
 }
 
 //MARK: - 

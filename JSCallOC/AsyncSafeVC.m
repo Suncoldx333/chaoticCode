@@ -43,10 +43,6 @@
 
 -(void)initData{
     
-    NSMutableDictionary *dic = nil;
-    NSNumber *selDis = [NSNumber numberWithInt:[[dic objectForKey:@"sporttype"] intValue]];
-
-    
     self.manage = [AsyncSafeSwiftyManage share];
     self.ocManage = [[AsyncSafeOCManage alloc] init];
     
