@@ -45,10 +45,10 @@ class SwiftLab: UIViewController {
         return inner
     }()
     func initData() {
-        performenceCompare()
-        testCombine()
-        testCodable()
-        calculatePointPath()
+//        performenceCompare()
+//        testCombine()
+//        testCodable()
+//        calculatePointPath()
         
         let before = [1,2,3,4]
         let after = [NSInteger]()

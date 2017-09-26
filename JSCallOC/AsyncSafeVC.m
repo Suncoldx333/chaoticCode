@@ -88,7 +88,8 @@
 }
 
 -(void)checkFinalState{
-    [self.manage checkCurArr];
+//    [self.manage checkCurArr];
+    [self.manage operationTest];
 }
 
 -(void)configureOperation{

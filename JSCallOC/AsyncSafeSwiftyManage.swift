@@ -71,6 +71,73 @@ class AsyncSafeSwiftyManage: NSObject {
         
     }
     
+    func operationTest() {
+        
+        var willChangeArray = [Int]()
+        var willChangeArray1 = [Int]()
+        var willChangeArray2 = [Int]()
+
+        var model = operatModel.init(modelId: "hello")
+        
+        let queue = OperationQueue.init()
+        queue.maxConcurrentOperationCount = 4
+        var operations = [Operation]()
+
+        let op1 = BlockOperation.init {
+//            for index in 0..<100{
+//                willChangeArray1.append(index)
+//
+//            }
+            model.modelId = "op1"
+        }
+        let op2 = BlockOperation.init { 
+//            for index in 100..<200{
+//                willChangeArray2.append(index)
+//                
+//            }
+            model.modelId = "op2"
+        }
+        
+        let op3 = BlockOperation.init {
+//            willChangeArray.append(contentsOf: willChangeArray1)
+//            willChangeArray.append(contentsOf: willChangeArray2)
+//            print("\(willChangeArray)")
+            print("\(model.modelId)")
+        }
+        op3.addDependency(op1)
+        op3.addDependency(op2)
+        
+        operations.append(op1)
+        operations.append(op2)
+        operations.append(op3)
+
+        queue.addOperations(operations, waitUntilFinished: false)
+//        let filterOperation = BlockOperation.init {
+//            print("\(willChangeArray)")
+//
+//            let _ = willChangeArray.filter{
+//                $0 < 8
+//            }
+//        }
+//        for index in 1..<4 {
+//            let operation = BlockOperation.init(block: {
+//                
+//                for innerIndex in ((index - 1) * 5)..<(index * 5){
+//                    willChangeArray.append(innerIndex)
+//                    
+//                }
+//            })
+//            
+//            filterOperation.addDependency(operation)
+//            operations.append(operation)
+//        }
+//        operations.append(filterOperation)
+//        
+//        queue.addOperations(operations, waitUntilFinished: false)
+//        print("\(willChangeArray)")
+        
+    }
+    
     //MARK: - Objective
     func ocDeleteAll() {
         
@@ -87,4 +154,8 @@ class AsyncSafeSwiftyManage: NSObject {
         
     }
     
+}
+
+struct operatModel {
+    var modelId : String!
 }
