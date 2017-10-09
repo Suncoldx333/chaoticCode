@@ -72,7 +72,7 @@ class AsyncSafeSwiftyManage: NSObject {
     }
     
     func operationTest() {
-        
+                
         var willChangeArray = [Int]()
         var willChangeArray1 = [Int]()
         var willChangeArray2 = [Int]()

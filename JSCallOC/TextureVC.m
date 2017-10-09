@@ -70,6 +70,10 @@
 }
 
 -(void)initData{
+    
+    NSNumber *num = [NSNumber numberWithBool:YES];
+    NSString *boo = [NSString stringWithFormat:@"%@",num];
+    
     imageUrl = [NSURL URLWithString:@"http://gxapp-images.oss-cn-hangzhou.aliyuncs.com/news-images/20170510/5387f9a7c2af45eda6a70ceea78d8bac.jpg"];
     count = 0;
     for (NSInteger i = 0; i < 10; i++) {

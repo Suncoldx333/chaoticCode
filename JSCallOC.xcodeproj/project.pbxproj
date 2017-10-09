@@ -85,6 +85,7 @@
 		6059A0CB1F1B7C80001B1E68 /* CataTestView+BridgeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6059A0CA1F1B7C80001B1E68 /* CataTestView+BridgeTest.m */; };
 		607E8BB91EF2C56C00DA8FA2 /* testAnimationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 607E8BB81EF2C56C00DA8FA2 /* testAnimationVC.m */; };
 		607E8BBB1EF2C7A400DA8FA2 /* testAniView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607E8BBA1EF2C7A400DA8FA2 /* testAniView.swift */; };
+		69AEDDB9C07994726B8FE5B5 /* Pods_JSCallOCTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F711EF02B428963215F575 /* Pods_JSCallOCTests.framework */; };
 		6BCACCD80287C8EAF0DAE653 /* Pods_JSCallOC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 388137095DFAF6BC02CD65A8 /* Pods_JSCallOC.framework */; };
 /* End PBXBuildFile section */
 
@@ -227,6 +228,7 @@
 		18F9D3451F46F1EC00648ED6 /* ImagePicker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ImagePicker.xcodeproj; path = ImagePicker/ImagePicker.xcodeproj; sourceTree = "<group>"; };
 		18F9E7BD1F593E72006A4F7F /* TextStyles+WhichFirst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TextStyles+WhichFirst.h"; sourceTree = "<group>"; };
 		18F9E7BE1F593E72006A4F7F /* TextStyles+WhichFirst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TextStyles+WhichFirst.m"; sourceTree = "<group>"; };
+		30CB95EC8236113ED3B03020 /* Pods-JSCallOCTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSCallOCTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JSCallOCTests/Pods-JSCallOCTests.debug.xcconfig"; sourceTree = "<group>"; };
 		388137095DFAF6BC02CD65A8 /* Pods_JSCallOC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JSCallOC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		42652FE601722F97D4A24DAC /* Pods-JSCallOC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSCallOC.release.xcconfig"; path = "Pods/Target Support Files/Pods-JSCallOC/Pods-JSCallOC.release.xcconfig"; sourceTree = "<group>"; };
 		4932F40DA1444B9B1CA37035 /* Pods-JSCallOC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSCallOC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JSCallOC/Pods-JSCallOC.debug.xcconfig"; sourceTree = "<group>"; };
@@ -257,6 +259,8 @@
 		607E8BB71EF2C56C00DA8FA2 /* testAnimationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testAnimationVC.h; sourceTree = "<group>"; };
 		607E8BB81EF2C56C00DA8FA2 /* testAnimationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testAnimationVC.m; sourceTree = "<group>"; };
 		607E8BBA1EF2C7A400DA8FA2 /* testAniView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testAniView.swift; sourceTree = "<group>"; };
+		84F711EF02B428963215F575 /* Pods_JSCallOCTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JSCallOCTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A80E3EEDC700E3FAD04E2931 /* Pods-JSCallOCTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSCallOCTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JSCallOCTests/Pods-JSCallOCTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,6 +277,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69AEDDB9C07994726B8FE5B5 /* Pods_JSCallOCTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +424,7 @@
 		1882835B1F3D9361003891BE /* OtherVCs */ = {
 			isa = PBXGroup;
 			children = (
+				18C41B761F8B47CE0089E8BA /* KIFLearn */,
 				1822FD671F68D9AE0031C819 /* SwiftyProtocol */,
 				182D205C1F4FBA7B0057DC34 /* AsyncSafe */,
 				1812C6301F4D20D400F34380 /* Diff_Block_Delegate */,
@@ -514,6 +520,13 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		18C41B761F8B47CE0089E8BA /* KIFLearn */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = KIFLearn;
+			sourceTree = "<group>";
+		};
 		18E8740D1ED672A800CAF89C /* BaseCoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -575,6 +588,7 @@
 			isa = PBXGroup;
 			children = (
 				388137095DFAF6BC02CD65A8 /* Pods_JSCallOC.framework */,
+				84F711EF02B428963215F575 /* Pods_JSCallOCTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -674,6 +688,8 @@
 			children = (
 				4932F40DA1444B9B1CA37035 /* Pods-JSCallOC.debug.xcconfig */,
 				42652FE601722F97D4A24DAC /* Pods-JSCallOC.release.xcconfig */,
+				30CB95EC8236113ED3B03020 /* Pods-JSCallOCTests.debug.xcconfig */,
+				A80E3EEDC700E3FAD04E2931 /* Pods-JSCallOCTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -706,9 +722,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52BC7FB61BFB68A800642835 /* Build configuration list for PBXNativeTarget "JSCallOCTests" */;
 			buildPhases = (
+				D679FB47D4128D992041D5B0 /* [CP] Check Pods Manifest.lock */,
 				52BC7F9B1BFB68A800642835 /* Sources */,
 				52BC7F9C1BFB68A800642835 /* Frameworks */,
 				52BC7F9D1BFB68A800642835 /* Resources */,
+				A6E90EAEF178332CA95429F0 /* [CP] Embed Pods Frameworks */,
+				CCC8183EA14F1872CF9E72C0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -852,6 +871,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JSCallOC/Pods-JSCallOC-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A6E90EAEF178332CA95429F0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JSCallOCTests/Pods-JSCallOCTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		AAE6C28D33673BA865869CAD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -864,6 +898,36 @@
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-JSCallOC-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CCC8183EA14F1872CF9E72C0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JSCallOCTests/Pods-JSCallOCTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D679FB47D4128D992041D5B0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1159,6 +1223,7 @@
 		};
 		52BC7FB71BFB68A800642835 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 30CB95EC8236113ED3B03020 /* Pods-JSCallOCTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1172,6 +1237,7 @@
 		};
 		52BC7FB81BFB68A800642835 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A80E3EEDC700E3FAD04E2931 /* Pods-JSCallOCTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

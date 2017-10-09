@@ -15,3 +15,7 @@ target 'JSCallOC' do
   pod 'RxCocoa','~>3.6.1'
   pod 'RxDataSources','~>1.0.4'
 end
+
+target 'JSCallOCTests' do
+  pod 'KIF',:configurations => ['Debug']
+end
