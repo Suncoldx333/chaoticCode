@@ -17,6 +17,7 @@
 		18197F691F71208900CDF2E5 /* PointPathManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18197F681F71208900CDF2E5 /* PointPathManage.swift */; };
 		181A19A41F3EDF08007FC8C4 /* TextureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A19A31F3EDF08007FC8C4 /* TextureVC.m */; };
 		181A19A71F3F3BB5007FC8C4 /* LayoutLearnNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A19A61F3F3BB5007FC8C4 /* LayoutLearnNode.m */; };
+		18204FA51F975A15002A702F /* asde.js in Resources */ = {isa = PBXBuildFile; fileRef = 18204FA31F975A14002A702F /* asde.js */; };
 		1822FD6A1F68D9EB0031C819 /* SwiftLab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822FD691F68D9EB0031C819 /* SwiftLab.swift */; };
 		182B63D71EC00EEF00E2DADA /* UIViewController+testSubFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 182B63D61EC00EEF00E2DADA /* UIViewController+testSubFunc.m */; };
 		182D20601F4FBAE00057DC34 /* AsyncSafeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 182D205F1F4FBAE00057DC34 /* AsyncSafeVC.m */; };
@@ -34,6 +35,11 @@
 		1861A1561F23231700055620 /* KeyBoardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1861A1551F23231700055620 /* KeyBoardVC.m */; };
 		186D0F411EE792450038CAC5 /* CustomNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186D0F401EE792450038CAC5 /* CustomNavController.swift */; };
 		187136C81F204B7700408C99 /* DeployableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187136C71F204B7700408C99 /* DeployableTableViewController.m */; };
+		187CA1771F945DD200078DAB /* WeexVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 187CA1761F945DD200078DAB /* WeexVC.m */; };
+		187CA17A1F945E0200078DAB /* WeexEventModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 187CA1791F945E0200078DAB /* WeexEventModule.m */; };
+		187CA17F1F94643200078DAB /* hello.js in Resources */ = {isa = PBXBuildFile; fileRef = 187CA17D1F94643200078DAB /* hello.js */; };
+		189F23E31F988C5900F9A134 /* WeexImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 189F23E21F988C5900F9A134 /* WeexImageLoader.m */; };
+		189F23E61F98954500F9A134 /* newHe.js in Resources */ = {isa = PBXBuildFile; fileRef = 189F23E51F98954500F9A134 /* newHe.js */; };
 		18A1ED401F4143DA00FAD25E /* LLDBLearn.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A1ED3F1F4143DA00FAD25E /* LLDBLearn.m */; };
 		18A1ED431F418C5B00FAD25E /* LLDBLearnObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A1ED421F418C5B00FAD25E /* LLDBLearnObject.m */; };
 		18A1ED461F418C7100FAD25E /* LLDBLearnObject+NewVar.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A1ED451F418C7100FAD25E /* LLDBLearnObject+NewVar.m */; };
@@ -50,6 +56,8 @@
 		18B850EF1F4AC90900D487B7 /* ListCellNodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B850EE1F4AC90900D487B7 /* ListCellNodel.m */; };
 		18B850F21F4ACADB00D487B7 /* TextStyles.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B850F11F4ACADB00D487B7 /* TextStyles.m */; };
 		18B850F51F4AD8B800D487B7 /* InnerSizeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B850F41F4AD8B800D487B7 /* InnerSizeNode.m */; };
+		18CA12AD1F9D9A48007D48D7 /* index.js in Resources */ = {isa = PBXBuildFile; fileRef = 18CA12AC1F9D9A48007D48D7 /* index.js */; };
+		18CA12AF1F9D9DC3007D48D7 /* index.web.js in Resources */ = {isa = PBXBuildFile; fileRef = 18CA12AE1F9D9DC3007D48D7 /* index.web.js */; };
 		18D9A9941F20829E0015C741 /* testViewRan.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D9A9931F20829E0015C741 /* testViewRan.m */; };
 		18D9A9971F2085B40015C741 /* teView+UnitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D9A9961F2085B40015C741 /* teView+UnitTest.m */; };
 		18D9A99A1F2088F80015C741 /* teModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D9A9991F2088F80015C741 /* teModel.m */; };
@@ -147,6 +155,7 @@
 		181A19A31F3EDF08007FC8C4 /* TextureVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureVC.m; sourceTree = "<group>"; };
 		181A19A51F3F3BB5007FC8C4 /* LayoutLearnNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutLearnNode.h; sourceTree = "<group>"; };
 		181A19A61F3F3BB5007FC8C4 /* LayoutLearnNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayoutLearnNode.m; sourceTree = "<group>"; };
+		18204FA31F975A14002A702F /* asde.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = asde.js; sourceTree = "<group>"; };
 		1822FD691F68D9EB0031C819 /* SwiftLab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftLab.swift; sourceTree = "<group>"; };
 		182B63D51EC00EEF00E2DADA /* UIViewController+testSubFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+testSubFunc.h"; sourceTree = "<group>"; };
 		182B63D61EC00EEF00E2DADA /* UIViewController+testSubFunc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+testSubFunc.m"; sourceTree = "<group>"; };
@@ -174,6 +183,15 @@
 		186D0F401EE792450038CAC5 /* CustomNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavController.swift; sourceTree = "<group>"; };
 		187136C61F204B7700408C99 /* DeployableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeployableTableViewController.h; sourceTree = "<group>"; };
 		187136C71F204B7700408C99 /* DeployableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeployableTableViewController.m; sourceTree = "<group>"; };
+		187CA1751F945DD200078DAB /* WeexVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeexVC.h; sourceTree = "<group>"; };
+		187CA1761F945DD200078DAB /* WeexVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeexVC.m; sourceTree = "<group>"; };
+		187CA1781F945E0200078DAB /* WeexEventModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeexEventModule.h; sourceTree = "<group>"; };
+		187CA1791F945E0200078DAB /* WeexEventModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeexEventModule.m; sourceTree = "<group>"; };
+		187CA17D1F94643200078DAB /* hello.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = hello.js; path = html/hello.js; sourceTree = "<group>"; };
+		187CA1801F9464B200078DAB /* CodeLabHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CodeLabHeader.h; sourceTree = "<group>"; };
+		189F23E11F988C5900F9A134 /* WeexImageLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeexImageLoader.h; sourceTree = "<group>"; };
+		189F23E21F988C5900F9A134 /* WeexImageLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeexImageLoader.m; sourceTree = "<group>"; };
+		189F23E51F98954500F9A134 /* newHe.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = newHe.js; sourceTree = "<group>"; };
 		18A1ED3E1F4143DA00FAD25E /* LLDBLearn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLDBLearn.h; sourceTree = "<group>"; };
 		18A1ED3F1F4143DA00FAD25E /* LLDBLearn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLDBLearn.m; sourceTree = "<group>"; };
 		18A1ED411F418C5B00FAD25E /* LLDBLearnObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLDBLearnObject.h; sourceTree = "<group>"; };
@@ -200,6 +218,8 @@
 		18B850F11F4ACADB00D487B7 /* TextStyles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextStyles.m; sourceTree = "<group>"; };
 		18B850F31F4AD8B800D487B7 /* InnerSizeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InnerSizeNode.h; sourceTree = "<group>"; };
 		18B850F41F4AD8B800D487B7 /* InnerSizeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InnerSizeNode.m; sourceTree = "<group>"; };
+		18CA12AC1F9D9A48007D48D7 /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
+		18CA12AE1F9D9DC3007D48D7 /* index.web.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.web.js; sourceTree = "<group>"; };
 		18D9A9931F20829E0015C741 /* testViewRan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testViewRan.m; sourceTree = "<group>"; };
 		18D9A9951F2085B40015C741 /* teView+UnitTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "teView+UnitTest.h"; sourceTree = "<group>"; };
 		18D9A9961F2085B40015C741 /* teView+UnitTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "teView+UnitTest.m"; sourceTree = "<group>"; };
@@ -421,9 +441,22 @@
 			name = KeyBoardModule;
 			sourceTree = "<group>";
 		};
+		187CA17B1F94633400078DAB /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				187CA17D1F94643200078DAB /* hello.js */,
+				18204FA31F975A14002A702F /* asde.js */,
+				189F23E51F98954500F9A134 /* newHe.js */,
+				18CA12AC1F9D9A48007D48D7 /* index.js */,
+				18CA12AE1F9D9DC3007D48D7 /* index.web.js */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
 		1882835B1F3D9361003891BE /* OtherVCs */ = {
 			isa = PBXGroup;
 			children = (
+				18B822AA1F945D4300AE9227 /* WeexModule */,
 				18C41B761F8B47CE0089E8BA /* KIFLearn */,
 				1822FD671F68D9AE0031C819 /* SwiftyProtocol */,
 				182D205C1F4FBA7B0057DC34 /* AsyncSafe */,
@@ -478,6 +511,19 @@
 				18A95C6C1F42F7EB0078954D /* RxSwiftTable.swift */,
 			);
 			name = TalbeViewWithRxSwift;
+			sourceTree = "<group>";
+		};
+		18B822AA1F945D4300AE9227 /* WeexModule */ = {
+			isa = PBXGroup;
+			children = (
+				187CA1751F945DD200078DAB /* WeexVC.h */,
+				187CA1761F945DD200078DAB /* WeexVC.m */,
+				187CA1781F945E0200078DAB /* WeexEventModule.h */,
+				187CA1791F945E0200078DAB /* WeexEventModule.m */,
+				189F23E11F988C5900F9A134 /* WeexImageLoader.h */,
+				189F23E21F988C5900F9A134 /* WeexImageLoader.m */,
+			);
+			name = WeexModule;
 			sourceTree = "<group>";
 		};
 		18B850DA1F4A76B300D487B7 /* GlobalDefine */ = {
@@ -619,6 +665,7 @@
 		52BC7F881BFB68A800642835 /* JSCallOC */ = {
 			isa = PBXGroup;
 			children = (
+				187CA17B1F94633400078DAB /* Resource */,
 				18B850DA1F4A76B300D487B7 /* GlobalDefine */,
 				180EE1661ED7D19C00381806 /* IdeaValidating */,
 				18E8740D1ED672A800CAF89C /* BaseCoreData */,
@@ -626,6 +673,7 @@
 				52BC7F8D1BFB68A800642835 /* AppDelegate.m */,
 				52BC7F8F1BFB68A800642835 /* ViewController.h */,
 				52BC7F901BFB68A800642835 /* ViewController.m */,
+				187CA1801F9464B200078DAB /* CodeLabHeader.h */,
 				1882835B1F3D9361003891BE /* OtherVCs */,
 				1861607F1F36BD2000A877CE /* Category */,
 				1861A1511F23224100055620 /* KeyBoardModule */,
@@ -831,11 +879,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18CA12AD1F9D9A48007D48D7 /* index.js in Resources */,
 				52BC7FC31BFB6A2F00642835 /* index.js in Resources */,
+				18204FA51F975A15002A702F /* asde.js in Resources */,
+				189F23E61F98954500F9A134 /* newHe.js in Resources */,
 				52BC7F991BFB68A800642835 /* LaunchScreen.storyboard in Resources */,
 				52BC7FC21BFB6A2F00642835 /* index.html in Resources */,
 				52BC7F961BFB68A800642835 /* Assets.xcassets in Resources */,
+				18CA12AF1F9D9DC3007D48D7 /* index.web.js in Resources */,
 				52BC7F941BFB68A800642835 /* Main.storyboard in Resources */,
+				187CA17F1F94643200078DAB /* hello.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1008,6 +1061,8 @@
 				18A1ED431F418C5B00FAD25E /* LLDBLearnObject.m in Sources */,
 				18087AD21EFD03EA009CEF47 /* MD5Encryption.m in Sources */,
 				18DAAA511EC15DE200B5C6B5 /* parentTable.swift in Sources */,
+				187CA17A1F945E0200078DAB /* WeexEventModule.m in Sources */,
+				189F23E31F988C5900F9A134 /* WeexImageLoader.m in Sources */,
 				18F2FCF91EE6424D00553D20 /* PhotoTool.swift in Sources */,
 				1812C63A1F4D221300F34380 /* BDDiffView.m in Sources */,
 				18F523651E9C7C8B00ACF0D4 /* GlobalTool.m in Sources */,
@@ -1019,6 +1074,7 @@
 				18E88A5B1E7A8DCD000DD208 /* testModel.swift in Sources */,
 				18197F691F71208900CDF2E5 /* PointPathManage.swift in Sources */,
 				52BC7F8B1BFB68A800642835 /* main.m in Sources */,
+				187CA1771F945DD200078DAB /* WeexVC.m in Sources */,
 				185F85921E83CD530051B761 /* testChild.m in Sources */,
 				1800C85D1F2ACE1A00E3E8B9 /* BitMapView.m in Sources */,
 				18A1ED401F4143DA00FAD25E /* LLDBLearn.m in Sources */,

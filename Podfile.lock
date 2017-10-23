@@ -57,6 +57,7 @@ PODS:
     - PINRemoteImage/PINCache
     - Texture/Core
   - UITableView+FDTemplateLayoutCell (1.6)
+  - WeexSDK (0.16.2)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
@@ -73,6 +74,7 @@ DEPENDENCIES:
   - SDWebImage (~> 4.0.0)
   - Texture (~> 2.3.4)
   - UITableView+FDTemplateLayoutCell (~> 1.6)
+  - WeexSDK (~> 0.16.2)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -92,7 +94,8 @@ SPEC CHECKSUMS:
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   Texture: 8cf0872fe33328c20d7e6c1fcbf1f23a82162f2f
   UITableView+FDTemplateLayoutCell: 5c949b4a5059c404b442926c0e80f81d10a2d66f
+  WeexSDK: 854ef66c9a90d609ad60e87c8b76affe2b772224
 
-PODFILE CHECKSUM: 260015b39a08d1243e6973dad047fcba4131bb63
+PODFILE CHECKSUM: e39b078c185aabc48e6c7227412feac2ea1e4f42
 
 COCOAPODS: 1.2.1

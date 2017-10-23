@@ -74,11 +74,20 @@ class SwiftLab: UIViewController {
 
 extension SwiftLab{
     
+    func funcAsDelegate() {
+        let av = HelloAlertView.init()
+        var logger = TapLogger.init()
+        
+        av.buttonTapped = {
+            logger.logTap(index: $0)
+        }
+    }
+    
     func performenceCompare() {
         var refers = [ReferenceModel]()
         var unRefers = [UnReferenceModel]()
         
-        for index in 0..<1000 {
+        for index in 0..<10000000 {
             let modelId = String.init(format: "%d", index)
             
             let referModel = ReferenceModel.init()
@@ -95,9 +104,8 @@ extension SwiftLab{
         timeFor.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
         let beginDate = Date.init()
         let begin : Double = beginDate.timeIntervalSince1970 * 1000
-        for model in refers {
+        for model in unRefers {
             let _ = model.modelId
-//            print("id = \(model.modelId)")
             
         }
         let endDate = Date.init()
@@ -290,3 +298,22 @@ enum Result<A>{
     case failure(Error)
     case success(A)
 }
+
+//MARK: - func as delegate
+class HelloAlertView{
+    var buttons : [String]
+    var buttonTapped : ((Int) -> ())?
+    
+    init(buttons : [String] = ["OK","Cancel"]) {
+        self.buttons = buttons
+    }
+    
+}
+
+struct TapLogger{
+    var taps : [Int] = []
+    mutating func logTap(index : Int){
+        taps.append(index)
+    }
+}
+

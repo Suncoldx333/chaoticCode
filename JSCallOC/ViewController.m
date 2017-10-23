@@ -24,21 +24,14 @@
 #import "teView.h"
 #import "teModel.h"
 #import "teModel+UnitTest.h"
-#import "TextureVC.h"
 
 #import "MD5Encryption.h"
-#import "DeployableTableViewController.h"
-//#import "UIFont+swizzleFont.h"
-#import "ResizeImageVC.h"
-#import "LLDBLearn.h"
 
 #import "KeyBoardVC.h"
-#import "BitMapVC.h"
-#import "BDDiffVC.h"
-#import "AsyncSafeVC.h"
-
 #define KEYSTR_RUNRECORD @"&ODJw#h03b_0EaV"  //跑步记录
 #define KEYSTR @"&wh2016_swcampus"  //其它
+
+#import "CodeLabHeader.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>{
     NSInteger tetimerCount;
@@ -115,67 +108,7 @@
     [titles addObject:NSStringFromClass([BDDiffVC class])];
     [titles addObject:NSStringFromClass([AsyncSafeVC class])];
     [titles addObject:NSStringFromClass([SwiftLab class])];
-    
-    NSDate *ori = [NSDate date];
-    
-    NSDateFormatter *format = [[NSDateFormatter alloc] init];
-    [format setDateFormat:@"yyyy"];
-    
-    NSString *today = [format stringFromDate:ori];
-    NSDate *zeorDate = [format dateFromString:today];
-    NSTimeInterval zero = [zeorDate timeIntervalSince1970];
-    
-    NSString *hhhh = nil;
-    if ([hhhh rangeOfString:@"swift"].location != NSNotFound) {
-        NSLog(@"hello");
-    }
-    
-    
-    NSString *uutrt = @"9.9";
-    NSNumber *to = [NSNumber numberWithInt:uutrt.intValue];
-    
-    NSNumber *llll = [NSNumber numberWithInt:160];
-    double calorieD = 60.000 * (llll.doubleValue * 1.000 / 1000.000) * 1.036;
-    NSNumber *calorieNum = [NSNumber numberWithInt:[[NSNumber numberWithDouble:calorieD] intValue]];
-    
-//    [[ImageReader shareInstance] runDataAna];
-    NSString *teLeng = @"8583.722568";
-    if (teLeng.doubleValue / 1000.0 < 1.0) {
-        NSLog(@"no");
-    }
-    NSNumber *teNum = [NSNumber numberWithInt:0];
-    if (teNum.integerValue == 0) {
-        NSLog(@"yes");
-    }
-    
-    NSString *tenl = nil;
-    if (tenl.intValue == 0) {
-        NSLog(@"0");
-    }
-    
-    
-    NSMutableDictionary *combinedData = [[NSMutableDictionary alloc] init];
-
-    [combinedData setObject:[NSNumber numberWithInt:1] forKey:@"sportType"];
-    [combinedData setObject:[NSNumber numberWithInt:53] forKey:@"totalTime"];
-    [combinedData setObject:[NSNumber numberWithInt:119] forKey:@"totalDis"];
-    [combinedData setObject:[NSNumber numberWithDouble:7.42296918767507] forKey:@"speed"];
-    [combinedData setObject:[NSNumber numberWithInt:500] forKey:@"selDistance"];
-    [combinedData setObject:@"1498127380079" forKey:@"startTime"];
-    [combinedData setObject:@"1498127459000" forKey:@"stopTime"];
-    [combinedData setObject:[NSNumber numberWithBool:NO] forKey:@"complete"];
-    [combinedData setObject:[NSNumber numberWithInt:2] forKey:@"unCompleteReason"];
-    [combinedData setObject:[NSNumber numberWithBool:NO] forKey:@"getPrize"];
-    
-    [combinedData setObject:[NSNumber numberWithInt:0] forKey:@"status"];
-    [combinedData setObject:@"AB9F4D85-1AF0-47AC-815F-6C59ADC297E2" forKey:@"uuid"];
-    [combinedData setObject:@"107513" forKey:@"uid"];
-    [combinedData setObject:[NSNumber numberWithInt:0] forKey:@"totalSteps"];
-    [combinedData setObject:[NSNumber numberWithInt:0] forKey:@"avgStepFreq"];
-    [combinedData setObject:[NSNumber numberWithInt:900003] forKey:@"selectedUnid"];
-    [combinedData setObject:[NSNumber numberWithInt:4] forKey:@"calorie"];
-    
-    NSString *sig = [self incomingDictionaryReturnsTheEncryptedStringForDic:combinedData aboutScore:YES];
+    [titles addObject:NSStringFromClass([WeexVC class])];
     
 }
 
@@ -194,6 +127,8 @@
         _list = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight) style:UITableViewStyleGrouped];
         _list.delegate = self;
         _list.dataSource = self;
+        _list.estimatedSectionFooterHeight = 0;
+        _list.estimatedSectionHeaderHeight = 0;
         _list.separatorStyle = UITableViewCellSeparatorStyleNone;
         [_list registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cellId"];
     }
@@ -439,8 +374,6 @@
 
 -(void)clearMenMethod{
     
-    KeyBoardVC *key = [[KeyBoardVC alloc] init];
-    [self.navigationController pushViewController:key animated:YES];
     
 }
 
@@ -448,9 +381,7 @@
     
     BitMapVC *map = [[BitMapVC alloc] init];
     [self.navigationController pushViewController:map animated:YES];
-//    
-//    DeployableTableViewController *depVC = [[DeployableTableViewController alloc] init];
-//    [self.navigationController pushViewController:depVC animated:YES];
+//
     
 }
 

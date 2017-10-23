@@ -12,6 +12,11 @@
 #import "MayIHelpYou-Swift.h"
 #import <Bugly/Bugly.h>
 #import <KMCGeigerCounter/KMCGeigerCounter.h>
+#import <WeexSDK/WeexSDK.h>
+
+#import "WeexVC.h"
+#import "WeexEventModule.h"
+#import "WeexImageLoader.h"
 
 @interface AppDelegate ()
 
@@ -28,19 +33,13 @@
     // Override point for customization after application launch.
     
     [Bugly startWithAppId:@"6f75bca7da"];
-    
-//    userDefaultManage *manage = [userDefaultManage shareInstance];
-//    
-//    [manage userDefaultInitialize];
-//    [manage userDefaultStore];
-    
+    [self configureWeex];
     ViewController *controller = [[ViewController alloc] init];
     CustomNavController *nav = [[CustomNavController alloc] initWithRootViewController:controller];
     
     self.window.rootViewController = nav;
     
     [self.window makeKeyAndVisible];
-//    [KMCGeigerCounter sharedGeigerCounter].enabled = YES;
     
     return YES;
 }
@@ -77,6 +76,17 @@
 
 
 #pragma mark -AboutCoreData
+-(void)configureWeex{
+    [WXAppConfiguration setAppGroup:@"AliApp"];
+    [WXAppConfiguration setAppName:@"WeexDemo"];
+    [WXAppConfiguration setAppVersion:@"1.0.0"];
+    
+    [WXSDKEngine initSDKEnvironment];
+    [WXSDKEngine registerModule:@"eventmodule" withClass:[WeexEventModule class]];
+    [WXSDKEngine registerHandler:[WeexImageLoader new] withProtocol:@protocol(WXImgLoaderProtocol)];
+    [WXLog setLogLevel:WXLogLevelDebug];
+}
+
 -(NSManagedObjectModel *)manageObjectModel{
     if (!_manageObjectModel) {
         NSURL *modelUrl = [[NSBundle mainBundle] URLForResource:@"Model" withExtension:@"momd"];
