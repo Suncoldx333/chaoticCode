@@ -8,8 +8,11 @@
 
 #import "WeexVC.h"
 #import <WeexSDK/WXSDKInstance.h>
+#import "WeexComponent.h"
 
-@interface WeexVC ()
+@interface WeexVC (){
+    BOOL resume;
+}
 
 @property (nonatomic, strong) WXSDKInstance *instance;
 @property (nonatomic, strong) UIView *weexView;
@@ -24,7 +27,7 @@
     [super viewDidLoad];
     [self initUI];
     _weexHeight = ScreenHeight - 64 - 64;
-//    [self.navigationController.navigationBar setHidden:YES];
+
     [self render];
     
 }
@@ -48,7 +51,7 @@
     [_instance destroyInstance];
     _instance = [[WXSDKInstance alloc] init];
     _instance.viewController = self;
-    _instance.frame = CGRectMake(0, 64, ScreenWidth, _weexHeight);
+    _instance.frame = CGRectMake(0, 64, 375, _weexHeight);
     
     __weak typeof(self) weakSelf = self;
     _instance.onCreate = ^(UIView *view) {
@@ -60,11 +63,21 @@
     
     _instance.renderFinish = ^(UIView *view) {
         NSLog(@"render finish");
+        
+        [weakSelf deliverImageUrl];
     };
     
     NSString *urlStr = [NSString stringWithFormat:@"file://%@/index.js",[NSBundle mainBundle].bundlePath];
     
     [_instance renderWithURL:[NSURL URLWithString:urlStr] options:@{@"bundleUrl":urlStr} data:nil];
+}
+
+-(void)deliverImageUrl{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t) 4000.000 * NSEC_PER_MSEC), dispatch_get_main_queue(), ^{
+        NSDictionary *info = [[NSDictionary alloc] initWithObjectsAndKeys:@"http://swapp-test-images.oss-cn-hangzhou.aliyuncs.com/dynamic-img/20170805/80bcdf48c6d46797ca21cbedc5726cde.jpg",@"imageUrl", nil];
+        [_instance fireGlobalEvent:@"OpenTranslate" params:info];
+    });
+    
 }
 
 @end

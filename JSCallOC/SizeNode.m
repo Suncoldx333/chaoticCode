@@ -16,7 +16,7 @@
     ASDisplayNode *testSizeNode2;
     ASDisplayNode *testSizeNode3;
     ASLayoutSpec *spacer;
-    
+    ASDisplayNode *underLine;
     InnerSizeNode *inner;
 }
 
@@ -52,9 +52,14 @@
     testSizeNode3.backgroundColor = hexColor(0xffffff);
     testSizeNode3.style.preferredSize = CGSizeMake(30, 30);
     
-//    [self addSubnode:testSizeNode1];
-//    [self addSubnode:testSizeNode2];
-//    [self addSubnode:testSizeNode3];
+    underLine = [[ASDisplayNode alloc] init];
+    underLine.backgroundColor = hexColor(0xffffff);
+    underLine.style.preferredSize = CGSizeMake(60, 5);
+    underLine.style.spacingBefore = 40;
+    [self addSubnode:testSizeNode1];
+    [self addSubnode:testSizeNode2];
+    [self addSubnode:testSizeNode3];
+    [self addSubnode:underLine];
     
     inner = [[InnerSizeNode alloc] init];
     inner.backgroundColor = hexColor(0xe6e6e6);
@@ -63,7 +68,7 @@
     inner.innerHeightCalBlock = ^(CGFloat height) {
         weakSelf.heightCalBlock(height);
     };
-    [self addSubnode:inner];
+//    [self addSubnode:inner];
 }
 
 -(ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize{
@@ -80,6 +85,13 @@
                                                              justifyContent:ASStackLayoutJustifyContentCenter
                                                                  alignItems:ASStackLayoutAlignItemsCenter
                                                                    children:@[testSizeNode1,testSizeNode2,spacer,testSizeNode3]];
+    ASInsetLayoutSpec *under = [ASInsetLayoutSpec insetLayoutSpecWithInsets:UIEdgeInsetsMake(0, 16, 0, 0) child:underLine];
+    
+    ASStackLayoutSpec *test = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionVertical
+                                                                      spacing:0
+                                                               justifyContent:ASStackLayoutJustifyContentCenter
+                                                                   alignItems:ASStackLayoutAlignItemsStretch
+                                                                     children:@[ho,under]];
     
     ASStackLayoutSpec *staticSpec = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionHorizontal
                                                                        spacing:0
@@ -95,7 +107,7 @@
                                                                          alignItems:ASStackLayoutAlignItemsStart
                                                                            children:@[inner]];
     
-    return innerStack;
+    return test;
     
 }
 

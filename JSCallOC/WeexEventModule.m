@@ -13,20 +13,22 @@
 @implementation WeexEventModule
 
 @synthesize weexInstance;
-WX_EXPORT_METHOD_SYNC(@selector(getStringWidthby:))
 WX_EXPORT_METHOD_SYNC(@selector(makescreenwidth))
+WX_EXPORT_METHOD_SYNC(@selector(makeNewImageUrl))
+WX_EXPORT_METHOD_SYNC(@selector(getInstanceId:))
 
--(float)getStringWidthby:(NSDictionary *)att{
-//    UILabel *calLabel = [[UILabel alloc] init];
-//    calLabel.font = [UIFont systemFontOfSize:[att[@"font"] floatValue]];
-//    calLabel.text = att[@"string"];
-//    [calLabel sizeToFit];
-//    CGFloat newWidth = calLabel.frame.size.width;
-    return 300;
-}
 -(CGFloat)makescreenwidth{
     NSLog(@"ask for width");
     return 200 * 2;
+}
+
+-(NSString *)makeNewImageUrl{
+    NSString *newImage = @"http://swapp-test-images.oss-cn-hangzhou.aliyuncs.com/dynamic-img/20170805/80bcdf48c6d46797ca21cbedc5726cde.jpg";
+    return newImage;
+}
+
+-(void)getInstanceId:(WXModuleCallback)callback{
+    callback(@{@"id" : weexInstance.instanceId});
 }
 
 @end

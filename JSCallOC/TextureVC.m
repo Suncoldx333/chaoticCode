@@ -17,7 +17,7 @@
 #import "SizeNode.h"
 #import "CellNodeModel.h"
 #import "ListCellNodel.h"
-
+#import "BackgroundNode.h"
 #import "TextStyles.h"
 //#import "TextStyles+WhichFirst.h"
 
@@ -33,7 +33,7 @@
 @property (nonatomic,strong) UIImageView *tradImageView;
 @property (nonatomic,strong) ImageNode *textureImageView;
 @property (nonatomic,strong) SizeNode *sizenode;
-
+@property (nonatomic,strong) BackgroundNode *backNode;
 @end
 
 @implementation TextureVC{
@@ -46,8 +46,8 @@
     [super viewDidLoad];
     [self initData];
     [self initUI];
-    [self timeBegin];
-    [self configureBlock];
+//    [self timeBegin];
+//    [self configureBlock];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -114,14 +114,14 @@
 //    [self.view addGestureRecognizer:tap];
     
     self.view.backgroundColor = hexColor(0xffffff);
-    
+    [self.view addSubnode:self.backNode];
 //    [self.view addSubnode:self.tableNode];
     
 //    [self.view addSubnode:self.nodeOne];
 //    [self.view addSubview:self.tradImageView];
 //    [self.view addSubnode:self.textureImageView];
-    [self.view addSubnode:self.sizenode];
-    lastHeight = self.sizenode.frame.size.height;
+//    [self.view addSubnode:self.sizenode];
+//    lastHeight = self.sizenode.frame.size.height;
 }
 
 -(void)tapEvent{
@@ -154,6 +154,14 @@
 
     }
     return _textureImageView;
+}
+
+-(BackgroundNode *)backNode{
+    if (!_backNode) {
+        _backNode = [[BackgroundNode alloc] init];
+        _backNode.frame = CGRectMake(0, 100, ScreenWidth, 300);
+    }
+    return _backNode;
 }
 
 -(UIImageView *)tradImageView{

@@ -11,6 +11,7 @@
 		1800C85D1F2ACE1A00E3E8B9 /* BitMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1800C85C1F2ACE1A00E3E8B9 /* BitMapView.m */; };
 		180279231ED95E1B009BBA97 /* UIViewController+Tracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 180279221ED95E1B009BBA97 /* UIViewController+Tracking.m */; };
 		18087AD21EFD03EA009CEF47 /* MD5Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 18087AD11EFD03EA009CEF47 /* MD5Encryption.m */; };
+		180DF4251FAC0F7400DAB8EB /* BasicNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 180DF4241FAC0F7400DAB8EB /* BasicNode.m */; };
 		180EE1681ED7D1C500381806 /* animationInSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180EE1671ED7D1C500381806 /* animationInSwift.swift */; };
 		1812C6371F4D212F00F34380 /* BDDiffVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1812C6361F4D212F00F34380 /* BDDiffVC.m */; };
 		1812C63A1F4D221300F34380 /* BDDiffView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1812C6391F4D221300F34380 /* BDDiffView.m */; };
@@ -23,8 +24,10 @@
 		182D20601F4FBAE00057DC34 /* AsyncSafeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 182D205F1F4FBAE00057DC34 /* AsyncSafeVC.m */; };
 		182D20631F4FBBBD0057DC34 /* AsyncSafeOCManage.m in Sources */ = {isa = PBXBuildFile; fileRef = 182D20621F4FBBBD0057DC34 /* AsyncSafeOCManage.m */; };
 		182D20651F4FBBFD0057DC34 /* AsyncSafeSwiftyManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D20641F4FBBFD0057DC34 /* AsyncSafeSwiftyManage.swift */; };
+		1833E56D1F9ED6FB00BE632E /* WeexComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1833E56C1F9ED6FB00BE632E /* WeexComponent.m */; };
 		1836C6E21F4684B300D478AC /* BlueTooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1836C6E11F4684B300D478AC /* BlueTooth.swift */; };
 		184955B11EE00D6A00AE7634 /* HelloOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 184955B01EE00D6A00AE7634 /* HelloOperation.m */; };
+		1852F4B61FA96E7B004FD1E5 /* BackgroundNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1852F4B51FA96E7B004FD1E5 /* BackgroundNode.m */; };
 		185B8D061F39613D00B1C9C5 /* ResizeImageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 185B8D051F39613D00B1C9C5 /* ResizeImageVC.m */; };
 		185E247D1EB041AD006B5ABD /* globalDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E247C1EB041AD006B5ABD /* globalDefine.swift */; };
 		185E247F1EB077F4006B5ABD /* closureTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E247E1EB077F4006B5ABD /* closureTestView.swift */; };
@@ -56,8 +59,7 @@
 		18B850EF1F4AC90900D487B7 /* ListCellNodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B850EE1F4AC90900D487B7 /* ListCellNodel.m */; };
 		18B850F21F4ACADB00D487B7 /* TextStyles.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B850F11F4ACADB00D487B7 /* TextStyles.m */; };
 		18B850F51F4AD8B800D487B7 /* InnerSizeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B850F41F4AD8B800D487B7 /* InnerSizeNode.m */; };
-		18CA12AD1F9D9A48007D48D7 /* index.js in Resources */ = {isa = PBXBuildFile; fileRef = 18CA12AC1F9D9A48007D48D7 /* index.js */; };
-		18CA12AF1F9D9DC3007D48D7 /* index.web.js in Resources */ = {isa = PBXBuildFile; fileRef = 18CA12AE1F9D9DC3007D48D7 /* index.web.js */; };
+		18CA12B81F9DC53C007D48D7 /* index.js in Resources */ = {isa = PBXBuildFile; fileRef = 18CA12B71F9DC53B007D48D7 /* index.js */; };
 		18D9A9941F20829E0015C741 /* testViewRan.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D9A9931F20829E0015C741 /* testViewRan.m */; };
 		18D9A9971F2085B40015C741 /* teView+UnitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D9A9961F2085B40015C741 /* teView+UnitTest.m */; };
 		18D9A99A1F2088F80015C741 /* teModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D9A9991F2088F80015C741 /* teModel.m */; };
@@ -144,6 +146,8 @@
 		180279221ED95E1B009BBA97 /* UIViewController+Tracking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Tracking.m"; sourceTree = "<group>"; };
 		18087AD01EFD03EA009CEF47 /* MD5Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5Encryption.h; sourceTree = "<group>"; };
 		18087AD11EFD03EA009CEF47 /* MD5Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MD5Encryption.m; sourceTree = "<group>"; };
+		180DF4231FAC0F7400DAB8EB /* BasicNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasicNode.h; sourceTree = "<group>"; };
+		180DF4241FAC0F7400DAB8EB /* BasicNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasicNode.m; sourceTree = "<group>"; };
 		180EE1621ED7C57700381806 /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 		180EE1671ED7D1C500381806 /* animationInSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = animationInSwift.swift; sourceTree = "<group>"; };
 		1812C6351F4D212F00F34380 /* BDDiffVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDDiffVC.h; sourceTree = "<group>"; };
@@ -164,9 +168,13 @@
 		182D20611F4FBBBD0057DC34 /* AsyncSafeOCManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSafeOCManage.h; sourceTree = "<group>"; };
 		182D20621F4FBBBD0057DC34 /* AsyncSafeOCManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSafeOCManage.m; sourceTree = "<group>"; };
 		182D20641F4FBBFD0057DC34 /* AsyncSafeSwiftyManage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncSafeSwiftyManage.swift; sourceTree = "<group>"; };
+		1833E56B1F9ED6FB00BE632E /* WeexComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeexComponent.h; sourceTree = "<group>"; };
+		1833E56C1F9ED6FB00BE632E /* WeexComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeexComponent.m; sourceTree = "<group>"; };
 		1836C6E11F4684B300D478AC /* BlueTooth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueTooth.swift; sourceTree = "<group>"; };
 		184955AF1EE00D6A00AE7634 /* HelloOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloOperation.h; sourceTree = "<group>"; };
 		184955B01EE00D6A00AE7634 /* HelloOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelloOperation.m; sourceTree = "<group>"; };
+		1852F4B41FA96E7B004FD1E5 /* BackgroundNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackgroundNode.h; sourceTree = "<group>"; };
+		1852F4B51FA96E7B004FD1E5 /* BackgroundNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BackgroundNode.m; sourceTree = "<group>"; };
 		185B8D041F39613D00B1C9C5 /* ResizeImageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResizeImageVC.h; sourceTree = "<group>"; };
 		185B8D051F39613D00B1C9C5 /* ResizeImageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResizeImageVC.m; sourceTree = "<group>"; };
 		185E247C1EB041AD006B5ABD /* globalDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = globalDefine.swift; sourceTree = "<group>"; };
@@ -218,8 +226,7 @@
 		18B850F11F4ACADB00D487B7 /* TextStyles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextStyles.m; sourceTree = "<group>"; };
 		18B850F31F4AD8B800D487B7 /* InnerSizeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InnerSizeNode.h; sourceTree = "<group>"; };
 		18B850F41F4AD8B800D487B7 /* InnerSizeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InnerSizeNode.m; sourceTree = "<group>"; };
-		18CA12AC1F9D9A48007D48D7 /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
-		18CA12AE1F9D9DC3007D48D7 /* index.web.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.web.js; sourceTree = "<group>"; };
+		18CA12B71F9DC53B007D48D7 /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
 		18D9A9931F20829E0015C741 /* testViewRan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testViewRan.m; sourceTree = "<group>"; };
 		18D9A9951F2085B40015C741 /* teView+UnitTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "teView+UnitTest.h"; sourceTree = "<group>"; };
 		18D9A9961F2085B40015C741 /* teView+UnitTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "teView+UnitTest.m"; sourceTree = "<group>"; };
@@ -320,6 +327,13 @@
 				1800C85C1F2ACE1A00E3E8B9 /* BitMapView.m */,
 			);
 			name = BitMap;
+			sourceTree = "<group>";
+		};
+		180DF4211FAC0F3900DAB8EB /* Categary */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Categary;
 			sourceTree = "<group>";
 		};
 		180EE1661ED7D19C00381806 /* IdeaValidating */ = {
@@ -447,8 +461,7 @@
 				187CA17D1F94643200078DAB /* hello.js */,
 				18204FA31F975A14002A702F /* asde.js */,
 				189F23E51F98954500F9A134 /* newHe.js */,
-				18CA12AC1F9D9A48007D48D7 /* index.js */,
-				18CA12AE1F9D9DC3007D48D7 /* index.web.js */,
+				18CA12B71F9DC53B007D48D7 /* index.js */,
 			);
 			name = Resource;
 			sourceTree = "<group>";
@@ -476,6 +489,7 @@
 		1882835C1F3D937E003891BE /* AsyncDisplay&cate */ = {
 			isa = PBXGroup;
 			children = (
+				180DF4211FAC0F3900DAB8EB /* Categary */,
 				181A19A21F3EDF08007FC8C4 /* TextureVC.h */,
 				181A19A31F3EDF08007FC8C4 /* TextureVC.m */,
 				18B850E91F4AC53100D487B7 /* Model */,
@@ -522,6 +536,8 @@
 				187CA1791F945E0200078DAB /* WeexEventModule.m */,
 				189F23E11F988C5900F9A134 /* WeexImageLoader.h */,
 				189F23E21F988C5900F9A134 /* WeexImageLoader.m */,
+				1833E56B1F9ED6FB00BE632E /* WeexComponent.h */,
+				1833E56C1F9ED6FB00BE632E /* WeexComponent.m */,
 			);
 			name = WeexModule;
 			sourceTree = "<group>";
@@ -549,6 +565,10 @@
 				18B850F41F4AD8B800D487B7 /* InnerSizeNode.m */,
 				18B850ED1F4AC90900D487B7 /* ListCellNodel.h */,
 				18B850EE1F4AC90900D487B7 /* ListCellNodel.m */,
+				1852F4B41FA96E7B004FD1E5 /* BackgroundNode.h */,
+				1852F4B51FA96E7B004FD1E5 /* BackgroundNode.m */,
+				180DF4231FAC0F7400DAB8EB /* BasicNode.h */,
+				180DF4241FAC0F7400DAB8EB /* BasicNode.m */,
 			);
 			name = Nodes;
 			sourceTree = "<group>";
@@ -879,14 +899,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18CA12AD1F9D9A48007D48D7 /* index.js in Resources */,
+				18CA12B81F9DC53C007D48D7 /* index.js in Resources */,
 				52BC7FC31BFB6A2F00642835 /* index.js in Resources */,
 				18204FA51F975A15002A702F /* asde.js in Resources */,
 				189F23E61F98954500F9A134 /* newHe.js in Resources */,
 				52BC7F991BFB68A800642835 /* LaunchScreen.storyboard in Resources */,
 				52BC7FC21BFB6A2F00642835 /* index.html in Resources */,
 				52BC7F961BFB68A800642835 /* Assets.xcassets in Resources */,
-				18CA12AF1F9D9DC3007D48D7 /* index.web.js in Resources */,
 				52BC7F941BFB68A800642835 /* Main.storyboard in Resources */,
 				187CA17F1F94643200078DAB /* hello.js in Resources */,
 			);
@@ -1030,6 +1049,7 @@
 				52BC7F911BFB68A800642835 /* ViewController.m in Sources */,
 				18B850F51F4AD8B800D487B7 /* InnerSizeNode.m in Sources */,
 				182D20601F4FBAE00057DC34 /* AsyncSafeVC.m in Sources */,
+				180DF4251FAC0F7400DAB8EB /* BasicNode.m in Sources */,
 				1800C85A1F2ACDA900E3E8B9 /* BitMapVC.m in Sources */,
 				18DD67451EB97E49000BD37E /* StepCountWidget.swift in Sources */,
 				180279231ED95E1B009BBA97 /* UIViewController+Tracking.m in Sources */,
@@ -1072,9 +1092,11 @@
 				18A1ED461F418C7100FAD25E /* LLDBLearnObject+NewVar.m in Sources */,
 				18ABFB1C1ED6B6A100B179FF /* Employee+CoreDataProperties.swift in Sources */,
 				18E88A5B1E7A8DCD000DD208 /* testModel.swift in Sources */,
+				1833E56D1F9ED6FB00BE632E /* WeexComponent.m in Sources */,
 				18197F691F71208900CDF2E5 /* PointPathManage.swift in Sources */,
 				52BC7F8B1BFB68A800642835 /* main.m in Sources */,
 				187CA1771F945DD200078DAB /* WeexVC.m in Sources */,
+				1852F4B61FA96E7B004FD1E5 /* BackgroundNode.m in Sources */,
 				185F85921E83CD530051B761 /* testChild.m in Sources */,
 				1800C85D1F2ACE1A00E3E8B9 /* BitMapView.m in Sources */,
 				18A1ED401F4143DA00FAD25E /* LLDBLearn.m in Sources */,

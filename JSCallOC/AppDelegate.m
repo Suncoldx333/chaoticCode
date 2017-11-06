@@ -17,6 +17,7 @@
 #import "WeexVC.h"
 #import "WeexEventModule.h"
 #import "WeexImageLoader.h"
+#import "WeexComponent.h"
 
 @interface AppDelegate ()
 
@@ -84,6 +85,7 @@
     [WXSDKEngine initSDKEnvironment];
     [WXSDKEngine registerModule:@"eventmodule" withClass:[WeexEventModule class]];
     [WXSDKEngine registerHandler:[WeexImageLoader new] withProtocol:@protocol(WXImgLoaderProtocol)];
+    [WXSDKEngine registerComponent:@"eventc" withClass:[WeexComponent class]];
     [WXLog setLogLevel:WXLogLevelDebug];
 }
 

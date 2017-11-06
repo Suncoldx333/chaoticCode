@@ -177,7 +177,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *className = [titles objectAtIndex:indexPath.row];
-    id viewController = [[NSClassFromString(className) alloc] init];
+    UIViewController *viewController = [[NSClassFromString(className) alloc] init];
     
     [self.navigationController pushViewController:viewController animated:YES];
     
