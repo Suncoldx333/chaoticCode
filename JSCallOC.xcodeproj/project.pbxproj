@@ -10,6 +10,7 @@
 		1800C85A1F2ACDA900E3E8B9 /* BitMapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1800C8591F2ACDA900E3E8B9 /* BitMapVC.m */; };
 		1800C85D1F2ACE1A00E3E8B9 /* BitMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1800C85C1F2ACE1A00E3E8B9 /* BitMapView.m */; };
 		180279231ED95E1B009BBA97 /* UIViewController+Tracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 180279221ED95E1B009BBA97 /* UIViewController+Tracking.m */; };
+		1805E16F1FB1B6A500B26BB6 /* testView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805E16E1FB1B6A500B26BB6 /* testView.m */; };
 		18087AD21EFD03EA009CEF47 /* MD5Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 18087AD11EFD03EA009CEF47 /* MD5Encryption.m */; };
 		180DF4251FAC0F7400DAB8EB /* BasicNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 180DF4241FAC0F7400DAB8EB /* BasicNode.m */; };
 		180EE1681ED7D1C500381806 /* animationInSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180EE1671ED7D1C500381806 /* animationInSwift.swift */; };
@@ -144,6 +145,8 @@
 		1800C85C1F2ACE1A00E3E8B9 /* BitMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitMapView.m; sourceTree = "<group>"; };
 		180279211ED95E1B009BBA97 /* UIViewController+Tracking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Tracking.h"; sourceTree = "<group>"; };
 		180279221ED95E1B009BBA97 /* UIViewController+Tracking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Tracking.m"; sourceTree = "<group>"; };
+		1805E16D1FB1B6A500B26BB6 /* testView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testView.h; sourceTree = "<group>"; };
+		1805E16E1FB1B6A500B26BB6 /* testView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testView.m; sourceTree = "<group>"; };
 		18087AD01EFD03EA009CEF47 /* MD5Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5Encryption.h; sourceTree = "<group>"; };
 		18087AD11EFD03EA009CEF47 /* MD5Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MD5Encryption.m; sourceTree = "<group>"; };
 		180DF4231FAC0F7400DAB8EB /* BasicNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasicNode.h; sourceTree = "<group>"; };
@@ -567,6 +570,8 @@
 				18B850EE1F4AC90900D487B7 /* ListCellNodel.m */,
 				1852F4B41FA96E7B004FD1E5 /* BackgroundNode.h */,
 				1852F4B51FA96E7B004FD1E5 /* BackgroundNode.m */,
+				1805E16D1FB1B6A500B26BB6 /* testView.h */,
+				1805E16E1FB1B6A500B26BB6 /* testView.m */,
 				180DF4231FAC0F7400DAB8EB /* BasicNode.h */,
 				180DF4241FAC0F7400DAB8EB /* BasicNode.m */,
 			);
@@ -1055,6 +1060,7 @@
 				180279231ED95E1B009BBA97 /* UIViewController+Tracking.m in Sources */,
 				6059A0C81F1B7BEA001B1E68 /* CataTestView.m in Sources */,
 				18B850F21F4ACADB00D487B7 /* TextStyles.m in Sources */,
+				1805E16F1FB1B6A500B26BB6 /* testView.m in Sources */,
 				18E8741E1ED67C3200CAF89C /* BaseCoreData.swift in Sources */,
 				1861A1561F23231700055620 /* KeyBoardVC.m in Sources */,
 				182B63D71EC00EEF00E2DADA /* UIViewController+testSubFunc.m in Sources */,
